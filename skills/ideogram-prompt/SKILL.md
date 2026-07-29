@@ -13,7 +13,9 @@ Ideogram 4 was trained on structured JSON captions, not plain text — a plain-t
 
 **Precise** — when the user names an exact palette, a specific composition, or text that must render legibly, write the prompt as a structured caption instead of a vague adjective list. See `references/json-caption-schema.md` for the full schema (aesthetics/lighting/medium/color_palette, bounding-box elements, etc) — either follow its field structure in prose form, or paste the JSON itself into the `prompt` string as an experiment. Note: the connected `generate_image` tool has no explicit `magic_prompt` toggle (unlike `edit_image`, which does), so JSON-in-prompt isn't a guaranteed bypass the way it is in Ideogram's raw API — compare against a well-written prose version and keep whichever renders closer to what was asked for.
 
-Either way, the highest-leverage lever is **`color_palette`**: up to 16 uppercase `#RRGGBB` hex codes steer the image's dominant colors directly, and up to 5 per element for per-subject control. If the user cares about exact colors, always name them as hex, not as color-adjectives ("teal" vs `#0F766E`).
+Either way, the highest-leverage lever is **`color_palette`**: up to 16 uppercase `#RRGGBB` hex codes steer the image's dominant colors directly, and up to 5 per element for per-subject control. If the user cares about exact colors, always name them as hex, not as color-adjectives ("teal" vs `#0F766E`). For controlled lighting, include both a highlight and a shadow hex, not just the dominant color — and if the background needs a specific tone, name that hex explicitly too rather than leaving it to inference.
+
+Mechanically: sending a plain-text `prompt` to `generate_image` runs magic prompt (the model expands it into structure on your behalf); sending the JSON caption directly is closer to magic prompt off — what you wrote is closer to what renders. For plain-text prompts specifically, put the most important subject or action first — the model weights earlier tokens more heavily, so burying the actual subject after a paragraph of mood-setting adjectives works against you.
 
 ## Style extraction (reference image → new subject)
 
