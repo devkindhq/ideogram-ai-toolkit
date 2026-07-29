@@ -1,8 +1,8 @@
 # ideogram-ai-toolkit
 
-A Claude Code skill for prompting [Ideogram](https://ideogram.ai) well — two prompting modes (loose vs. structured), color-palette control, reference-image style extraction, and the difference between remix and edit. Built by [Devkind](https://devkind.com.au).
+A Claude Code skill for [Ideogram AI](https://ideogram.ai) image generation — two prompting modes (loose vs. structured), color-palette control, reference-image style extraction, and the difference between remix and edit. Built by [Devkind](https://devkind.com.au).
 
-Ideogram 4 was trained on structured JSON captions, not plain text — this toolkit documents that schema (adapted from the official [ideogram-oss/ideogram4](https://github.com/ideogram-oss/ideogram4) docs, Apache-2.0) and packages practical prompting technique around it, scoped to what the connected Ideogram MCP tools (`generate_image`, `describe_image`, `remix_image`, `edit_image`) actually support.
+Ideogram 4 was trained on structured JSON captions, not plain text — this toolkit documents that schema (adapted from the official [ideogram-oss/ideogram4](https://github.com/ideogram-oss/ideogram4) docs, Apache-2.0) and packages practical prompting technique around it, scoped to what the connected Ideogram MCP (`generate_image`, `describe_image`, `remix_image`, `edit_image`) actually supports.
 
 ## What's in here
 
