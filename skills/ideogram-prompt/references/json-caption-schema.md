@@ -46,7 +46,9 @@ Each element has a fixed key order by `type`:
 - `text`: literal text to render (only for `type: "text"`).
 - `color_palette`: optional per-element palette, up to 5 hex entries.
 
-Hex colors must be uppercase `#RRGGBB` (no shorthand, no lowercase).
+Hex colors must be uppercase `#RRGGBB` (no shorthand, no lowercase). Split multi-line copy into one `text` element per line rather than one element with embedded line breaks — it renders more reliably. Give each text element's `bbox` its own clear space; overlapping bboxes between elements tend to render as garbled or overlapping text.
+
+For lighting control, a `color_palette` reads better with both a highlight and a shadow hex included, not just the dominant color — and if a specific background tone matters, name that hex explicitly rather than leaving it to the `background` prose alone.
 
 ## Full worked example
 
