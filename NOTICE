@@ -1,0 +1,10 @@
+ideogram-ai-toolkit
+Copyright 2026 Devkind Pty Ltd
+
+This product includes reference material derived from documentation in the
+ideogram-oss/ideogram4 repository (https://github.com/ideogram-oss/ideogram4),
+licensed under the Apache License, Version 2.0. Specifically, the JSON caption
+schema in `skills/ideogram-prompt/references/json-caption-schema.md` is adapted
+from that repository's `docs/prompting.md`.
+
+See the LICENSE file for the full Apache 2.0 license text.
