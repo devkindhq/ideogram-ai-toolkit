@@ -15,7 +15,50 @@ skills/ideogram-prompt/
 examples/                                 # generated showcase assets + the exact prompts used
 ```
 
-See [`examples/`](examples/) for generated showcase assets (product photo, poster, packaging, 3D icon, style extraction) with the exact prompt used for each.
+See [`examples/`](examples/README.md) for the full write-up — each image below links to its exact prompt.
+
+<table>
+  <tr>
+    <td align="center" width="33%">
+      <a href="examples/README.md#1-editorial-product-photo--precise-color_palette-control">
+        <img src="examples/images/01-editorial-product-photo.png" width="200"><br>
+        Editorial product photo
+      </a>
+    </td>
+    <td align="center" width="33%">
+      <a href="examples/README.md#2-vintage-sci-fi-poster--art_style--in-image-text-via-bounding-boxes">
+        <img src="examples/images/02-vintage-scifi-poster.png" width="200"><br>
+        Vintage sci-fi poster
+      </a>
+    </td>
+    <td align="center" width="33%">
+      <a href="examples/README.md#3-packaging-label--graphic_design-medium-with-multiple-text-elements">
+        <img src="examples/images/03-packaging-label.png" width="200"><br>
+        Packaging label
+      </a>
+    </td>
+  </tr>
+  <tr>
+    <td align="center" width="33%">
+      <a href="examples/README.md#4-abstract-3d-icon--3d_render-medium">
+        <img src="examples/images/04-abstract-3d-icon.png" width="200"><br>
+        Abstract 3D icon
+      </a>
+    </td>
+    <td align="center" width="33%">
+      <a href="examples/README.md#5-style-extraction--reference-image-to-new-subject">
+        <img src="examples/images/05a-style-extraction-reference.png" width="200"><br>
+        Style extraction (reference)
+      </a>
+    </td>
+    <td align="center" width="33%">
+      <a href="examples/README.md#5-style-extraction--reference-image-to-new-subject">
+        <img src="examples/images/05b-style-extraction-applied.png" width="200"><br>
+        Style extraction (applied)
+      </a>
+    </td>
+  </tr>
+</table>
 
 ## Install
 
