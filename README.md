@@ -18,13 +18,21 @@ skills/ideogram-prompt/
 
 This is a Claude Code [skill](https://docs.claude.com/en/docs/claude-code/skills). Requires the [Ideogram MCP](https://ideogram.ai/features/mcp/) to be connected (`claude mcp add ideogram --transport http https://mcp.ideogram.ai/mcp`).
 
-**Project-scoped** (checked into a repo, shared with your team):
+**Via the [skills CLI](https://www.skills.sh)** (reads straight from this GitHub repo, no unreviewed single-URL installer):
+```bash
+npx skills add https://github.com/devkindhq/ideogram-ai-toolkit/tree/main/skills/ideogram-prompt
+# or, from a project root, target it explicitly:
+npx skills add devkindhq/ideogram-ai-toolkit -s ideogram-prompt
+```
+Add `-g` to install globally (available in every session) instead of just the current project.
+
+**Project-scoped, manual** (checked into a repo, shared with your team):
 ```bash
 git clone https://github.com/devkindhq/ideogram-ai-toolkit.git /tmp/ideogram-ai-toolkit
 cp -r /tmp/ideogram-ai-toolkit/skills/ideogram-prompt <your-project>/.claude/skills/ideogram-prompt
 ```
 
-**Personal** (available in every session):
+**Personal, manual** (available in every session):
 ```bash
 git clone https://github.com/devkindhq/ideogram-ai-toolkit.git ~/ideogram-ai-toolkit
 ln -s ~/ideogram-ai-toolkit/skills/ideogram-prompt ~/.claude/skills/ideogram-prompt
