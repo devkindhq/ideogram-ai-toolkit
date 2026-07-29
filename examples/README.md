@@ -169,7 +169,3 @@ Demonstrates the full loop from `references/style-extraction-workflow.md`: gener
 ```
 
 `aspect_ratio: "3x2"` for both.
-
-## 6. Remix iteration set — not included
-
-We planned a sixth category demonstrating `remix_image` at varying `image_weight` (similarity to a parent image), remixing asset #1's coffee photo to add scattered coffee beans and a folded linen napkin. `remix_image` returned an `Internal API returned 500` error on every attempt (three tries, two different `image_weight` values and the default). Per this skill's own rule — remix/edit failures are surfaced verbatim, never silently swapped for a `generate_image` fallback — we're leaving this category out rather than faking it. If you hit the same 500, it's a known issue as of this writing, not a mistake in the prompt.
