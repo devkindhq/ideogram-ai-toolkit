@@ -1,6 +1,6 @@
 ---
 name: ideogram-prompt
-description: Prompting technique guide for Ideogram image generation via the connected Ideogram MCP (generate_image, describe_image, remix_image, edit_image). Use whenever the user wants to generate, remix, or edit an image with Ideogram — including moodboards, style-matching a reference image, extracting a visual "recipe" from existing images and reapplying it to a new subject, or getting precise control over color palette, composition, and in-image text. Trigger this even if the user doesn't say "Ideogram" by name but is clearly asking for image generation and the Ideogram MCP tools are the ones available. Not for logo/brand-mark work specifically — see the logo-prompting skill for that.
+description: Prompting technique guide for Ideogram image generation via the connected Ideogram MCP (generate_image, describe_image, remix_image, edit_image). Use whenever the user wants to generate, remix, or edit an image with Ideogram — including moodboards, style-matching a reference image, extracting a visual "recipe" from existing images and reapplying it to a new subject, or getting precise control over color palette, composition, and in-image text. Trigger this even if the user doesn't say "Ideogram" by name but is clearly asking for image generation and the Ideogram MCP tools are the ones available.
 ---
 
 # Ideogram Prompting
