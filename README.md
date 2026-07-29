@@ -12,7 +12,10 @@ skills/ideogram-prompt/
 └── references/
     ├── json-caption-schema.md            # Ideogram 4's structured caption schema
     └── style-extraction-workflow.md      # describe → extract recipe → apply → generate loop
+examples/                                 # generated showcase assets + the exact prompts used
 ```
+
+See [`examples/`](examples/) for generated showcase assets (product photo, poster, packaging, 3D icon, style extraction) with the exact prompt used for each.
 
 ## Install
 
