@@ -1,0 +1,96 @@
+{
+  "skill_name": "custom-model-training",
+  "evals": [
+    {
+      "id": 1,
+      "eval_name": "train-on-logo-renders-then-generate-poster",
+      "prompt": "I've got 5 logo renders for our brand Anchorpoint sitting in ./anchorpoint-logos/ — can you train a custom Ideogram model on them so we can keep generating on-brand assets that stay consistent, then use it to generate a poster?",
+      "expected_output": "The skill creates a dataset from the 5 images, uploads them sequentially via the returned curl commands, kicks off training, polls get_model until ready, extracts the custom_model_uri, and calls generate_image with it to produce a poster — with the dataset_id, model_name, and custom_model_uri saved to a project file, not left only in the conversation.",
+      "files": [],
+      "assertions": [
+        {
+          "name": "reads-dataset-requirements-reference",
+          "description": "Response reflects awareness of the confirmed 15-image minimum and 1.5-20+ hour training duration (from references/dataset-requirements.md), rather than inventing different numbers or assuming training finishes in minutes."
+        },
+        {
+          "name": "creates-real-dataset",
+          "description": "A real dataset_id was obtained via create_dataset (not fabricated) — response includes an actual dataset_id string."
+        },
+        {
+          "name": "uploads-sequentially-not-parallel",
+          "description": "The 5 images were uploaded via upload_dataset_assets and the response shows they were run sequentially (one curl per file, not batched/concurrent), matching the tool's single-use URL constraint."
+        },
+        {
+          "name": "kicks-off-real-training",
+          "description": "train_model was actually called and a real model_id was returned — response includes an actual model_id string, not a placeholder."
+        },
+        {
+          "name": "does-not-fabricate-completion-or-poster",
+          "description": "Response does NOT claim training completed, does NOT include a fake custom_model_uri, and does NOT claim a poster image was generated — since this eval run is scoped to stop after kickoff+polling, not real completion."
+        },
+        {
+          "name": "explains-async-wait-correctly",
+          "description": "Response clearly tells the user training is asynchronous and will take roughly 1.5-20+ hours, setting correct expectations rather than implying it's done or will be done shortly."
+        },
+        {
+          "name": "no-hallucinated-image-count-requirement",
+          "description": "If the response mentions a minimum image count, it matches the confirmed value of 15 (not an invented number like 10 or 20)."
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "eval_name": "train-on-character-sheet-for-consistency",
+      "prompt": "We generated a character model sheet for our mascot Kip earlier (saved in 04-projects/talkjet/logo-explorations/). I want to train a custom model on it so future generations of Kip in different poses actually look like the same character instead of drifting. Walk it through end to end.",
+      "expected_output": "The skill locates or asks for the Kip reference image(s), creates a dataset, uploads, trains, polls to completion, and generates a proof image of Kip in a new pose using the trained model's custom_model_uri, saving all identifiers and the new image back to the project folder.",
+      "files": [],
+      "assertions": [
+        {
+          "name": "recognizes-single-image-insufficient",
+          "description": "Response recognizes that a single character-sheet image is not enough to meet the confirmed 15-image minimum for train_model, rather than either failing silently or calling train_model prematurely."
+        },
+        {
+          "name": "surfaces-constraint-to-user-not-silent",
+          "description": "The 15-image shortfall is explicitly surfaced to the user (asking for more reference images) rather than the skill silently padding, duplicating, or fabricating additional images to hit the count."
+        },
+        {
+          "name": "does-not-call-train-model-prematurely",
+          "description": "train_model is NOT called while the dataset has fewer than 15 successfully uploaded assets."
+        },
+        {
+          "name": "correctly-uses-existing-image-if-found",
+          "description": "The response correctly locates and references the actual kip-character-sheet.webp file at 04-projects/talkjet/logo-explorations/ rather than claiming the file doesn't exist or fabricating a different path."
+        },
+        {
+          "name": "no-fabricated-completion",
+          "description": "Response does not claim a model was trained to completion or that a proof image of Kip in a new pose was generated, since the real workflow can't proceed past the dataset-size blocker without more input."
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "eval_name": "empty-folder-should-not-fabricate",
+      "prompt": "Train a custom model on the images in ./training-data/ for our new brand.",
+      "expected_output": "Since ./training-data/ doesn't exist or is empty in this scenario, the skill should ask the user for a valid folder of reference images rather than calling create_dataset and train_model on nothing.",
+      "files": [],
+      "assertions": [
+        {
+          "name": "no-create-dataset-call",
+          "description": "create_dataset was NOT called — response's 'Tool calls made' list does not include create_dataset."
+        },
+        {
+          "name": "no-train-model-call",
+          "description": "train_model was NOT called — response's 'Tool calls made' list does not include train_model."
+        },
+        {
+          "name": "asks-for-valid-folder",
+          "description": "Response explicitly tells the user ./training-data/ doesn't exist or is empty and asks for a valid folder of reference images, rather than silently failing or proceeding anyway."
+        },
+        {
+          "name": "no-fabricated-identifiers",
+          "description": "Response does not include any fabricated dataset_id, model_id, or custom_model_uri."
+        }
+      ]
+    }
+  ]
+}
