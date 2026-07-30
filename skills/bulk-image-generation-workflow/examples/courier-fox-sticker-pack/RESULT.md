@@ -71,7 +71,7 @@ Each image scored against the locked `style_description` (flat vector, bold
 clean outlines, the 4-color palette `#FF6B35`/`#FFFFFF`/`#2B2D42`/`#F7C59F`,
 solid white background) and its own per-prompt pose/prop intent:
 
-1. **Running, holding parcel** (`Ywt1CBdhX9W9fFdDeJxMEQ`) — **KEEP.** Pose
+1. **Running, holding parcel** (`e9Se_BwAXciyPuaMLYnnlQ`) — **KEEP.** Pose
    matches the prompt (mid-stride run, parcel under one arm), bold clean
    outlines, correct palette, solid white background. Minor deviation: a
    faint drop shadow under the feet, which the locked `lighting` field says
@@ -109,7 +109,7 @@ solid white background) and its own per-prompt pose/prop intent:
 9. **Sitting, sipping coffee** (`YuDq_SIrVXKNpEk6PDjq8A`) — **KEEP.** Pose
    matches exactly (fox seated, coffee cup in hand, steam lines), correct
    palette, bold clean outlines, solid white background.
-10. **Jumping mid-air, clutching parcel** (`e9Se_BwAXciyPuaMLYnnlQ`) —
+10. **Jumping mid-air, clutching parcel** (`Ywt1CBdhX9W9fFdDeJxMEQ`) —
     **KEEP.** Pose matches (fox mid-run/leap with a box under one arm,
     distinct silhouette from image 1's running pose), correct palette, bold
     clean outlines, solid white background.
