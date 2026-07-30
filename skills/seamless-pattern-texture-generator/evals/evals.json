@@ -1,0 +1,44 @@
+{
+  "skill_name": "seamless-pattern-texture-generator",
+  "evals": [
+    {
+      "id": 1,
+      "eval_name": "seamless-floral-wallpaper-base-tile",
+      "prompt": "Design a seamless floral wallpaper pattern in blush and sage",
+      "files": [],
+      "expected_output": "A generated single tile image (via generate_image) whose prompt states the seamless/tileable framing explicitly and early, includes edge-continuity language (motif elements crossing and reconnecting at all four edges, nothing cropped or orphaned at a boundary), an explicit no-border/no-vignette instruction, a stated straight-repeat default called out explicitly since no repeat type was specified, the blush-and-sage palette named directly, flat/top-down framing with no directional lighting or cast shadow, plus a completed verification step producing a labeled 2x2 proof image with the seam-check result reported honestly.",
+      "expectations": [
+        "The skill states the straight-repeat default explicitly in its response rather than picking one silently, per Workflow step 1 and the tile-prompt-recipe.md repeat-type section",
+        "The drafted prompt is run through the anti-slop pre-generation gate before generating (Workflow step 3), with border/vignette absence and the copy-paste-rotation tell (rotation-variety) as the two must-revise checks worth failing the prompt over — edge-continuity language is a separate, always-required rule from tile-prompt-recipe.md, not one of this gate's two named must-revise checks",
+        "The skill does not set style_type on this generate_image call, since it is a no-op on the default v4 path this skill uses and the DESIGN register is instead written directly into the prompt prose",
+        "A verification-only 2x2 repeat image is generated per tiling-verification.md and its seam-check result is reported honestly (e.g. 'no visible seams in this best-effort check'), not skipped and not overstated as 'guaranteed seamless'"
+      ]
+    },
+    {
+      "id": 2,
+      "eval_name": "geometric-pattern-five-colorway-variants",
+      "prompt": "Give me 5 colorway variations of this seamless geometric pattern for packaging",
+      "files": [],
+      "expected_output": "The skill calls generate_images_bulk with 5 prompts batched into a single call (not a loop of 5 separate generate_image calls), each variant prompt preserving the same motif, scale, and edge-continuity/repeat structure as the base pattern while varying only the colorway, and reports per-prompt outcomes from the batch response rather than assuming all 5 succeeded.",
+      "expectations": [
+        "generate_images_bulk is used for the 5 variants rather than 5 separate looped generate_image calls, per Workflow step 4",
+        "Each of the 5 prompts preserves the same edge-continuity language and motif scale from the base pattern (per tile-prompt-recipe.md sections 2 and 3), varying only the palette",
+        "Per-prompt success/failure from the batch response is reported honestly rather than a blanket 'all 5 done' claim, per the generate_images_bulk partial-failures rule in SKILL.md's Error handling section",
+        "The skill does not rely on style_type or negative_prompt to control colorway or register on this call, since both are no-ops on the default v4 path"
+      ]
+    },
+    {
+      "id": 3,
+      "eval_name": "fabric-texture-revise-after-visible-seams",
+      "prompt": "Make this fabric texture into a tileable swatch, but the last one had visible seams",
+      "files": [],
+      "expected_output": "The skill treats the prior failed verification honestly per SKILL.md's Error handling section and tiling-verification.md's honest-framing rule: it does not re-ship the same seamed result or silently upscale it, instead revising the prompt with stronger edge-continuity language, a simpler or larger motif, and explicit removal of any directional-lighting/cast-shadow cues per tile-prompt-recipe.md's flat-framing rule, then re-generates and re-runs the 2x2 verification step before reporting the outcome.",
+      "expectations": [
+        "The skill does not claim the new render is guaranteed seamless, only that the visible-seam causes identified from the prior attempt (e.g. lighting/shadow discontinuity, motif discontinuity at the boundary) were specifically addressed, per tiling-verification.md's seam-artifact checklist",
+        "The revised prompt is shown to differ concretely from a generic 'try again' — stronger edge-continuity language, a simpler or larger motif, and lighting/shadow cues removed, not just the identical prompt re-run",
+        "The 2x2 verification step is re-run on the new tile rather than skipped because a version already exists, per Workflow step 5",
+        "The response frames this as the REALISTIC register (photographic/material framing) per tile-prompt-recipe.md's REALISTIC register example, not the flat-graphic DESIGN register used for surface-design patterns"
+      ]
+    }
+  ]
+}
