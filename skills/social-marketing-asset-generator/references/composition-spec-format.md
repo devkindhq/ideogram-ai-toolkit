@@ -71,8 +71,4 @@ The following JSON caption represents a complete single-placement Instagram feed
 }
 ```
 
-Note: This example uses only four of the six possible element roles (background, product, headline, subhead, and CTA). The `brand-mark` role is omitted here because the ad prioritizes the product and headline; a real brief may include it if brand visibility is critical.
-
-## Real worked examples
-
 See `examples/` for full worked examples as real jobs are run.
