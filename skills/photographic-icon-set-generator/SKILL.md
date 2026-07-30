@@ -23,7 +23,7 @@ Read these three reference files in order before your first generation and befor
 
 ### 1. Gather the icon list and style direction
 
-Ask for (rather than inventing) the list of icon concepts or subjects (e.g. "clock, notebook, camera, headphones, palette, pencil, document, package, key"), the target count, and one of the four named render styles or a described custom raster style: 3D-rendered (clean product-design lighting, often with soft shadows and reflection surfaces), claymation (chunky, squished, hand-modeled toy aesthetic), hand-painted (textured, artistic, brush marks, organic-feeling), or isometric-with-material-texture (geometric 45-degree angle, textured surfaces showing wood/metal/cloth/glass). If the request is actually for flat, line, glyph, vector, or minimal icon sets, say so now and stop — those are out of scope for this skill; they need deterministic SVG code, not diffusion output. Do not proceed with a raster substitute.
+Ask for (rather than inventing) the list of icon concepts or subjects (e.g. "clock, notebook, camera, headphones, palette, pencil, document, package, key"), the target count, and one of the four named render styles or a described custom raster style: 3D-rendered (clean product-design lighting, often with soft shadows and reflection surfaces), claymation (chunky, squished, hand-modeled toy aesthetic), hand-painted (textured, artistic, brush marks, organic-feeling), or isometric-with-material-texture (geometric 45-degree angle, textured surfaces showing wood/metal/cloth/glass). If the request is actually for flat, line, glyph, vector, or minimal icon sets, say so now and stop — those are out of scope for this skill; they need deterministic SVG code, not diffusion output. Do not proceed with a raster substitute. There's no artificial cap below `generate_images_bulk`'s own 1-500 `prompts[]` limit, but sanity-check an unusually large requested count with the user first (Pro-subscription and cost implications) rather than queuing a large batch silently.
 
 ### 2. Lock the style block
 
@@ -35,7 +35,7 @@ Each entry in the eventual `prompts[]` array is: `[style block, held identical] 
 
 ### 4. Run the anti-slop gate
 
-Before calling `generate_images_bulk`, score your drafted prompts against the pre-generation table in `references/icon-anti-slop-discipline.md`. Look for: inconsistent icon sizing or proportions, unclear isolation/composition, subject-name ambiguity (if the model might misinterpret the noun), style-block transcription errors (any deviation from the locked text), and slop risk (generic, off-brand, or stock-icon clichés). Anything scoring under 3 on any axis means revise that prompt now — regenerating a full batch is more expensive than fixing N prompt strings first. Do not skip this gate.
+Before calling `generate_images_bulk`, score your drafted prompts 1-5 against the five axes in `references/icon-anti-slop-discipline.md`'s pre-generation table: style-block fidelity (is the style block copy-pasted byte-identical into every prompt, not re-typed or paraphrased?), subject-block restraint (does every subject block name one clear icon-object with no second subject, implied scene, or narrative moment?), ground/shadow explicitness (does every prompt name the exact grounded shadow and background treatment from the style block?), material-finish explicitness (does every prompt restate the actual requested surface finish rather than leaving it to the model's glossy-plastic default?), and the set-level restraint check (scanning all N prompts together, does any single subject block risk pulling that one icon toward a different camera framing or material read than the rest?). Anything scoring under 3 on any axis means revise that prompt now — regenerating a full batch is more expensive than fixing N prompt strings first. Do not skip this gate.
 
 ### 5. Generate the batch
 
@@ -76,7 +76,9 @@ This skill introduces a new JSON shape for storing icon sets so they're reusable
   "corrections": [
     {
       "target_icon": "camera",
+      "target_response_id": "resp_...",
       "anchor_icons": ["clock", "notebook"],
+      "anchor_response_ids": ["resp_...", "resp_..."],
       "corrective_prompt": "match the material and lighting...",
       "resulting_response_id": "resp_...",
       "resulting_image_url": "https://..."
@@ -86,6 +88,7 @@ This skill introduces a new JSON shape for storing icon sets so they're reusable
     {
       "new_icon": "palette",
       "anchor_icons": ["clock", "notebook", "camera"],
+      "anchor_response_ids": ["resp_...", "resp_...", "resp_..."],
       "extension_prompt": "add a paint palette...",
       "resulting_response_id": "resp_...",
       "resulting_image_url": "https://..."
