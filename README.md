@@ -83,6 +83,18 @@ See [`examples/`](examples/README.md) for the full write-up — each image below
         Brand identity moodboard
       </a>
     </td>
+    <td align="center" width="33%">
+      <a href="skills/brand-identity-sheet/examples/fizzwright-identity-sheet.md">
+        <img src="skills/brand-identity-sheet/examples/images/fizzwright-identity-sheet.webp" width="200"><br>
+        Brand identity sheet (Fizzwright)
+      </a>
+    </td>
+    <td align="center" width="33%">
+      <a href="skills/character-model-sheet/examples/kip-hopcarry-character-sheet.md">
+        <img src="skills/character-model-sheet/examples/images/kip-hopcarry-character-sheet.webp" width="200"><br>
+        Character model sheet (Kip)
+      </a>
+    </td>
   </tr>
 </table>
 
