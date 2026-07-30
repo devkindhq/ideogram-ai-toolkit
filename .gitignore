@@ -1,5 +1,5 @@
-# SDD scratch artifacts — throwaway per-skill planning docs, not meant to ship
-docs/superpowers/plans/*-implementation.md
+# SDD scratch artifacts — internal spec/plan docs used during development, not shipped
+docs/
 
 # Local eval iteration workspace — scratch benchmark/grading data, not shipped output
 custom-model-training-workspace/
