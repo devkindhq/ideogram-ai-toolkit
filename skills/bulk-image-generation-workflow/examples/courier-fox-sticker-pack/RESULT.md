@@ -76,52 +76,52 @@ solid white background) and its own per-prompt pose/prop intent:
    outlines, correct palette, solid white background. Minor deviation: a
    faint drop shadow under the feet, which the locked `lighting` field says
    to avoid — not severe enough to reject.
-2. **Knocking on door** (`N6hj7TEZWMuanCanEh6Vhg`) — **REJECT.** Pose matches
+2. **Sitting, sipping coffee** (`YuDq_SIrVXKNpEk6PDjq8A`) — **KEEP.** Pose
+   matches exactly (fox seated, coffee cup in hand, steam lines), correct
+   palette, bold clean outlines, solid white background.
+3. **Standing, waving** (`ghy9IHzaWmG0voDkoq7wuw`) — **KEEP.** Pose matches
+   (fox waving with a satchel bag), correct palette, bold clean outlines,
+   solid white background.
+4. **Riding bicycle, basket of packages** (`GiqRn3p9U6aJgeOlQCBqSg`) —
+   **REJECT.** Pose matches (fox on a bicycle with a loaded basket), but the
+   rendering style drifted from the locked `art_style`: softer gradient
+   shading and thinner, less-bold outlines than the other 9 images, and a
+   visibly muted palette rather than the locked hex values.
+5. **Clipboard, checking off delivery** (`C6oefO7JVqK5WTFXWIrfJg`) — **KEEP.**
+   Pose matches (fox holding clipboard and pencil), correct palette, bold
+   clean outlines, solid white background.
+6. **Carrying stack of boxes** (`p_IwIkwtXFSwMTnGPjLC-A`) — **REJECT.** Pose
+   matches (fox carrying a tall stack of boxes), palette and outline style
+   are on-brief, but the model hallucinated unrequested label text on the
+   boxes ("EXPRESS", "FRAGILE", "FOX RUN") — same failure mode as image 7,
+   not something the prompt asked for.
+7. **Riding scooter** (`kiYxeCGXXBmPMaPEEZ4y6g`) — **REJECT.** Pose matches
+   (fox riding a scooter with a package on back), style and palette are
+   close, but the model hallucinated unrequested brand text ("SWIFT
+   EXPRESS") on the scooter body — text was never in the prompt or the
+   locked caption's elements list.
+8. **Thumbs up, package under arm** (`mkM_GtahXiqOIEAaPxTcoA`) — **KEEP.**
+   Pose matches exactly, correct palette, bold outlines, solid white
+   background. One of the cleanest results in the batch.
+9. **Knocking on door** (`N6hj7TEZWMuanCanEh6Vhg`) — **REJECT.** Pose matches
    (fox mid-knock, holding a box), but the model rendered a full orange door
    filling most of the frame instead of the locked
    `"A solid #FFFFFF background with no other elements."` background — a
    direct violation of the one axis that was supposed to stay fixed across
    the whole batch.
-3. **Thumbs up, package under arm** (`mkM_GtahXiqOIEAaPxTcoA`) — **KEEP.**
-   Pose matches exactly, correct palette, bold outlines, solid white
-   background. One of the cleanest results in the batch.
-4. **Riding scooter** (`kiYxeCGXXBmPMaPEEZ4y6g`) — **REJECT.** Pose matches
-   (fox riding a scooter with a package on back), style and palette are
-   close, but the model hallucinated unrequested brand text ("SWIFT
-   EXPRESS") on the scooter body — text was never in the prompt or the
-   locked caption's elements list.
-5. **Carrying stack of boxes** (`p_IwIkwtXFSwMTnGPjLC-A`) — **REJECT.** Pose
-   matches (fox carrying a tall stack of boxes), palette and outline style
-   are on-brief, but the model hallucinated unrequested label text on the
-   boxes ("EXPRESS", "FRAGILE", "FOX RUN") — same failure mode as image 4,
-   not something the prompt asked for.
-6. **Clipboard, checking off delivery** (`C6oefO7JVqK5WTFXWIrfJg`) — **KEEP.**
-   Pose matches (fox holding clipboard and pencil), correct palette, bold
-   clean outlines, solid white background.
-7. **Riding bicycle, basket of packages** (`GiqRn3p9U6aJgeOlQCBqSg`) —
-   **REJECT.** Pose matches (fox on a bicycle with a loaded basket), but the
-   rendering style drifted from the locked `art_style`: softer gradient
-   shading and thinner, less-bold outlines than the other 9 images, and a
-   visibly muted palette rather than the locked hex values.
-8. **Standing, waving** (`ghy9IHzaWmG0voDkoq7wuw`) — **KEEP.** Pose matches
-   (fox waving with a satchel bag), correct palette, bold clean outlines,
-   solid white background.
-9. **Sitting, sipping coffee** (`YuDq_SIrVXKNpEk6PDjq8A`) — **KEEP.** Pose
-   matches exactly (fox seated, coffee cup in hand, steam lines), correct
-   palette, bold clean outlines, solid white background.
 10. **Jumping mid-air, clutching parcel** (`Ywt1CBdhX9W9fFdDeJxMEQ`) —
     **KEEP.** Pose matches (fox mid-run/leap with a box under one arm,
     distinct silhouette from image 1's running pose), correct palette, bold
     clean outlines, solid white background.
 
-**Shortlist (6 of 10 kept):** images 1, 3, 6, 8, 9, 10 — request_ids
-`Aj7NsmcOQyifvVHMv-PQoQ`, `T33siPVYSq2qVOtARZSz2w`, `2iuNJt6hQdi7uPPCsRdmkw`,
-`4bJcCswNRTWBiPnX8waedQ`, `f9WYFAN_SouEcq6EhMwU2g`, `iiozZ_s9SGm7ab2YGSd7_A`.
+**Shortlist (6 of 10 kept):** images 1, 2, 3, 5, 8, 10 — response_ids
+`e9Se_BwAXciyPuaMLYnnlQ`, `YuDq_SIrVXKNpEk6PDjq8A`, `ghy9IHzaWmG0voDkoq7wuw`,
+`C6oefO7JVqK5WTFXWIrfJg`, `mkM_GtahXiqOIEAaPxTcoA`, `Ywt1CBdhX9W9fFdDeJxMEQ`.
 
-**Rejected (4 of 10):** images 2, 4, 5, 7 — one background-lock violation
-(image 2), two cases of hallucinated unrequested text (images 4 and 5), and
-one style-drift case where the rendering departed from the locked bold-outline
-flat-vector look (image 7).
+**Rejected (4 of 10):** images 4, 6, 7, 9 — one style-drift case where the
+rendering departed from the locked bold-outline flat-vector look (image 4),
+two cases of hallucinated unrequested text (images 6 and 7), and one
+background-lock violation (image 9).
 
 ## What was verified
 
