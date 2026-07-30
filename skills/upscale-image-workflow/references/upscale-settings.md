@@ -97,13 +97,22 @@ themselves; don't invent one on their behalf.
 instruction — these are read directly off the live schema/description, not assumed from
 docs.
 
-**Unverified / unknown — don't assert these as fact:** the exact shape of the tool's
-*response*. The description documents the input schema in full but not the output —
-whether there's a downloadable URL alongside a `response_id`, the field name for it if so,
-processing time, exact output pixel dimensions per factor, and any cost/rate-limit
-implications of `X8` vs `X2` are all unconfirmed. Read the response's actual fields the
-first time `upscale_image` is called in a session, and report what was actually observed
-rather than a plausible-sounding assumed value.
+**Confirmed (from a live `upscale_image` call against the connected Ideogram MCP on
+2026-07-30, see `examples/anchorpoint-logo-upscale/RESULT.md`):** the response is
+asynchronous, not a completed result. The immediate `upscale_image` response returns
+`status: "running"`, a `request_id`, and a plural `response_ids` array — no singular
+`response_id` is present yet at that point. Polling `get_generation_status` with that
+`request_id` is required to observe completion; once it returns `status: "done"`, a
+singular `response_id` (matching `response_ids[0]`) becomes available. The immediate
+response also includes `image_urls`, `thumbnail_urls`, and `permalink_urls` arrays (one
+entry each, in that worked example).
+
+**Unverified / unknown — don't assert these as fact:** processing time, how many polls it
+typically takes to reach `status: "done"`, any recommended poll interval, exact output
+pixel dimensions per factor, and any cost/rate-limit implications of `X8` vs `X2` are all
+unconfirmed. Read the response's actual fields the first time `upscale_image` is called in
+a session, and report what was actually observed rather than a plausible-sounding assumed
+value.
 
 ## Why this matters
 
