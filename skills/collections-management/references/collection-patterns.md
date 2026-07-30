@@ -75,7 +75,12 @@ explicit, either up front or in response to being asked:
 **Confirmed (from direct inspection of the live connected MCP's tool schemas):**
 `add_images_to_collection` and `get_images_by_collection_id` return `added_count`,
 `failed_count`, `next_cursor`, and `cursor` as field names — these are real fields on
-the live schema, not assumed from documentation.
+the live schema, not assumed from documentation. (Verified by reading the two tools'
+own tool-schema description text on the connected Ideogram MCP directly: `add_images_to_collection`'s
+description states "The response reports `added_count`, `failed_count`, and per-asset
+failure reasons," and `get_images_by_collection_id`'s description states "Pass `cursor`
+(taken from a previous response's `next_cursor`) to fetch the next page" — not carried
+from the design spec's prose.)
 
 **Unverified / unknown — don't assert these as fact:**
 - Pagination page-size defaults (how many results `get_images_by_collection_id` returns
