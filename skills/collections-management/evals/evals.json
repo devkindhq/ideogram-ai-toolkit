@@ -1,0 +1,26 @@
+{
+  "skill_name": "collections-management",
+  "evals": [
+    {
+      "id": 1,
+      "eval_name": "file-new-renders-into-fresh-collection",
+      "prompt": "File these Anchorpoint logo renders into a collection",
+      "expected_output": "The skill first calls list_collections and checks for a name match before creating anything, per the find-or-create rule in references/collection-patterns.md. Finding no existing Anchorpoint collection (zero matches), it calls create_collection(name) to make a new one, the only case where creating is correct. It then batches every image from the current task into a single add_images_to_collection(collection_id, image_response_ids=[...]) call rather than looping one call per image. It reads the response's real added_count and failed_count (and any per-asset failure reasons) and reports what actually happened instead of claiming the add fully succeeded.",
+      "files": []
+    },
+    {
+      "id": 2,
+      "eval_name": "add-to-existing-collection-no-duplicate",
+      "prompt": "Add this new render to my existing Fizzwright collection",
+      "expected_output": "The skill calls list_collections and checks for a name match before touching anything, per the find-or-create rule in references/collection-patterns.md. It finds exactly one existing 'Fizzwright' collection and reuses its collection_id rather than calling create_collection again, since create_collection does not enforce unique names, so calling it here would silently fork a second 'Fizzwright' collection. No duplicate collection is created. It then batches the add into one add_images_to_collection(collection_id, image_response_ids=[...]) call and reports the real added_count/failed_count from the response.",
+      "files": []
+    },
+    {
+      "id": 3,
+      "eval_name": "delete-collection-with-explicit-asset-confirmation",
+      "prompt": "Delete my old moodboard-drafts collection, I don't need the images either",
+      "expected_output": "The skill recognizes 'I don't need the images either' as an explicit, action-specific confirmation for destroying the underlying image assets, given in the current exchange, matching the sufficient-confirmation example in references/collection-patterns.md ('Delete the collection and the images too'). It does not ask a redundant second confirmation, since the user already gave an unambiguous, action-specific one in the same message that this isn't just a collection cleanup but explicit permission to permanently delete the images too. It resolves the moodboard-drafts collection (via list_collections if the collection_id isn't already known) and calls delete_collection(collection_id, delete_assets=True), per the Error handling rule that destructive flags are only passed with explicit, action-specific confirmation obtained in the current exchange.",
+      "files": []
+    }
+  ]
+}
