@@ -47,7 +47,7 @@ Pull all N generated images and look at them together — the entire reason this
 
 ### 7. Correct any outlier
 
-Prefer `edit_image` with 2-3 "anchor" icons from the set that show the target style well passed as `image_response_ids`, plus a corrective prompt describing the fix (e.g., "match the material and lighting of these two anchor icons, fix the 3D shading on this one"). Multi-reference conditioning pulls the result toward the group in a way a single reference can't as reliably. Use `remix_image` against one anchor image (with `image_weight` toward the higher end, 70-80, for "match this closely") as the simpler fallback when only one strong anchor exists. Do *not* regenerate the whole batch for a partial-drift problem — a fresh `generate_images_bulk` call has no better odds of consistency without also fixing the underlying style-block text, and it discards the icons that already matched.
+Prefer `edit_image` with 2-3 "anchor" icons from the set that show the target style well passed as `image_response_ids`, plus a corrective prompt describing the fix (e.g., "match the material and lighting of these two anchor icons, fix the 3D shading on this one"). Multi-reference conditioning pulls the result toward the group in a way a single reference can't as reliably. Use `remix_image` against one anchor image (with `image_weight` toward the higher end, 70-85, for "match this closely") as the simpler fallback when only one strong anchor exists. Do *not* regenerate the whole batch for a partial-drift problem — a fresh `generate_images_bulk` call has no better odds of consistency without also fixing the underlying style-block text, and it discards the icons that already matched.
 
 ### 8. Extend the set later
 
@@ -115,5 +115,5 @@ After generating, correcting, or extending a set, save the "set style spec" JSON
 ## Reference files
 
 - `references/style-lock-recipe.md` — the discipline for drafting, locking, and holding the style block identical across every prompt: material/render technique, lighting, camera angle, background/ground, color story. The single most important document for this skill. Read before step 2.
-- `references/icon-anti-slop-discipline.md` — the pre-generation gate scoring table (icon sizing, isolation/composition, subject clarity, style-block accuracy, slop risk). Run your prompts through this before `generate_images_bulk`. Read before step 4.
+- `references/icon-anti-slop-discipline.md` — the pre-generation gate scoring table (style-block fidelity, subject-block restraint, ground/shadow explicitness, material-finish explicitness, set-level restraint check). Run your prompts through this before `generate_images_bulk`. Read before step 4.
 - `references/set-consistency-workflow.md` — the full batch → review → correct → extend loop: when to use `edit_image` with multi-reference anchoring, fallback to `remix_image`, the partial-correction pattern, and when the `custom-model-training` escalation path applies (if/when that skill exists in this repo).
