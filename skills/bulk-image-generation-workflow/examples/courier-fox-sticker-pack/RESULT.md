@@ -118,6 +118,22 @@ solid white background) and its own per-prompt pose/prop intent:
 `e9Se_BwAXciyPuaMLYnnlQ`, `YuDq_SIrVXKNpEk6PDjq8A`, `ghy9IHzaWmG0voDkoq7wuw`,
 `C6oefO7JVqK5WTFXWIrfJg`, `mkM_GtahXiqOIEAaPxTcoA`, `Ywt1CBdhX9W9fFdDeJxMEQ`.
 
+The 6 kept images are committed in [`images/`](images/) (fetched via each
+asset's `thumbnail_url`, `.../thumbnail/response/<response_id>@2k`):
+
+| Pose | Image |
+|---|---|
+| Running, holding parcel | [`images/courier-fox-01-running-holding-parcel.webp`](images/courier-fox-01-running-holding-parcel.webp) |
+| Sitting, sipping coffee | [`images/courier-fox-02-sitting-sipping-coffee.webp`](images/courier-fox-02-sitting-sipping-coffee.webp) |
+| Standing, waving | [`images/courier-fox-03-standing-waving.webp`](images/courier-fox-03-standing-waving.webp) |
+| Holding clipboard | [`images/courier-fox-05-holding-clipboard.webp`](images/courier-fox-05-holding-clipboard.webp) |
+| Thumbs up | [`images/courier-fox-08-thumbs-up.webp`](images/courier-fox-08-thumbs-up.webp) |
+| Jumping mid-air | [`images/courier-fox-10-jumping-midair.webp`](images/courier-fox-10-jumping-midair.webp) |
+
+The 4 rejected images (style drift, hallucinated text, background-lock
+violation) were deliberately not downloaded/committed — this directory shows
+the shortlisted output of the review-and-cull step, not the raw batch.
+
 **Rejected (4 of 10):** images 4, 6, 7, 9 — one style-drift case where the
 rendering departed from the locked bold-outline flat-vector look (image 4),
 two cases of hallucinated unrequested text (images 6 and 7), and one
