@@ -1,0 +1,45 @@
+{
+  "skill_name": "character-model-sheet",
+  "evals": [
+    {
+      "id": 1,
+      "eval_name": "bell-boy-reverse-engineer-reference",
+      "prompt": "A designer sent over this character sheet reference image for a mascot called Bell-Boy. Can you break it down panel by panel into a structured spec so I can hand it to our animation team without them having to stare at the image themselves?",
+      "files": [],
+      "expected_output": "A structured compositional-deconstruction JSON (high_level_description + elements array with bbox/type/desc, and text elements with the literal text strings) describing every distinct panel in the reference image — header/overview block, full body turnaround (front/3-4/side/back), head & detail sheet, color palette swatches, and the accessories/interior diagram — precise enough that another agent could act on it without re-viewing the image.",
+      "expectations": [
+        "The skill calls describe_image (or otherwise directly inspects the supplied image) rather than fabricating a generic description without looking at it",
+        "The output is structured as bbox-level elements (not a single paragraph description)",
+        "Text-bearing panels (character overview box, personality/traits box, view labels like FRONT/SIDE/BACK, height-scale numbers) are captured as type:text entries with the literal string, separate from visual description",
+        "The breakdown identifies multiple distinct panel types (at minimum: a full-body turnaround view and a head/detail close-up), matching the sheet-anatomy panel vocabulary",
+        "No generate_image call is required for this task since the ask is to analyze an existing image, not create a new one"
+      ]
+    },
+    {
+      "id": 2,
+      "eval_name": "generate-new-character-sheet-from-brief",
+      "prompt": "I want a full character model sheet for our new mascot — a friendly round robot called 'Sparky' for our app's onboarding flow. Orange-and-navy color scheme, has a single glowing blue eye and small antenna. Generate the actual image, don't just give me a prompt to run myself.",
+      "files": [],
+      "expected_output": "A generated image (via Ideogram) showing a structured character model sheet for Sparky with a full body turnaround (front/3-4/side/back), a head & detail close-up sheet, a color palette bar, and an overview text block — plus a saved compositional-deconstruction JSON breakdown of the result, written to the project's branding/character folder.",
+      "expectations": [
+        "The skill actually calls an Ideogram MCP tool (generate_image or remix_image) rather than only printing a prompt for the user to run elsewhere",
+        "The generation prompt describes the character once in full (silhouette, colors with role, single glowing blue eye, antenna) and includes an explicit consistency directive that proportions/colors/style hold across every panel",
+        "The generation prompt names the specific panel set (full body turnaround with labeled views, head & detail sheet, color palette) rather than a generic 'character illustration' request",
+        "The output includes a compositional deconstruction (JSON with high_level_description and an elements array with bbox/desc entries)",
+        "Results are saved to a file under the project's folder rather than left only in the conversation"
+      ]
+    },
+    {
+      "id": 3,
+      "eval_name": "distinguish-from-brand-identity-sheet",
+      "prompt": "Can you make me a brand board for Fleetline that includes the mascot character?",
+      "files": [],
+      "expected_output": "The skill correctly recognizes this is primarily a brand-identity-sheet request (wordmark, icons, buttons) with a character panel as one component, not a full character-model-sheet request — and either uses brand-identity-sheet's character/mascot panel type or clarifies with the user whether they want the full multi-view character turnaround treatment instead.",
+      "expectations": [
+        "The skill does not default to a full four-view character turnaround when the ask is for a brand board that merely includes a character",
+        "If ambiguous, the skill asks a clarifying question or explains the distinction between the two skills rather than silently picking one",
+        "No wasted generate_image call producing the wrong artifact type"
+      ]
+    }
+  ]
+}
