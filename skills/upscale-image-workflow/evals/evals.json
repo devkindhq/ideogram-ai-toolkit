@@ -1,0 +1,26 @@
+{
+  "skill_name": "upscale-image-workflow",
+  "evals": [
+    {
+      "id": 1,
+      "eval_name": "upscale-with-user-specified-factor",
+      "prompt": "Upscale this logo render 4x",
+      "expected_output": "The skill resolves a single image_response_id from an earlier generation in the session (Workflow step 1). It treats the user-stated '4x' as confirmed and sets upscale_factor='X4' without re-asking (Workflow step 2: 'the user's stated value if given (that counts as confirmed, no need to re-ask)'). It calls upscale_image with exactly this one identifier and factor (Workflow step 3). It polls get_generation_status until status='done', then saves the returned response_id and the resolved upscale_factor to the project's output location (Workflow step 4).",
+      "files": []
+    },
+    {
+      "id": 2,
+      "eval_name": "upscale-uploaded-image-with-detail-weight",
+      "prompt": "Upscale the image I just uploaded, and add a lot of extra detail",
+      "expected_output": "The skill resolves image_upload_id from a prior upload_image call rather than image_response_id (Workflow step 1). It sets a high upscale_details_weight specifically because the user asked for more detail, and explicitly states in the response that upscale_details_weight was set only because of the user's request (Workflow step 2: 'only set if the user asked for more/less added detail'). It leaves prompt, collection_id, private, and seed unset since none were requested. It calls upscale_image with the resolved identifier and settings (Workflow step 3), polls to completion, and saves the identifiers and settings (Workflow step 4).",
+      "files": []
+    },
+    {
+      "id": 3,
+      "eval_name": "ambiguous-target-image-asks-instead-of-guessing",
+      "prompt": "Upscale that",
+      "expected_output": "The skill recognizes that more than one candidate image is plausibly 'that image' — two unrelated renders made earlier in the same conversation with nothing distinguishing which one the user means (Workflow step 1: 'If more than one candidate image is plausibly \"that image\"... ask which one — don't guess'). It asks the user which one they mean rather than guessing or defaulting to the most recent (Error handling: 'Ambiguous target image (multiple plausible candidates, none clearly \"that image\") → ask the user which one, don't guess'). It explicitly does NOT call upscale_image at all until the ambiguity is resolved.",
+      "files": []
+    }
+  ]
+}
