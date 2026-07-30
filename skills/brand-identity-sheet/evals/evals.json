@@ -1,0 +1,47 @@
+{
+  "skill_name": "brand-identity-sheet",
+  "evals": [
+    {
+      "id": 1,
+      "eval_name": "technauts-generate-from-design-md",
+      "prompt": "I want to see the whole Technauts brand system in one image before we go further — not just the logo, but the icons, buttons, and wordmark together, like a mood board / identity sheet. Read 04-projects/technauts/design.md for the current locked palette and typography (it's the Ascent theme — dark ink-navy paper, cyan accent) and actually generate the image, don't just give me a prompt to run myself.",
+      "expected_output": "A generated image (via Ideogram) showing a structured brand identity sheet for Technauts using the Ascent palette (dark ink-navy paper, cyan accent, warm-gray secondary) with a wordmark card, an app-icon grid, pill buttons, and a giant wordmark treatment — plus a saved compositional-deconstruction JSON breakdown of the result, written to the project's branding folder.",
+      "files": [],
+      "expectations": [
+        "The skill actually calls an Ideogram MCP tool (generate_image or remix_image) rather than only printing a prompt for the user to run elsewhere",
+        "The generation prompt references the Ascent palette's actual colors (dark ink-navy paper, cyan accent, warm-gray) rather than inventing new colors or reusing the old Cobalt palette",
+        "The output includes a compositional deconstruction (JSON with high_level_description and an elements array with bbox/desc entries)",
+        "The output or a saved file names specific panels (wordmark card, app-icon grid, pill buttons, giant wordmark) rather than a single generic description",
+        "Results are saved to a file under 04-projects/technauts/ rather than left only in the conversation"
+      ]
+    },
+    {
+      "id": 2,
+      "eval_name": "voicehive-generate-from-brand-md",
+      "prompt": "Can you generate a brand identity sheet for VoiceHive? I want to see the wordmark, some app icon explorations, and buttons together in one image, not just a single logo mark. Base it on 04-projects/voicehive/brand.md.",
+      "expected_output": "A generated image showing a VoiceHive brand identity sheet using the palette and style keywords from brand.md, with the brand's own material vocabulary reflected in the icon grid's material choices (not generic AI-startup icons), plus a saved compositional-deconstruction JSON breakdown.",
+      "files": [],
+      "expectations": [
+        "The skill actually calls an Ideogram MCP tool to generate the image rather than only drafting a prompt",
+        "The generation prompt uses the exact palette roles from brand.md (dominant/accent vs. reserved-for-one-state colors) rather than treating every brand color as equal-weight decoration",
+        "The icon-grid material vocabulary reflects the brand's own anti-slop guardrails from brand.md (no neural-network nodes, no glowing AI orb, no headset/phone-receiver icons, no purple-to-pink gradients)",
+        "A compositional deconstruction JSON is produced with named panels, not a vague paragraph description",
+        "Results are saved to a file under 04-projects/voicehive/ rather than left only in the conversation"
+      ]
+    },
+    {
+      "id": 3,
+      "eval_name": "reverse-engineer-reference-moodboard",
+      "prompt": "A designer sent over this moodboard reference image for a brand. Can you break it down panel by panel into a structured spec so I can hand it to our logo team without them having to stare at the image themselves?",
+      "files": ["<path-to-reference-moodboard-image>"],
+      "expected_output": "A structured compositional-deconstruction JSON (high_level_description + elements array with bbox/type/desc, and text elements with the literal text strings) describing every distinct panel in the reference image — UI cards, icon grid, buttons, wordmark treatments — precise enough that another agent could act on it without re-viewing the image.",
+      "expectations": [
+        "The skill calls describe_image (or otherwise directly inspects the supplied image) rather than fabricating a generic description without looking at it",
+        "The output is structured as bbox-level elements (not a single paragraph description)",
+        "Text-bearing panels are captured as type:text entries with the literal string, separate from visual description",
+        "The breakdown identifies multiple distinct panel types (at minimum: a wordmark/card element and an icon-grid element), matching the sheet-anatomy panel vocabulary",
+        "No generate_image call is required for this task since the ask is to analyze an existing image, not create a new one"
+      ]
+    }
+  ]
+}
