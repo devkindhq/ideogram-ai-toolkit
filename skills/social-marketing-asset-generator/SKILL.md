@@ -59,6 +59,10 @@ For each requested placement, look up its row in `references/platform-dimension-
 - **Exact** fit → proceed silently.
 - **Near-fit** → proceed, but mention the approximation in the final save-what-you-made
   summary (Step 8).
+- **Mismatch** (e.g., the LinkedIn Personal/Company Banner row) → proceed like Near-fit,
+  but disclose it to the user up front, before generating — not just in the Step 8
+  summary — since the nearest enum only shares the native ratio's general orientation and
+  does not reach its magnitude, a larger gap than a Near-fit approximation.
 - **Severe mismatch** (currently only the Leaderboard row) or any placement not in the
   table with no close ratio match → tell the user up front which placement(s) will be an
   approximation — or, for a severe mismatch, recommend handling that placement outside
@@ -132,9 +136,11 @@ the conversation.
 - **No literal copy supplied and the ask is vague** — ask for exact headline/CTA/offer
   strings before drafting; never fabricate a claim, price, or offer detail.
 - **Requested placement has no close `aspect_ratio` match** — tell the user explicitly
-  which placement(s) will be a near-fit approximation before generating (or, for a severe
-  mismatch, recommend handling that placement outside this skill). Don't silently ship a
-  wrong-ratio asset as if it matched spec.
+  which placement(s) will be a near-fit or mismatch approximation before generating (for
+  a Mismatch, call out that the gap is larger than a Near-fit approximation since the
+  nearest enum only shares the native ratio's general orientation, not its magnitude; or,
+  for a severe mismatch, recommend handling that placement outside this skill). Don't
+  silently ship a wrong-ratio asset as if it matched spec.
 - **Garbled or illegible rendered text** — treat as a failed render, not an acceptable
   result. Regenerate with adjusted text-element `bbox`/sizing rather than delivering it.
 - **`generate_images_bulk` unavailable** (non-Pro account or a tool error) — fall back to
