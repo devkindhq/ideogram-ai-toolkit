@@ -1,6 +1,6 @@
 ---
 name: brand-identity-sheet
-description: Generates a single polished "brand identity sheet" image — a Dribbble-style board showing a UI card with the wordmark, a grid of textured app icons, pill-shaped buttons, a giant central wordmark treatment, and a secondary lockup with a brand glyph — and actually renders it via the ideogram MCP tools, not just drafts a prompt. Use whenever the user wants to see a brand's whole visual system in one image (not a single logo), asks for a "moodboard," "identity sheet," "brand board," or "style board," wants app-icon / UI-component exploration alongside the logo, or references a reference image/moodboard they want matched or extended. Distinct from logo-prompting's single-mark prompts — trigger this when the ask is bigger than one logo and wants the full palette/type/icon/UI system shown together. Also use when the user wants to reverse-engineer an existing brand image into a structured, bbox-level description (a "compositional deconstruction") so it can be remixed or handed to another agent as a precise spec.
+description: Generates a single polished "brand identity sheet" image — a Dribbble-style board showing a UI card with the wordmark, a grid of textured app icons, pill-shaped buttons, a giant central wordmark treatment, and a secondary lockup with a brand glyph — and actually renders it via the ideogram MCP tools, not just drafts a prompt. Use whenever the user wants to see a brand's whole *locked* visual system in one image (not a single logo), asks for an "identity sheet," "brand system sheet," "brand board," or "style board" with real colors/type already decided, wants app-icon / UI-component exploration alongside the logo, or references a reference image they want matched or extended. Distinct from logo-prompting's single-mark prompts — trigger this when the ask is bigger than one logo and wants the full palette/type/icon/UI system shown together, and the brand's colors/type/style are already decided (a brand.md or design.md exists, or the user can state them directly). If the brand is still early-stage and unlocked — the user only has adjectives, a vague palette, or wants to explore direction before committing — use `moodboard-generator` instead; that skill is the pre-logo exploration step this one assumes is already done. Also use this skill when the user wants to reverse-engineer an existing brand-system image into a structured, bbox-level description (a "compositional deconstruction") so it can be remixed or handed to another agent as a precise spec.
 ---
 
 # Brand Identity Sheet
@@ -15,6 +15,13 @@ This is a sibling to `logo-prompting`, not a replacement. Use `logo-prompting` w
 deliverable is one mark. Use this skill when the deliverable is a board that puts the
 mark in context — alongside icons, buttons, and type at scale — the way a designer's
 Dribbble-style brand-sheet shot looks.
+
+It's also downstream of `moodboard-generator`, not a competitor to it. A moodboard
+explores direction before anything is locked (loose adjectives, an open palette, rough
+logo sketches); this skill renders the *locked* system once real colors, typography,
+and a real mark exist. If step 1 below turns up no brand.md and the user can't state
+real hex/typography values, that's the signal to run `moodboard-generator` first
+rather than inventing values here.
 
 ## The two artifacts this skill produces
 

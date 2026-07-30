@@ -1,6 +1,6 @@
 # Showcase examples
 
-Five asset categories generated with the connected Ideogram MCP tools, using the techniques documented in this skill. Every prompt below is the exact JSON caption passed to `mcp__ideogram__generate_image`'s `prompt` field — copy one verbatim to see how it renders, or use it as a template.
+Six asset categories generated with the connected Ideogram MCP tools, using the techniques documented in this skill. Every prompt below is the exact caption passed to `mcp__ideogram__generate_image`'s `prompt` field — copy one verbatim to see how it renders, or use it as a template.
 
 All were generated on the default Ideogram 4.0 model (no `custom_model_uri`), `rendering_speed: QUALITY`.
 
@@ -169,3 +169,39 @@ Demonstrates the full loop from `references/style-extraction-workflow.md`: gener
 ```
 
 `aspect_ratio: "3x2"` for both.
+
+## 6. Brand identity moodboard — 3×3 panel grid
+
+Demonstrates the `moodboard-generator` skill's template: a single paragraph prompt naming all nine panels explicitly (Color Palette, Typography, Logo Exploration, Iconography, Photography & Graphics, Material Samples, Abstract Pattern, Mood Imagery, Application Mockup), run through the anti-slop pre-generation gate before calling `generate_image`. Unlike examples 1-5, this skill's prompt is a plain descriptive paragraph rather than the structured JSON caption format — see `skills/moodboard-generator/examples/anchorpoint-moodboard.md` for the full worked example, including the compositional deconstruction.
+
+![Brand identity moodboard](images/06-moodboard-anchorpoint.png)
+
+```
+A brand identity moodboard laid out as a clean 3x3 grid on a pure white background
+with thin gray grid lines, nine equal square panels each with a small uppercase
+caption in its top-left corner, for a fictional analog-industrial coffee-equipment
+brand called Anchorpoint that feels grounded, unhurried, and honest. Panel 1
+"COLOR PALETTE": five labeled swatch chips — warm terracotta, warm cream, charcoal
+ink, brushed-steel gray, one small rust accent — each with a hex code beneath it.
+Panel 2 "TYPOGRAPHY": a serif display face paired with a monospace body face,
+shown stacked at three sizes in charcoal ink on cream, evoking a mechanical parts
+catalog. Panel 3 "LOGO EXPLORATION": three small rough hand-drawn sketches of a
+compass-rose motif suggesting brew time, unfinished exploratory linework, not one
+finished mark. Panel 4 "ICONOGRAPHY": a simple set of line-weight icons (dial,
+spout, filter cone, timer) in consistent thin charcoal linework with rounded
+corners. Panel 5 "PHOTOGRAPHY & GRAPHICS": a warm, low-contrast photograph of
+brushed-steel coffee equipment on a wood counter, natural window light. Panel 6
+"MATERIAL SAMPLES": close-up textures of brushed steel, matte terracotta ceramic,
+and uncoated paper grain, arranged as physical swatches. Panel 7 "ABSTRACT
+PATTERN": a repeating geometric pattern built from small compass-rose ticks in
+charcoal on cream, subtle and structured, not a gradient. Panel 8 "MOOD IMAGERY":
+a quiet, warm-toned photograph of steam rising from a terracotta cup on a wood
+table, conveying unhurried calm. Panel 9 "APPLICATION MOCKUP": a coffee bag label
+mockup on kraft paper using the Anchorpoint wordmark, terracotta and charcoal
+palette, and the compass-rose glyph, showing the system working together. No
+gradients, no neural-network or circuit-board textures, no glowing orb, no
+purple-to-pink wash, no generic stock-photo clichés, no placeholder brand names
+other than Anchorpoint.
+```
+
+`aspect_ratio: "1x1"`
