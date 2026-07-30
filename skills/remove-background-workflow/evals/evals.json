@@ -1,0 +1,26 @@
+{
+  "skill_name": "remove-background-workflow",
+  "evals": [
+    {
+      "id": 1,
+      "eval_name": "remove-background-from-session-generation",
+      "prompt": "Remove the background from this product shot I just generated",
+      "expected_output": "The skill resolves the source as a response_id pulled from structured_content.response_ids on the prior generate_image/edit_image call earlier in this session, per SKILL.md's 'A response from earlier this session' resolution path — it does not call upload_image or get_recent_generations, since the id is already in context and there's no vague reference to disambiguate. It then calls remove_background(image_response_id=..., private=<omitted>), leaving private unset per the private/public default rule in background-removal-patterns.md rather than guessing a value. It checks the response for the running/pending envelope documented in background-removal-patterns.md's 'Running-envelope handling' section (status: \"running\" with response_ids present but not yet done) and polls get_generation_status(request_id=...) until that request_id's row shows \"done\" before treating the output as ready, rather than treating the initial response_ids array as proof the image already resolved. Once done, it saves the transparent PNG output (converting from the served image/webp bytes, per that section's note that the URL is not literally PNG-encoded) along with its source and output identifiers and the private flag used to the project's existing output location, per SKILL.md's 'Save the output' step and the toolkit's 'No Context Lost' habit, rather than only reporting the result in chat.",
+      "files": []
+    },
+    {
+      "id": 2,
+      "eval_name": "remove-background-from-uploaded-file-no-stale-id",
+      "prompt": "I uploaded a logo, can you make it transparent",
+      "expected_output": "The skill runs the upload_image flow first per SKILL.md's 'A freshly attached local file' resolution path: calling upload_image(filename=...), running the returned curl command in the sandbox, and reading the response's id field — not image_url — as the image_upload_id, matching the real observed shape in background-removal-patterns.md and RESULT.md ({\"success\": true, \"id\": \"...\", \"image_url\": \"...\"}). It then calls remove_background(image_upload_id=...) using that id as the only source argument. The skill explicitly does not also pass a stale image_response_id left over from earlier in the conversation alongside image_upload_id, per the single-source rule in background-removal-patterns.md ('remove_background takes exactly one of image_response_id or image_upload_id — never both') and SKILL.md's error-handling rule that if both id types would otherwise apply, the skill must ask the user which one rather than passing both.",
+      "files": []
+    },
+    {
+      "id": 3,
+      "eval_name": "remove-background-then-composite-handoff",
+      "prompt": "Remove the background from this, then put it on a beach scene",
+      "expected_output": "The skill completes the background removal first — resolving the source, calling remove_background, polling the running envelope via get_generation_status until done, and saving the transparent output with its identifiers to the project's output location per SKILL.md's 'Save the output' step — before attempting any compositing. It does not try to add a background inside the remove_background call itself, since background-removal-patterns.md's 'Compositing and other follow-ups' section and SKILL.md's 'Note follow-ups' step both state remove_background only strips a background and never adds one, with no argument or mode for that. For the beach scene, the skill hands the real saved output identifier (the response_id from the completed removal, not a placeholder) to a follow-up edit_image(image_response_ids=[output_id], prompt=\"<beach scene description>\") call, matching the confirmed working handoff documented in RESULT.md (a real remove_background output id accepted directly by edit_image's image_response_ids and producing a genuine composited result).",
+      "files": []
+    }
+  ]
+}
