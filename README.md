@@ -1,39 +1,83 @@
 # ideogram-ai-toolkit
 
-A set of Claude Code skills for [Ideogram AI](https://ideogram.ai) image generation — general prompting technique (loose vs. structured, color-palette control, reference-image style extraction, remix vs. edit), plus purpose-built skills for brand identity sheets and character model sheets. Built by [Devkind](https://devkind.com.au).
+A set of Claude Code skills for [Ideogram AI](https://ideogram.ai) image generation — general prompting technique (loose vs. structured, color-palette control, reference-image style extraction, remix vs. edit), plus purpose-built skills covering brand systems, characters, marketing creative, icon sets, patterns/textures, bulk generation, custom model training, collections, and post-processing (background removal, upscaling). Built by [Devkind](https://devkind.com.au).
 
-Ideogram 4 was trained on structured JSON captions, not plain text — this toolkit documents that schema (adapted from the official [ideogram-oss/ideogram4](https://github.com/ideogram-oss/ideogram4) docs, Apache-2.0) and packages practical prompting technique around it, scoped to what the connected Ideogram MCP (`generate_image`, `describe_image`, `remix_image`, `edit_image`) actually supports.
+Ideogram 4 was trained on structured JSON captions, not plain text — this toolkit documents that schema (adapted from the official [ideogram-oss/ideogram4](https://github.com/ideogram-oss/ideogram4) docs, Apache-2.0) and packages practical prompting technique around it, scoped to what the connected Ideogram MCP actually supports.
 
 ## What's in here
 
 ```
-skills/ideogram-prompt/                   # general Ideogram prompting technique
+skills/ideogram-prompt/                       # general Ideogram prompting technique
 ├── SKILL.md
-└── references/
-    ├── json-caption-schema.md            # Ideogram 4's structured caption schema
-    └── style-extraction-workflow.md      # describe → extract recipe → apply → generate loop
-skills/logo-prompting/                    # logo/brand-mark prompt writing, Ideogram-first
+├── references/                               # JSON caption schema, style-extraction workflow
+└── examples/                                 # pointer to the root examples/ set (see below)
+skills/logo-prompting/                        # logo/brand-mark prompt writing, Ideogram-first
 ├── SKILL.md
-├── references/                           # anti-slop discipline, brand visual-layer reading, intake checklist
-└── examples/                             # accumulated real logo-prompt directions by style family
-skills/brand-identity-sheet/              # whole brand system in one generated image (wordmark, icons, buttons)
+├── references/                               # anti-slop discipline, brand visual-layer reading, intake checklist
+└── examples/                                 # accumulated real logo-prompt directions by style family
+skills/moodboard-generator/                   # pre-logo 3x3 brand-exploration board (loose adjectives, unlocked palette)
 ├── SKILL.md
-├── references/                           # panel anatomy, composition-spec JSON schema, anti-slop discipline
-├── examples/                             # a worked prompt + full JSON breakdown
-└── evals/                                # eval scenarios for this skill
-skills/character-model-sheet/             # multi-panel character turnaround sheet (mascot, game/animation character)
+├── references/                               # panel anatomy, composition-spec JSON schema, anti-slop discipline
+└── examples/                                 # a worked prompt + full JSON breakdown
+skills/brand-identity-sheet/                  # whole brand system in one generated image (wordmark, icons, buttons)
 ├── SKILL.md
-├── references/                           # panel anatomy, composition-spec JSON schema, anti-slop discipline
-├── examples/                             # a worked prompt + full JSON breakdown
-└── evals/                                # eval scenarios for this skill
-skills/moodboard-generator/                # pre-logo 3x3 brand-exploration board (loose adjectives, unlocked palette)
+├── references/                               # panel anatomy, composition-spec JSON schema, anti-slop discipline
+├── examples/                                 # a worked prompt + full JSON breakdown
+└── evals/                                    # eval scenarios for this skill
+skills/character-model-sheet/                 # multi-panel character turnaround sheet (mascot, game/animation character)
 ├── SKILL.md
-├── references/                           # panel anatomy, composition-spec JSON schema, anti-slop discipline
-└── examples/                             # a worked prompt + full JSON breakdown
-examples/                                 # generated showcase assets + the exact prompts used
+├── references/                               # panel anatomy, composition-spec JSON schema, anti-slop discipline
+├── examples/                                 # a worked prompt + full JSON breakdown
+└── evals/                                    # eval scenarios for this skill
+skills/marketing-ui-mockup-hero-generator/    # landing-page hero shots, device mockups, dashboard screenshots
+├── SKILL.md
+├── references/
+├── examples/                                 # worked hero/device-mockup/dashboard examples
+└── evals/
+skills/social-marketing-asset-generator/      # finished social/ad creative with copy baked into the pixels
+├── SKILL.md
+├── references/                               # composition-spec format, anti-slop discipline, platform dimension map, typography-baking discipline
+├── examples/                                 # populated as worked jobs are run — see examples/STATUS.md
+└── evals/
+skills/photographic-icon-set-generator/       # consistent 3D/claymation/textured icon packs sharing a locked style recipe
+├── SKILL.md
+├── references/                               # style-lock recipe, anti-slop discipline, set-consistency workflow
+├── examples/                                 # a worked claymation icon set
+└── evals/
+skills/seamless-pattern-texture-generator/    # seamless/tileable patterns and material textures
+├── SKILL.md
+├── references/                               # tile-prompt recipe, tiling verification, anti-slop discipline, composition-spec format
+├── examples/                                 # populated once a real job is run — see examples/README.md
+└── evals/
+skills/bulk-image-generation-workflow/        # one locked caption → N on-brief variations, batch-submitted and culled
+├── SKILL.md
+├── references/                               # variation strategy, review/culling guide
+├── examples/                                 # a worked 10-prompt sticker-pack batch, shortlisted to 6
+└── evals/
+skills/custom-model-training/                 # train a custom Ideogram model on a folder of reference images
+├── SKILL.md
+├── references/
+├── examples/                                 # a worked training set + proof generation
+└── evals/
+skills/collections-management/                # create/browse/rename/delete Ideogram collections, file images into them
+├── SKILL.md
+├── references/
+├── examples/                                 # a worked logo collection
+└── evals/
+skills/remove-background-workflow/            # strip an image's background to a transparent PNG
+├── SKILL.md
+├── references/                               # background-removal patterns
+├── examples/                                 # a worked before/after
+└── evals/
+skills/upscale-image-workflow/                # raise the resolution of one specific Ideogram image
+├── SKILL.md
+├── references/                               # upscale settings
+├── examples/                                 # a worked upscale
+└── evals/
+examples/                                     # generated showcase assets + the exact prompts used
 ```
 
-See [`examples/`](examples/README.md) for the full write-up — each image below links to its exact prompt.
+See [`examples/`](examples/README.md) for the full write-up of the root showcase set — each image below links to its exact prompt.
 
 <table>
   <tr>
@@ -96,13 +140,61 @@ See [`examples/`](examples/README.md) for the full write-up — each image below
       </a>
     </td>
   </tr>
+  <tr>
+    <td align="center" width="33%">
+      <a href="skills/marketing-ui-mockup-hero-generator/examples/">
+        <img src="skills/marketing-ui-mockup-hero-generator/examples/images/technauts-landing-hero.webp" width="200"><br>
+        Landing-page hero (Technauts)
+      </a>
+    </td>
+    <td align="center" width="33%">
+      <a href="skills/marketing-ui-mockup-hero-generator/examples/">
+        <img src="skills/marketing-ui-mockup-hero-generator/examples/images/voicehive-device-mockup.webp" width="200"><br>
+        Device mockup (VoiceHive)
+      </a>
+    </td>
+    <td align="center" width="33%">
+      <a href="skills/photographic-icon-set-generator/examples/claymation-recipe-app-icons/">
+        <img src="skills/photographic-icon-set-generator/examples/claymation-recipe-app-icons/icon-home.png" width="200"><br>
+        Claymation icon set
+      </a>
+    </td>
+  </tr>
+  <tr>
+    <td align="center" width="33%">
+      <a href="skills/bulk-image-generation-workflow/examples/courier-fox-sticker-pack/">
+        <img src="skills/bulk-image-generation-workflow/examples/courier-fox-sticker-pack/images/courier-fox-01-running-holding-parcel.webp" width="200"><br>
+        Bulk sticker pack (courier fox)
+      </a>
+    </td>
+    <td align="center" width="33%">
+      <a href="skills/custom-model-training/examples/fizzwright-hopcarry-training-set/">
+        <img src="skills/custom-model-training/examples/fizzwright-hopcarry-training-set/kip-surfing-bottlecap-wave.webp" width="200"><br>
+        Custom model output (Kip)
+      </a>
+    </td>
+    <td align="center" width="33%">
+      <a href="skills/remove-background-workflow/examples/logo-background-removal/">
+        <img src="skills/remove-background-workflow/examples/logo-background-removal/anchorpoint-logo-1-transparent.png" width="200"><br>
+        Background removal (Anchorpoint)
+      </a>
+    </td>
+  </tr>
+  <tr>
+    <td align="center" width="33%">
+      <a href="skills/logo-prompting/examples/fleetline-four-directions.md">
+        <img src="skills/logo-prompting/examples/images/fleetline-01-wordmark.webp" width="200"><br>
+        Logo, four directions (Fleetline)
+      </a>
+    </td>
+  </tr>
 </table>
 
 ## Install
 
 This is a set of Claude Code [skills](https://docs.claude.com/en/docs/claude-code/skills). Requires the [Ideogram MCP](https://ideogram.ai/features/mcp/) to be connected (`claude mcp add ideogram --transport http https://mcp.ideogram.ai/mcp`).
 
-Each skill installs independently — swap `ideogram-prompt` below for `logo-prompting`, `brand-identity-sheet`, or `character-model-sheet` as needed.
+Each skill installs independently — swap `ideogram-prompt` below for any of the 14 skills under `skills/` as needed.
 
 **Via the [skills CLI](https://www.skills.sh)** (reads straight from this GitHub repo, no unreviewed single-URL installer):
 ```bash
