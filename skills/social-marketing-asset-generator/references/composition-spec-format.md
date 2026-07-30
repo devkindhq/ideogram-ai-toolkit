@@ -24,7 +24,7 @@ Each text element's `bbox` must be placed inside the platform's UI-chrome safe z
 
 ## Full worked example
 
-The following JSON caption represents a complete single-placement Instagram feed ad for a fictional product, demonstrating proper use of all six element roles and strict adherence to the shared schema's field names, key order, and `bbox` convention.
+The following JSON caption represents a complete single-placement Instagram feed ad for a fictional product, demonstrating use of five of the six element roles (brand-mark omitted in this example) and strict adherence to the shared schema's field names, key order, and `bbox` convention.
 
 ```json
 {
