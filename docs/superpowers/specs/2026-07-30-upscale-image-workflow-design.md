@@ -2,8 +2,7 @@
 
 ## Why
 
-Gap-research (see `04-projects/devkind/ideogram-ai-toolkit.md` in the Devkind vault, dated
-2026-07-30) flagged `upscale_image` as a Tier 2 gap: uncontested and low-competition, no
+Gap-research (conducted 2026-07-30) flagged `upscale_image` as a Tier 2 gap: uncontested and low-competition, no
 prior art to differentiate against and no differentiation angle required. The connected
 Ideogram MCP already exposes the tool needed: `mcp__ideogram__upscale_image` (confirmed
 live via direct tool-schema inspection, not assumed from docs).

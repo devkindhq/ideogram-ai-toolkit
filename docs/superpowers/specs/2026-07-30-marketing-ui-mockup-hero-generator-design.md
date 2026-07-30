@@ -2,8 +2,7 @@
 
 ## Why
 
-Gap-research (`05-knowledge/technical/ideogram-tier3-differentiation-research-2026-07-30.md`
-in the Devkind vault, dated 2026-07-30, Gap 3) found the "UI mockup / landing-page hero"
+Gap-research (conducted 2026-07-30, Gap 3) found the "UI mockup / landing-page hero"
 competitive set is bifurcated: HTML/CSS code-output tools (`baoyu-design`,
 `ShadmanSakibRahman`, `borghei`, `inbharatai` — the majority, produce real editable/
 responsive code) versus one generic raster tool (`jezweb/claude-skills`'

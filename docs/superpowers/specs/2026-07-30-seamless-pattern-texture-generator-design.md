@@ -2,7 +2,7 @@
 
 ## Why
 
-Gap-research (see `04-projects/devkind/ideogram-ai-toolkit.md` in the Devkind vault, dated 2026-07-30) identified seamless pattern/texture generation as a Tier 1 gap: zero confirmed prior art anywhere in the Claude Code skill ecosystem for this deliverable type — fabric, wallpaper, packaging, and surface-design tiles built on Ideogram. It's an uncontested space; no differentiation angle beyond matching the repo's existing house methodology is required.
+Gap-research (conducted 2026-07-30) identified seamless pattern/texture generation as a Tier 1 gap: zero confirmed prior art anywhere in the Claude Code skill ecosystem for this deliverable type — fabric, wallpaper, packaging, and surface-design tiles built on Ideogram. It's an uncontested space; no differentiation angle beyond matching the repo's existing house methodology is required.
 
 The connected Ideogram MCP exposes `generate_image`, `generate_images_bulk`, and `remix_image` for this workflow (confirmed live via direct tool-schema inspection, not assumed from docs). Direct inspection also surfaced the fact that shapes this entire design: **none of `generate_image`, `generate_images_bulk`, or `remix_image` (nor `reframe_image`) expose a seamless/tileable boolean, an edge-wrap mode, or an offset/repeat-preview capability.** There is no mechanical "make this tile" switch anywhere in the connected surface. Seamlessness here is achieved entirely through prompt language plus a best-effort visual verification step — never asserted as a guarantee the API enforces. This is the load-bearing fact for the whole spec, in the same spirit as `custom-model-training`'s honest split of confirmed-vs-unverified dataset requirements.
 

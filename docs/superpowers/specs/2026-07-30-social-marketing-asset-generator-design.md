@@ -2,8 +2,7 @@
 
 ## Why
 
-Gap-research (`05-knowledge/technical/ideogram-tier3-differentiation-research-2026-07-30.md`
-in the Devkind vault, Gap 1) covers social/marketing asset generation — this is a Tier 3
+Gap-research (Gap 1) covers social/marketing asset generation — this is a Tier 3
 skill per the toolkit's gap tiering, not a Tier 1 zero-prior-art gap like
 `collections-management`. The gap analysis itself calls this "the most crowded gap":
 multiple existing skills already target banner/ad creative. The job here isn't filling an

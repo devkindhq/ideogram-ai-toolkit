@@ -2,7 +2,7 @@
 
 ## Why
 
-Gap-research (see `04-projects/devkind/ideogram-ai-toolkit.md` in the Devkind vault, dated 2026-07-30) found zero prior art anywhere in the Claude Code skill ecosystem for an Ideogram custom-model-training workflow. It's also the highest-value gap identified: it chains directly onto the existing `brand-identity-sheet` skill — a locked identity sheet becomes training data for a custom model that then generates on-brand assets indefinitely. No competitor has built this pipeline.
+Gap-research (conducted 2026-07-30) found zero prior art anywhere in the Claude Code skill ecosystem for an Ideogram custom-model-training workflow. It's also the highest-value gap identified: it chains directly onto the existing `brand-identity-sheet` skill — a locked identity sheet becomes training data for a custom model that then generates on-brand assets indefinitely. No competitor has built this pipeline.
 
 The connected Ideogram MCP already exposes the full tool surface needed: `create_dataset`, `upload_dataset_assets`, `list_datasets`, `train_model`, `get_model`, `list_models` (confirmed live via direct tool-schema inspection, not assumed from docs).
 
