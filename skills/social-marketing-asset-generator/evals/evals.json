@@ -1,0 +1,26 @@
+{
+  "skill_name": "social-marketing-asset-generator",
+  "evals": [
+    {
+      "id": 1,
+      "eval_name": "literal-copy-single-placement-instagram-feed",
+      "prompt": "Make me an Instagram feed ad for our new noise-cancelling headset with headline 'Meet Terracotta' and a 'Shop Now' button",
+      "expected_output": "The skill treats 'Meet Terracotta' and 'Shop Now' as literal must-render-exactly text elements per composition-spec-format.md's headline and CTA roles. It runs the anti-slop gate's copy-fidelity axis before generating, per anti-slop-discipline.md, ensuring the composed JSON caption preserves these exact strings. It resolves Instagram Feed to the exact-fit 4x5 or 1x1 row in platform-dimension-map.md, calling generate_image with style_type: 'DESIGN' and rendering_speed: 'QUALITY' per Workflow Step 5. It then runs the legibility review in Step 6 to verify rendered text is readable, per typography-baking-discipline.md. It does not skip the gate, does not fabricate additional copy (like a subhead or price), and does not proceed to image generation until all four anti-slop axes score 3 or higher per Step 4.",
+      "files": []
+    },
+    {
+      "id": 2,
+      "eval_name": "platform-fanout-with-linkedin-banner-mismatch-disclosure",
+      "prompt": "I need this same launch graphic in Instagram Story, Facebook feed, and LinkedIn banner sizes",
+      "expected_output": "The skill consults platform-dimension-map.md for each placement: Instagram Story resolves to exact-fit 9x16; Facebook Feed resolves to near-fit 2x1; LinkedIn Personal/Company Banner has no supported aspect_ratio that reaches 4:1, with 3x1 as the nearest enum (a Mismatch, per Step 2's classification). Since LinkedIn Banner is a Mismatch, the skill discloses this gap explicitly to the user BEFORE generating—not silently in Step 8—noting that the nearest enum only shares the general orientation, not the magnitude, per Workflow Step 2's Mismatch rule. The skill then attempts generate_images_bulk with one prompt per resolved platform variant, or falls back to sequential generate_image calls if bulk is unavailable (non-Pro or error), explaining the fallback to the user per Error handling's generate_images_bulk unavailable rule.",
+      "files": []
+    },
+    {
+      "id": 3,
+      "eval_name": "no-literal-copy-asks-before-drafting",
+      "prompt": "Make an ad for our big sale",
+      "expected_output": "The skill recognizes that no literal headline, CTA, or offer copy was supplied and the ask is vague. Per Workflow Step 1's Intake rule, it asks for exact strings—the exact discount figure, the exact CTA wording, any price—BEFORE drafting any JSON caption or calling generate_image. It explicitly does not invent a plausible-sounding discount percentage, claim, or offer detail, per the note in Step 1 that 'a fabricated number baked into pixels is a real failure, not a stylistic shortcut' and the Error handling rule 'never fabricate a claim, price, or offer detail.' Only after the user supplies the literal copy does the skill proceed to composition and generation.",
+      "files": []
+    }
+  ]
+}
