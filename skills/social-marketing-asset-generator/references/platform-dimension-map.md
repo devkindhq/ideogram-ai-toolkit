@@ -41,7 +41,9 @@ The **Fit** column classifies how well Ideogram's nearest supported `aspect_rati
 
 - **Exact**: The nearest `aspect_ratio` enum value equals the platform's native ratio (rounding to 2 decimal places). The generated image will fill the platform's native space without meaningful cropping or padding. Examples: Instagram Feed (square), Instagram Story/Reels, X Post, YouTube Thumbnail.
 
-- **Near-fit**: The nearest enum value is within roughly 0.3 of the native ratio — close enough to disclose as a minor approximation but not refuse. The image will be slightly cropped or require light padding depending on platform display logic. Examples: Facebook Feed, Facebook Cover Photo, LinkedIn Feed Post.
+- **Near-fit**: The nearest enum value is within roughly 0.4 of the native ratio — close enough to disclose as a minor approximation but not refuse. The image will be slightly cropped or require light padding depending on platform display logic. Examples: Facebook Feed, Facebook Cover Photo, LinkedIn Feed Post.
+
+- **Mismatch**: The nearest enum value shares the same general orientation as the platform's native ratio (e.g., both landscape, both elongated) but the native ratio is substantially wider or narrower than what the nearest enum can reach — a gap beyond a minor approximation but not extreme enough to require external handling. The shape is in the right neighborhood but does not match the native ratio's magnitude. Example: LinkedIn Personal/Company Banner (native 4:1+ vs. nearest `3x1` at 3.0).
 
 - **Severe mismatch**: The gap between the nearest enum value and the native ratio is wide enough that the skill should recommend the user handle that placement outside this skill entirely rather than disclose-and-ship a poor approximation. Example: Generic Display — Leaderboard (native 8.09 vs. nearest `3x1` at 3.0 is a 2.7x gap).
 
