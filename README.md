@@ -26,6 +26,10 @@ skills/character-model-sheet/             # multi-panel character turnaround she
 ├── references/                           # panel anatomy, composition-spec JSON schema, anti-slop discipline
 ├── examples/                             # a worked prompt + full JSON breakdown
 └── evals/                                # eval scenarios for this skill
+skills/moodboard-generator/                # pre-logo 3x3 brand-exploration board (loose adjectives, unlocked palette)
+├── SKILL.md
+├── references/                           # panel anatomy, composition-spec JSON schema, anti-slop discipline
+└── examples/                             # a worked prompt + full JSON breakdown
 examples/                                 # generated showcase assets + the exact prompts used
 ```
 
@@ -69,6 +73,14 @@ See [`examples/`](examples/README.md) for the full write-up — each image below
       <a href="examples/README.md#5-style-extraction--reference-image-to-new-subject">
         <img src="examples/images/05b-style-extraction-applied.png" width="200"><br>
         Style extraction (applied)
+      </a>
+    </td>
+  </tr>
+  <tr>
+    <td align="center" width="33%">
+      <a href="examples/README.md#6-brand-identity-moodboard--33-panel-grid">
+        <img src="examples/images/06-moodboard-anchorpoint.png" width="200"><br>
+        Brand identity moodboard
       </a>
     </td>
   </tr>
