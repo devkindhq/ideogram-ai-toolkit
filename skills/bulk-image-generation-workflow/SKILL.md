@@ -58,16 +58,17 @@ truncating the list.
 ### 4. Confirm batch size before submitting
 
 There's no dry-run or preview for this tool, and every image in the batch spends
-generation credits on submission. For anything past a small batch (roughly 20+ prompts),
-get an explicit go-ahead on the count before calling `generate_images_bulk` — the same
+generation credits on submission. For anything past a small batch (roughly 20+ prompts —
+a chosen default for this skill, not a threshold the API itself enforces), get an
+explicit go-ahead on the count before calling `generate_images_bulk` — the same
 spend-before-you-commit spirit `collections-management` applies to destructive flags,
 adapted here to spend instead of deletion.
 
 ### 5. Submit and track
 
 Call `generate_images_bulk(prompts=[...], ...)` once, passing the shared non-prompt
-parameters the user specified (noting the custom-model-only params from step 2 above).
-Tell the user it's an async job and they can keep chatting while it renders. Use
+parameters the user specified (noting the custom-model-only params caveat from the intro
+above). Tell the user it's an async job and they can keep chatting while it renders. Use
 `get_generation_status(request_id=...)` — or omit `request_id` to list everything from the
 session — to check progress. Its response is a markdown table of
 `Request ID | Status | Prompt | URL` rows in terminal hosts, with the same data available
@@ -81,7 +82,7 @@ unconfirmed field shapes.
 
 Once results are available, follow `references/review-culling-guide.md`: pull results via
 `get_generation_status` (or `get_recent_generations(n=..., filter_mode="GENERATIONS")` as a
-fallback lookup, capped at 50/call), score each image against the locked
+fallback lookup), score each image against the locked
 `style_description` and its own per-prompt compositional intent, record a one-line
 keep/reject reason per image, and produce a shortlist. Hand the shortlist to
 `collections-management` to file it and to `upscale_image` for any finals that need higher
@@ -92,7 +93,9 @@ resolution — this skill doesn't reimplement either.
 - Batch count outside 1–500 → ask the user to narrow the axis or split into multiple
   calls; never silently truncate or pad the prompt list to fit.
 - Large-batch submission without explicit size confirmation → don't submit; ask first,
-  since there's no dry-run and every image spends credits the moment it's submitted.
+  since there's no dry-run and every image spends credits the moment it's submitted. The
+  "roughly 20+ prompts" size that triggers this check is a chosen default for this skill,
+  not a tool-enforced rule — apply judgment, don't treat it as an API cutoff.
 - A drafted prompt that changes `style_description` fields instead of only
   `compositional_deconstruction` → flag it during drafting (or in review, if it slipped
   through) as off-brief; fix the prompt or split it into a separate batch rather than
