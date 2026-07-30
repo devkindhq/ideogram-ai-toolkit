@@ -2,8 +2,7 @@
 
 ## Why
 
-Gap-research (`[redacted-internal-path]`
-in the internal notes, Gap 1) covers social/marketing asset generation — this is a Tier 3
+Gap-research (Gap 1) covers social/marketing asset generation — this is a Tier 3
 skill per the toolkit's gap tiering, not a Tier 1 zero-prior-art gap like
 `collections-management`. The gap analysis itself calls this "the most crowded gap":
 multiple existing skills already target banner/ad creative. The job here isn't filling an

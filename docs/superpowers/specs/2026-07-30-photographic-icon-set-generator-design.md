@@ -2,8 +2,7 @@
 
 ## Why
 
-Gap-research (`[redacted-internal-path]`
-in the internal notes, dated 2026-07-30, Gap 2) confirms `jezweb/claude-skills` ships
+Gap-research (conducted 2026-07-30, Gap 2) confirms `jezweb/claude-skills` ships
 `icon-set-generator` — hand-written SVG code, no AI/raster image generation at all — and,
 separately, a general-purpose `ai-image-generator` (Gemini/GPT-Image backend) that lists
 "icons" among its supported output types but applies no cross-icon consistency discipline

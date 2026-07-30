@@ -2,7 +2,7 @@
 
 ## Why
 
-Gap-research (see `[redacted-internal-path]` in the internal notes, dated 2026-07-30) identified collections management as a Tier 1 gap: zero prior art anywhere in the Claude Code skill ecosystem for an Ideogram collections workflow, alongside custom model training. Custom model training shipped first (`skills/custom-model-training/`); this is the second of the two Tier 1 skills.
+Gap-research (conducted 2026-07-30) identified collections management as a Tier 1 gap: zero prior art anywhere in the Claude Code skill ecosystem for an Ideogram collections workflow, alongside custom model training. Custom model training shipped first (`skills/custom-model-training/`); this is the second of the two Tier 1 skills.
 
 The connected Ideogram MCP already exposes the full tool surface needed: `create_collection`, `list_collections`, `add_images_to_collection`, `remove_images_from_collection`, `rename_collection`, `delete_collection`, `get_images_by_collection_id` (confirmed live via direct tool-schema inspection, not assumed from docs).
 
