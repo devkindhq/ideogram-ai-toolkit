@@ -1,6 +1,6 @@
 ---
 name: collections-management
-description: Organizes Ideogram images — generated this session or previously uploaded — into named collections: create a collection, find-or-add to an existing one, browse what's in it, rename it, or remove images/delete it. Use whenever the user asks to "create a collection," "organize into a collection," "add to my collection," "what's in my [name] collection," or "rename/delete a collection." Only triggers on that kind of explicit request — it does not auto-run after `brand-identity-sheet`, `character-model-sheet`, `moodboard-generator`, or `custom-model-training` to proactively offer filing their output; those four skills are unmodified and unaware of this one.
+description: Organizes Ideogram images — generated this session or previously uploaded — into named collections — create a collection, find-or-add to an existing one, browse what's in it, rename it, or remove images/delete it. Use whenever the user asks to "create a collection," "organize into a collection," "add to my collection," "what's in my [name] collection," or "rename/delete a collection." Only triggers on that kind of explicit request — it does not auto-run after `brand-identity-sheet`, `character-model-sheet`, `moodboard-generator`, or `custom-model-training` to proactively offer filing their output; those four skills are unmodified and unaware of this one.
 ---
 
 # Collections Management
