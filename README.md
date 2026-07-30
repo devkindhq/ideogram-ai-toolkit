@@ -1,17 +1,31 @@
 # ideogram-ai-toolkit
 
-A Claude Code skill for [Ideogram AI](https://ideogram.ai) image generation — two prompting modes (loose vs. structured), color-palette control, reference-image style extraction, and the difference between remix and edit. Built by [Devkind](https://devkind.com.au).
+A set of Claude Code skills for [Ideogram AI](https://ideogram.ai) image generation — general prompting technique (loose vs. structured, color-palette control, reference-image style extraction, remix vs. edit), plus purpose-built skills for brand identity sheets and character model sheets. Built by [Devkind](https://devkind.com.au).
 
 Ideogram 4 was trained on structured JSON captions, not plain text — this toolkit documents that schema (adapted from the official [ideogram-oss/ideogram4](https://github.com/ideogram-oss/ideogram4) docs, Apache-2.0) and packages practical prompting technique around it, scoped to what the connected Ideogram MCP (`generate_image`, `describe_image`, `remix_image`, `edit_image`) actually supports.
 
 ## What's in here
 
 ```
-skills/ideogram-prompt/
-├── SKILL.md                              # the skill itself
+skills/ideogram-prompt/                   # general Ideogram prompting technique
+├── SKILL.md
 └── references/
     ├── json-caption-schema.md            # Ideogram 4's structured caption schema
     └── style-extraction-workflow.md      # describe → extract recipe → apply → generate loop
+skills/logo-prompting/                    # logo/brand-mark prompt writing, Ideogram-first
+├── SKILL.md
+├── references/                           # anti-slop discipline, brand visual-layer reading, intake checklist
+└── examples/                             # accumulated real logo-prompt directions by style family
+skills/brand-identity-sheet/              # whole brand system in one generated image (wordmark, icons, buttons)
+├── SKILL.md
+├── references/                           # panel anatomy, composition-spec JSON schema, anti-slop discipline
+├── examples/                             # a worked prompt + full JSON breakdown
+└── evals/                                # eval scenarios for this skill
+skills/character-model-sheet/             # multi-panel character turnaround sheet (mascot, game/animation character)
+├── SKILL.md
+├── references/                           # panel anatomy, composition-spec JSON schema, anti-slop discipline
+├── examples/                             # a worked prompt + full JSON breakdown
+└── evals/                                # eval scenarios for this skill
 examples/                                 # generated showcase assets + the exact prompts used
 ```
 
@@ -62,7 +76,9 @@ See [`examples/`](examples/README.md) for the full write-up — each image below
 
 ## Install
 
-This is a Claude Code [skill](https://docs.claude.com/en/docs/claude-code/skills). Requires the [Ideogram MCP](https://ideogram.ai/features/mcp/) to be connected (`claude mcp add ideogram --transport http https://mcp.ideogram.ai/mcp`).
+This is a set of Claude Code [skills](https://docs.claude.com/en/docs/claude-code/skills). Requires the [Ideogram MCP](https://ideogram.ai/features/mcp/) to be connected (`claude mcp add ideogram --transport http https://mcp.ideogram.ai/mcp`).
+
+Each skill installs independently — swap `ideogram-prompt` below for `logo-prompting`, `brand-identity-sheet`, or `character-model-sheet` as needed.
 
 **Via the [skills CLI](https://www.skills.sh)** (reads straight from this GitHub repo, no unreviewed single-URL installer):
 ```bash
