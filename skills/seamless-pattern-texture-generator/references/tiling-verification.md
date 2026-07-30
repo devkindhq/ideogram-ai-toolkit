@@ -31,8 +31,11 @@ Structure:
 2. **State the verification request explicitly** — "this exact pattern repeated in a 2×2
    grid, edges aligned, no visible seam."
 3. **Label it as verification-only** — state plainly this render is a QA check, not a new
-   deliverable, so it does not get saved or presented as an alternate version of the base
-   tile.
+   deliverable. Its image URL and the honest seam-check outcome still get written to
+   `04-projects/<project>/` per Workflow step 8 (`SKILL.md` lists "the verification
+   result" and "the image URL(s)" as separate save items for exactly this reason) — what
+   must never happen is presenting it, labeled or unlabeled, as an alternate version of
+   the base tile itself.
 
 Example template:
 
