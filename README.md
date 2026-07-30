@@ -9,7 +9,8 @@ Ideogram 4 was trained on structured JSON captions, not plain text — this tool
 ```
 skills/ideogram-prompt/                       # general Ideogram prompting technique
 ├── SKILL.md
-└── references/                               # JSON caption schema, style-extraction workflow
+├── references/                               # JSON caption schema, style-extraction workflow
+└── examples/                                 # pointer to the root examples/ set (see below)
 skills/logo-prompting/                        # logo/brand-mark prompt writing, Ideogram-first
 ├── SKILL.md
 ├── references/                               # anti-slop discipline, brand visual-layer reading, intake checklist
@@ -176,6 +177,14 @@ See [`examples/`](examples/README.md) for the full write-up of the root showcase
       <a href="skills/remove-background-workflow/examples/logo-background-removal/">
         <img src="skills/remove-background-workflow/examples/logo-background-removal/anchorpoint-logo-1-transparent.png" width="200"><br>
         Background removal (Anchorpoint)
+      </a>
+    </td>
+  </tr>
+  <tr>
+    <td align="center" width="33%">
+      <a href="skills/logo-prompting/examples/fleetline-four-directions.md">
+        <img src="skills/logo-prompting/examples/images/fleetline-01-wordmark.webp" width="200"><br>
+        Logo, four directions (Fleetline)
       </a>
     </td>
   </tr>
