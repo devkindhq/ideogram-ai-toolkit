@@ -148,7 +148,7 @@ background-lock violation (image 9).
   `high_level_description` and multiple finer-grained elements. This means
   the batch is not fully immune to the same "unrequested text/detail"
   failure mode that plain-text prompts have — 2 of the 10 images in this run
-  (images 4 and 5) got hallucinated text the prompt never asked for, despite
+  (images 6 and 7) got hallucinated text the prompt never asked for, despite
   using the structured-JSON format.
 - Not verified by this run: behavior above the 10-prompt job size ceiling
   described here (the ~20-prompt confirmation threshold this run stayed
