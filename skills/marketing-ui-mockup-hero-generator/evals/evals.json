@@ -1,0 +1,46 @@
+{
+  "skill_name": "marketing-ui-mockup-hero-generator",
+  "evals": [
+    {
+      "id": 1,
+      "eval_name": "technauts-hero-with-social-reframe",
+      "prompt": "Generate a landing-page hero image for Technauts — headline 'Ship telemetry that trusts itself', subhead 'Real-time satellite health, without the guesswork', and a 'Start free trial' button, with a browser-chrome mockup of the product behind it. I also need a square version for social.",
+      "expected_output": "The skill drafts a paragraph prompt naming every assigned layer in reading order with the literal headline, subhead, and CTA copy quoted verbatim, runs the anti-slop gate against that prompt before generating, calls generate_image with style_type: \"DESIGN\" and aspect_ratio: \"16x9\" for the base hero, then calls reframe_image on the base generation's response_id with aspect_ratio: \"1x1\" to produce the social variant instead of a second independent generate_image call, and saves a compositional-deconstruction JSON tagging Nav Bar, Hero Copy Zone, CTA Placement, and Device Frame/Chrome elements.",
+      "files": [],
+      "expectations": [
+        "The skill actually calls generate_image and reframe_image rather than only printing a drafted prompt.",
+        "The generation prompt contains the exact user-supplied headline, subhead, and CTA copy verbatim, not paraphrased or replaced with placeholder text.",
+        "reframe_image is called with the base generation's response_id, not a second independent generate_image call for the square variant.",
+        "The compositional deconstruction is bbox-structured JSON with elements tagged by compositional layer name, not a paragraph description.",
+        "Results (prompt, deconstruction JSON, both image URLs) are saved to a project file rather than left only in the conversation."
+      ]
+    },
+    {
+      "id": 2,
+      "eval_name": "voicehive-laptop-desk-mockup",
+      "prompt": "I need a device mockup showing VoiceHive's app running on a laptop, sitting on a desk, for the pitch deck.",
+      "expected_output": "The skill assigns Background/Environment, Device Frame/Chrome, Supporting UI Chrome, and Product Visual layers (no Nav Bar layer, since this format has none per mockup-anatomy.md), calls generate_image with style_type: \"REALISTIC\" (not \"DESIGN\", since this is a photographic device-in-context shot) and makes no reframe_image call since no additional placement was requested, and saves a compositional deconstruction consistent with this format's layer set.",
+      "files": [],
+      "expectations": [
+        "style_type: \"REALISTIC\" is used, not \"DESIGN\".",
+        "No reframe_image call occurs, since the prompt requests only one placement.",
+        "The compositional deconstruction contains no Nav Bar, Hero Copy Zone, or CTA Placement elements, consistent with this format's layer table.",
+        "The skill actually calls generate_image rather than only drafting a prompt."
+      ]
+    },
+    {
+      "id": 3,
+      "eval_name": "voicehive-dashboard-anti-slop-gate",
+      "prompt": "Make an App Store screenshot showing the VoiceHive dashboard — sidebar nav, a couple of stat cards, a call-volume chart.",
+      "expected_output": "The skill runs the anti-slop gate against a first-draft prompt, catches under-specified chart/data-specificity (a chart with no real metric or trend named), revises the prompt to name a real call-volume metric and trend before calling generate_image with style_type: \"DESIGN\", and saves a compositional deconstruction with Nav Bar/Sidebar and Supporting UI Chrome elements only (no Device Frame/Chrome, no CTA Placement, per this format's layer table).",
+      "files": [],
+      "expectations": [
+        "The skill's drafted prompt names a specific chart label and plausible data values/trend for the call-volume chart, not \"a chart\".",
+        "The anti-slop gate is applied before generate_image is called, not skipped or applied only after.",
+        "style_type: \"DESIGN\" is used.",
+        "The compositional deconstruction contains no Device Frame/Chrome or CTA Placement elements, consistent with the dashboard-screenshot format's layer table.",
+        "The skill actually calls generate_image rather than only printing a prompt."
+      ]
+    }
+  ]
+}
