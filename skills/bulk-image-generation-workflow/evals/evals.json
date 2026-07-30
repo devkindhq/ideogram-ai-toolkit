@@ -1,0 +1,26 @@
+{
+  "skill_name": "bulk-image-generation-workflow",
+  "evals": [
+    {
+      "id": 1,
+      "eval_name": "batch-locks-style-varies-composition-only",
+      "prompt": "Generate 12 on-brief variations of this mascot caption, varying the pose and prop",
+      "expected_output": "The skill resolves the existing locked structured JSON caption already in context (workflow step 1) rather than re-deriving one. Per references/variation-strategy.md's 'lock style, vary composition' rule, it chooses pose and prop as the variation axis, confirming that's the entire variation surface for this batch (workflow step 2). It drafts exactly 12 prompt strings that carry the identical style_description object byte-for-byte in every prompt, varying only each compositional_deconstruction element's pose/prop desc between prompts (workflow step 3), and does not touch any style_description field in the diff. Since 12 is under the ~20-prompt threshold from SKILL.md's workflow step 4, it proceeds without pausing for an explicit size-confirmation gate. It submits all 12 as a single generate_images_bulk(prompts=[...]) call rather than issuing 12 separate generate_image calls (workflow step 5).",
+      "files": []
+    },
+    {
+      "id": 2,
+      "eval_name": "large-batch-confirms-size-then-reviews-results",
+      "prompt": "Give me a sticker pack of 30 versions of this mascot in different poses",
+      "expected_output": "The skill recognizes that 30 prompts is past the roughly 20-prompt confirmation threshold defined in SKILL.md's workflow step 4 and Error handling section, and, because there is no dry-run and every image spends credits on submission, it asks the user for an explicit go-ahead on the count before calling generate_images_bulk rather than submitting immediately. It does not silently reduce or pad the count to sidestep the check. Once the user confirms and results come back, the skill follows references/review-culling-guide.md: it pulls results via get_generation_status, scores each image against the locked style_description and its own per-prompt pose intent, records a one-line keep/reject reason per image, and produces a keep/reject shortlist rather than simply reporting that the images are done.",
+      "files": []
+    },
+    {
+      "id": 3,
+      "eval_name": "mixed-lighting-request-splits-into-two-batches",
+      "prompt": "Generate 20 variations, but I want completely different lighting on half of them",
+      "expected_output": "The skill recognizes that lighting is part of style_description (per the intro's field list and variation-strategy.md's 'lock style, vary composition' rule), so a request for two different lighting treatments within one batch means two distinct locked captions are needed, not one style_description that drifts partway through the prompts array. Per variation-strategy.md's 'one locked style per batch' rule, it treats this the same as the 'half golden-hour, half studio' example: a single generate_images_bulk call has exactly one style-equivalent influence per call, so it cannot represent two lighting looks coherently. The skill either confirms with the user and splits the request into two separate generate_images_bulk calls of 10 prompts each, one call per locked caption with its own consistent style_description, or explicitly declines to fold both lighting directions into a single call and explains why. It does not submit one 20-prompt batch with a style_description that changes partway through, per the Error handling rule against drifted style_description fields.",
+      "files": []
+    }
+  ]
+}
