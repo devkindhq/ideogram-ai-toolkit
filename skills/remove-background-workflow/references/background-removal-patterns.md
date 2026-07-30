@@ -45,51 +45,53 @@ against is a skill silently publishing a user's output because it defaulted to
 as license to publish. Absence of an instruction is not itself an instruction —
 only publish on a direct request to do so.
 
-## Running-envelope handling — unverified, confirm during first real run
+## Running-envelope handling — confirmed by a real run (2026-07-30)
 
-**What's confirmed (from the tools' own description text):** `edit_image`'s
-tool description explicitly states that it "returns a `running` envelope just
-like a fresh generation," to be polled via `get_generation_status`.
-`remove_background`'s tool description says only that it "returns a transparent
-PNG" for a single image/upload source plus a `private` flag — it does not say
-one way or the other whether a running/pending state is ever part of that
-response.
+**Confirmed:** `remove_background` does return a running envelope, the same
+shape as `edit_image`/`generate_image`. A real call against a real uploaded
+logo (`skills/remove-background-workflow/examples/logo-background-removal/`)
+returned `{"status": "running", "request_id": "t-W7Rk2tRLS5-34A3C-SsA",
+"response_ids": ["X87m5cVHUfW2S7c2m23FNA"], "image_urls": [...],
+"thumbnail_urls": [...], "permalink_urls": [...], ...}` immediately — no
+transparent PNG data inline, and `status` was `"running"`, not a completed
+result. Polling `get_generation_status(request_id="t-W7Rk2tRLS5-34A3C-SsA")`
+was required: the first poll still showed `"status": "running"` for that row,
+and a second poll returned `"status": "done"` with the same `response_id`
+(`X87m5cVHUfW2S7c2m23FNA`) now populated on that row. Two polls were needed in
+this run before the job resolved.
 
-**What's assumed, not confirmed:** `remove_background` is a model-backed
-transform, not a metadata-only operation like the collection tools in
-`collections-management`. Because model-backed calls elsewhere in this toolkit
-(`edit_image`, `generate_image`) do return a running envelope, this skill
-assumes `remove_background` *may* follow the same pattern until proven
-otherwise, and checks the response for a status field before treating it as
-complete rather than assuming the PNG is always returned synchronously.
+Practical note: the `response_ids` array is present in the envelope even while
+`status` is still `"running"` — it names the eventual output id in advance,
+but the row for that `request_id` in `get_generation_status` isn't marked
+`"done"` until the job actually finishes. Don't treat the presence of
+`response_ids` in the initial envelope as proof the image is ready; check
+`status` (or poll `get_generation_status` until its row for that `request_id`
+shows `"done"`) before downloading or handing the id to another tool.
 
-**This is [unverified as of the design spec — confirm during the first real
-run, see below].** It stays an open question until a live call is actually made
-and the real response shape is inspected. Once that run happens (planned as a
-later task in this implementation, not this file), replace this section with
-what was actually observed — either a synchronous PNG return with no running
-state, or a genuine running envelope requiring a poll via
-`get_generation_status` — and update `SKILL.md`'s workflow step 2 language to
-match reality instead of this assumption.
+The image itself is served as `image/webp` at the `image_urls`/`image_urls[n]`
+URL (`https://ideogram.ai/assets/image/balanced/response/<response_id>@2k`)
+regardless of the `.png` naming convention used elsewhere — passing an
+`Accept: image/png` header did not change this. To save a real PNG on disk,
+download the URL and convert locally (e.g. `sips -s format png`), rather than
+assuming the raw bytes are already PNG-encoded.
 
-## Output-identifier shape — unverified, confirm during first real run
+## Output-identifier shape — confirmed by a real run (2026-07-30)
 
-**What's assumed:** every other generation-type tool in this toolkit
-(`generate_image`, `edit_image`, `upscale_image`, `reframe_image`) returns a
-`response_id` (surfaced via `structured_content.response_ids`) that can be fed
-back in as `image_response_ids` to a later call. This skill assumes
-`remove_background`'s completed response carries an equivalent identifier —
-named `response_id` or something functionally the same — usable the same way to
-chain into `edit_image`, `reframe_image`, or `upscale_image` on the transparent
-result.
+**Confirmed:** `remove_background`'s completed response uses `response_id`,
+exactly matching the field name every other generation-type tool in this
+toolkit (`generate_image`, `edit_image`, `upscale_image`, `reframe_image`)
+uses. It's surfaced the same way: `response_ids` (plural array, one entry) on
+the running/initial envelope, and `response_id` (singular) on the resolved row
+returned by `get_generation_status`. In this run the real value was
+`X87m5cVHUfW2S7c2m23FNA`.
 
-**This is likewise unverified.** Nothing has directly inspected
-`remove_background`'s actual completed response shape yet. Don't assert the
-field name as fact in the meantime — treat it as a plausible assumption based on
-pattern consistency with the rest of the toolkit, not as something read off a
-real response. Once a real call is made and the response is inspected, correct
-this section to name the actual field the completed response uses, the same way
-this whole section should be replaced rather than patched once real data exists.
+That id chains into `edit_image` exactly as assumed: calling
+`edit_image(image_response_ids=["X87m5cVHUfW2S7c2m23FNA"], prompt="place this
+logo mark on a warm sunset gradient background")` was accepted and produced a
+new running envelope (`request_id: xBM-QEmeSa29GcFk9XfoMQ`) that resolved to
+`response_id: _PBjo4RLV8Ost167OxQnDQ` after polling — confirming the
+compositing follow-up documented below actually works with the output
+identifier from a real `remove_background` call.
 
 ## Compositing and other follow-ups: mention, don't auto-invoke
 
