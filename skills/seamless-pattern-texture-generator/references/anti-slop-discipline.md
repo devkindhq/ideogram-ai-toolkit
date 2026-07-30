@@ -57,17 +57,25 @@ if they score low too, but they don't block generation the way the first two do.
 | **Flat framing** | Does the prompt explicitly rule out directional lighting, cast shadows, and vignette? |
 | **Palette/motif specificity** | Does the prompt name the user's actual stated palette/motif rather than defaulting to generic "boho floral" or "modern geometric" filler? |
 
-These five axes map directly onto `tile-prompt-recipe.md`'s five recipe elements:
-edge-continuity language and flat framing check recipe elements 3 and 4 by name;
-border/vignette absence and palette/motif specificity check the same concerns recipe
-elements 4 and 5 (flat framing, DESIGN-vs-REALISTIC register) raise from the
-opposite direction — is the border/lighting exclusion actually in the prompt, is the
-register-specific palette actually named. Rotation-variety has no single recipe
-element counterpart; it's the anti-slop-specific check on motif scale (recipe element
-2) actually being followed organically rather than mechanically. Repeat type (recipe
-element 1) intentionally has no gate axis of its own here — whether the prompt says
-straight, half-drop, or brick isn't a slop concern, it's a factual default-disclosure
-question already handled by Workflow step 1, so duplicating it on this gate would be
+These five axes don't map cleanly onto `tile-prompt-recipe.md`'s five recipe elements
+one-for-one; only two of them are a direct check on a recipe element, and the rest are
+anti-slop-specific additions or checks on a different concern entirely. The clean
+correspondences: edge-continuity-language-present checks recipe element 3
+(edge-continuity language) by name, and flat framing checks recipe element 4
+(flat/top-down framing) by name. Rotation-variety and border/vignette absence have no
+direct recipe-element counterpart, they're anti-slop-specific additions this gate
+raises on its own, because copy-pasted motifs and bordered swatches are slop/tileability
+failures the recipe doesn't itself enumerate as one of its five elements (border/vignette
+absence is a framing concern in spirit, but it isn't recipe element 4 itself, so it isn't
+folded into the flat-framing axis above). Palette/motif specificity isn't a check on
+recipe element 5's DESIGN-vs-REALISTIC register at all; register is about which mode the
+pattern is rendered in, while this axis is about genericness: whether the prompt names
+the user's actual stated palette and motif instead of defaulting to generic filler that
+could belong to any brief. Recipe elements 1 and 2 (repeat type, motif scale)
+intentionally have no gate axis of their own here: whether the prompt says straight,
+half-drop, or brick, and what scale the motif is stated at, aren't slop concerns, they're
+factual default-disclosure questions already handled by Workflow step 1 (repeat type) and
+by `tile-prompt-recipe.md` itself (motif scale), so duplicating them on this gate would be
 redundant, not an oversight.
 
 ## Why this can't be skipped
