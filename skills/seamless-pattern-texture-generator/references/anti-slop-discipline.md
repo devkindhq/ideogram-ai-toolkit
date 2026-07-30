@@ -62,12 +62,19 @@ one-for-one; only two of them are a direct check on a recipe element, and the re
 anti-slop-specific additions or checks on a different concern entirely. The clean
 correspondences: edge-continuity-language-present checks recipe element 3
 (edge-continuity language) by name, and flat framing checks recipe element 4
-(flat/top-down framing) by name. Rotation-variety and border/vignette absence have no
-direct recipe-element counterpart, they're anti-slop-specific additions this gate
-raises on its own, because copy-pasted motifs and bordered swatches are slop/tileability
-failures the recipe doesn't itself enumerate as one of its five elements (border/vignette
-absence is a framing concern in spirit, but it isn't recipe element 4 itself, so it isn't
-folded into the flat-framing axis above). Palette/motif specificity isn't a check on
+(flat/top-down framing) by name. Rotation-variety has no direct recipe-element
+counterpart; it's an anti-slop-specific addition this gate raises on its own, because
+a copy-pasted-motif tell is a slop/tileability failure the recipe doesn't itself
+enumerate as one of its five elements. Border/vignette absence is a related but
+separate case: the gate table's own "Flat framing" row wording already asks whether
+the prompt rules out vignette, so there is real overlap between the two axes above,
+not a clean separation. What still distinguishes them is scope: border/vignette
+absence is specifically about a hard border or frame around the tile (a failure mode
+flat framing's wording doesn't name), while flat framing is about lighting and
+viewpoint (directional light, cast shadow, viewing angle) with vignette caught by
+both. So the two axes are deliberately redundant on vignette and non-redundant on
+border versus lighting/viewpoint, not two checks on entirely distinct concerns.
+Palette/motif specificity isn't a check on
 recipe element 5's DESIGN-vs-REALISTIC register at all; register is about which mode the
 pattern is rendered in, while this axis is about genericness: whether the prompt names
 the user's actual stated palette and motif instead of defaulting to generic filler that
