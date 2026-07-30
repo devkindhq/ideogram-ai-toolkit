@@ -1,0 +1,26 @@
+{
+  "skill_name": "photographic-icon-set-generator",
+  "evals": [
+    {
+      "id": 1,
+      "eval_name": "claymation-icon-set-shared-style-block",
+      "prompt": "Generate a set of 8 photographic 3D-rendered claymation-style app icons for a recipe app: home, search, favorites, profile, settings, notifications, cart, camera",
+      "expected_output": "The skill gathers the icon list (home, search, favorites, profile, settings, notifications, cart, camera) and confirms the claymation style direction per workflow step 1. It then drafts a single style block once following the checklist in references/style-lock-recipe.md (material/render technique: claymation, lighting, camera angle, background/ground, color story), written as one continuous detailed description. This exact style block text is repeated byte-identical at the start of every icon's prompt per workflow steps 2-3, with each subsequent prompt containing [style block identical] + [subject block specific to each icon: home, search, favorites, profile, settings, notifications, cart, camera] + [composition block: isolated single icon, centered, consistent margin, consistent ground/shadow treatment]. Before calling generate_images_bulk, it runs the drafted 8 prompts through the pre-generation anti-slop gate in references/icon-anti-slop-discipline.md per workflow step 4, checking style-block fidelity, subject-block restraint, ground/shadow explicitness, material-finish explicitness, and set-level restraint. It then calls generate_images_bulk(prompts=[...], aspect_ratio='1x1', rendering_speed='QUALITY') per workflow step 5, leaving style_type, seed, negative_prompt, and magic_prompt_option unset since no custom_model_uri is in play and these parameters are ignored on the default v4 pipeline per SKILL.md's core technical fact. The skill then reviews all 8 generated icons together as a unified set per workflow step 6, checking for material consistency (claymation texture/squish), lighting consistency, camera angle consistency, and scale consistency across the full batch.",
+      "files": []
+    },
+    {
+      "id": 2,
+      "eval_name": "extend-existing-set-with-multi-reference-edit",
+      "prompt": "Add a 'dark mode' icon to my existing 3D claymation icon set to match the others",
+      "expected_output": "The skill recognizes this as workflow step 8 (extend the set) rather than step 1 (a fresh set), since the user is extending an existing set rather than generating a new one. It uses edit_image with 2-3 existing icons' response_ids as anchor references (e.g., home, search, and favorites icons) plus a prompt for the new 'dark mode' subject, matching the subject-block phrasing style and composition of the rest of the set. The multi-reference anchoring per workflow step 7 pulls the result toward the group's existing style in a way single-reference correction cannot. The skill does not call generate_images_bulk again, explicitly recognizing per workflow step 8 that a new batch call has no memory of the original batch's exact style-block wording and would risk losing consistency. If only one strong anchor is available, it uses remix_image(image_response_id=..., image_weight=70-85) as the documented simpler fallback per workflow step 7.",
+      "files": []
+    },
+    {
+      "id": 3,
+      "eval_name": "flat-line-icon-set-declines-out-of-scope",
+      "prompt": "I need a flat line icon set for my nav bar, 12 icons",
+      "expected_output": "The skill recognizes this as a flat/vector/line/glyph request per the skill's frontmatter non-trigger ('Out of scope: flat, line, glyph, minimal, or generic vector-style icon sets') and workflow step 1's scoping check. It states plainly that flat/line icon sets are out of scope for this skill because they require deterministic SVG code, not diffusion output, per the Error handling rule ('Flat/vector/line/glyph request — state plainly this is out of scope for this skill; it needs deterministic SVG code, not diffusion output'). The skill does not proceed to draft a style block or call generate_images_bulk, and does not offer a raster substitute for what should be scalable vector output, per the Error handling rule that explicitly states 'Do not offer a raster substitute' and recommends ideogram-prompt for a one-off icon or a dedicated vector tool for a full set instead.",
+      "files": []
+    }
+  ]
+}
