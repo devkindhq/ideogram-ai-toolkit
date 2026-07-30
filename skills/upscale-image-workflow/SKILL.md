@@ -69,18 +69,25 @@ instruction: if the call fails, surface the failure to the user verbatim and sto
 fall back to `generate_image`, `remix_image`, or any other tool as a substitute for a
 failed upscale.
 
+The immediate response is asynchronous, not a completed result: it returns
+`status: "running"`, a `request_id`, and a plural `response_ids` array — there is no
+singular `response_id` yet at this point. Call `mcp__ideogram__get_generation_status`
+with that `request_id`, polling until it returns `status: "done"`. Only then does a
+singular `response_id` (matching `response_ids[0]`) become available. Do not proceed to
+"Save the output" until polling reaches `status: "done"`.
+
 ### 4. Save the output
 
 Persist the response's identifiers (whatever the live response actually contains — at
-minimum expect a `response_id`, matching every other Ideogram generation tool in this
-toolkit), the resolved `upscale_factor`, and the source image's identifier to the
-project's existing output location — the same place `brand-identity-sheet`,
-`character-model-sheet`, `moodboard-generator`, or `collections-management` already save
-to for this project. If a `collection_id` was passed in step 2, note that the upscaled
-image was also filed there. The exact response field name(s) beyond `response_id` (e.g.
-whether there's a downloadable URL) are read from the live response the first time it's
-called, not asserted in advance — per `references/upscale-settings.md`'s
-confirmed-vs-unverified split.
+minimum expect the singular `response_id` obtained by polling to `status: "done"` in step
+3, matching every other Ideogram generation tool in this toolkit), the resolved
+`upscale_factor`, and the source image's identifier to the project's existing output
+location — the same place `brand-identity-sheet`, `character-model-sheet`,
+`moodboard-generator`, or `collections-management` already save to for this project. If a
+`collection_id` was passed in step 2, note that the upscaled image was also filed there.
+The exact response field name(s) beyond `response_id` (e.g. whether there's a downloadable
+URL) are read from the live response the first time it's called, not asserted in advance —
+per `references/upscale-settings.md`'s confirmed-vs-unverified split.
 
 ## Error handling
 
@@ -94,6 +101,10 @@ confirmed-vs-unverified split.
 - `upscale_image` call fails → surface the failure verbatim per the tool's own STRICT
   instruction; never retry silently with different settings and never fall back to a
   different generation tool pretending it's an upscale.
+- Immediate `upscale_image` response only shows `status: "running"` with a plural
+  `response_ids` array → this is expected, not a failure; poll
+  `mcp__ideogram__get_generation_status` with the returned `request_id` until
+  `status: "done"` before treating the upscale as complete or saving the output.
 - Response shape differs from what was assumed (e.g. missing an expected identifier field)
   → report what the response actually contains rather than asserting a field exists that
   wasn't observed.
