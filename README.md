@@ -19,6 +19,10 @@ skills/moodboard-generator/                   # pre-logo 3x3 brand-exploration b
 ├── SKILL.md
 ├── references/                               # panel anatomy, composition-spec JSON schema, anti-slop discipline
 └── examples/                                 # a worked prompt + full JSON breakdown
+skills/concept-grid-generator/                # cheap comparison grid of distinct motif concepts, locked palette + technique, before a full board
+├── SKILL.md
+├── references/                               # anti-slop discipline (reused from brand-identity-sheet)
+└── examples/                                 # a worked prompt + handoff note
 skills/brand-identity-sheet/                  # whole brand system in one generated image (wordmark, icons, buttons)
 ├── SKILL.md
 ├── references/                               # panel anatomy, composition-spec JSON schema, anti-slop discipline
@@ -199,7 +203,7 @@ See [`examples/`](examples/README.md) for the full write-up of the root showcase
 
 This is a set of Claude Code [skills](https://docs.claude.com/en/docs/claude-code/skills). Requires the [Ideogram MCP](https://ideogram.ai/features/mcp/) to be connected (`claude mcp add ideogram --transport http https://mcp.ideogram.ai/mcp`).
 
-Each skill installs independently — swap `ideogram-prompt` below for any of the 15 skills under `skills/` as needed.
+Each skill installs independently — swap `ideogram-prompt` below for any of the 16 skills under `skills/` as needed.
 
 **Via the [skills CLI](https://www.skills.sh)** (reads straight from this GitHub repo, no unreviewed single-URL installer):
 ```bash
