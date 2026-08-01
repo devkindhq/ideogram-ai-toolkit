@@ -59,6 +59,11 @@ skills/custom-model-training/                 # train a custom Ideogram model on
 ├── references/
 ├── examples/                                 # a worked training set + proof generation
 └── evals/
+skills/world-builder/                         # expand a trained custom character model into a whole brand world
+├── SKILL.md
+├── references/                               # palette lock, anti-slop discipline, character-batch discipline, batch tracking, contamination check
+├── examples/                                 # populated once a real world-building pipeline is run — see examples/README.md
+└── evals/
 skills/collections-management/                # create/browse/rename/delete Ideogram collections, file images into them
 ├── SKILL.md
 ├── references/
@@ -194,7 +199,7 @@ See [`examples/`](examples/README.md) for the full write-up of the root showcase
 
 This is a set of Claude Code [skills](https://docs.claude.com/en/docs/claude-code/skills). Requires the [Ideogram MCP](https://ideogram.ai/features/mcp/) to be connected (`claude mcp add ideogram --transport http https://mcp.ideogram.ai/mcp`).
 
-Each skill installs independently — swap `ideogram-prompt` below for any of the 14 skills under `skills/` as needed.
+Each skill installs independently — swap `ideogram-prompt` below for any of the 15 skills under `skills/` as needed.
 
 **Via the [skills CLI](https://www.skills.sh)** (reads straight from this GitHub repo, no unreviewed single-URL installer):
 ```bash
