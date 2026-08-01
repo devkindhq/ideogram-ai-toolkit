@@ -67,8 +67,10 @@ stays a flat, deliberate cardstock cutout.
 Rendered via `mcp__ideogram__generate_image` with `style_type: "DESIGN"`,
 `rendering_speed: "QUALITY"`, `aspect_ratio: "1x1"`.
 
-- Request ID: `dvmMjAIMQDa3BwNRzZGyhw`
-- Permalink: https://ideogram.ai/g/dvmMjAIMQDa3BwNRzZGyhw/0
+- Request ID: `0KHmwzKuTO-bo0_DGp5vMA`
+- Permalink: https://ideogram.ai/g/0KHmwzKuTO-bo0_DGp5vMA/0
+
+![Spokewise concept grid — six tile directions](assets/spokewise-concept-grid.png)
 
 The result matches the prompt closely: six tiles in a 3-row, 2-column layout (the
 prompt's "2x3 grid" phrasing rendered as 3 rows of 2, not 2 rows of 3 — worth
