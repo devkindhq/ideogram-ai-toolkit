@@ -1,0 +1,82 @@
+{
+  "skill_name": "world-builder",
+  "evals": [
+    {
+      "id": 1,
+      "eval_name": "refuses-to-start-without-trained-model",
+      "prompt": "Build out the world around our mascot Bell-Boy — I want to see villages, landmarks, all of it.",
+      "files": [],
+      "expected_output": "The skill asks for (or looks up via list_models) an existing custom_model_uri for Bell-Boy before generating anything, rather than starting the pipeline against a freshly-described character with no trained model.",
+      "expectations": [
+        "The skill does not call generate_image or generate_images_bulk with a from-scratch character description in place of a real custom_model_uri",
+        "If no custom_model_uri is known, the skill asks the user for one or checks mcp__ideogram__list_models rather than assuming or inventing one",
+        "The skill explains why a trained model is required (this pipeline tests a trained model's behavior across contexts, not a character description)"
+      ]
+    },
+    {
+      "id": 2,
+      "eval_name": "moodboard-pass-excludes-mascot",
+      "prompt": "We have Bell-Boy's custom_model_uri already (model/bell-boy/version/0). Let's start the world-building pipeline with the moodboard.",
+      "files": [],
+      "expected_output": "A generated moodboard image with no custom_model_uri set and no mascot/character present — pure palette/material/mood — plus a locked palette (paper/primary/secondary/ink-trim/accent with hex values) recorded for reuse in later steps.",
+      "expectations": [
+        "The generate_image call for the moodboard omits custom_model_uri",
+        "The prompt includes an explicit no-characters/no-mascots clause",
+        "A palette with specific hex values and role labels (paper, primary, secondary, ink/trim, at most one reserved accent) is defined and stated to carry forward to later steps",
+        "The skill does not skip straight to a with-mascot batch before this step"
+      ]
+    },
+    {
+      "id": 3,
+      "eval_name": "paired-with-without-batch-uses-correct-model-flag-per-half",
+      "prompt": "Generate the paired product-shot scenes for step 2 — a packaging shot with and without Bell-Boy.",
+      "files": [],
+      "expected_output": "Two generations with matching composition/palette/lighting: one with custom_model_uri set and an explicit character count, one without custom_model_uri and an explicit no-characters clause.",
+      "expectations": [
+        "The 'with' generation sets custom_model_uri and states an exact character count (not an open-ended count)",
+        "The 'without' generation omits custom_model_uri and includes the explicit 'no characters, mascots, or people anywhere in frame' clause",
+        "Both prompts quote the same locked palette from the moodboard step",
+        "The skill reviews the pair together (comparing the two), not each image in isolation"
+      ]
+    },
+    {
+      "id": 4,
+      "eval_name": "family-resemblance-reviewed-not-treated-as-bug",
+      "prompt": "The village/family batch came back and every villager looks almost identical to Bell-Boy, just with different hats. Is something broken?",
+      "files": [],
+      "expected_output": "An explanation that this is the expected family-resemblance/near-clone limitation of a model trained on one character's likeness, with guidance to review using the 'does this read as a species/community, or does it read as broken' framing rather than assuming the training failed or re-prompting repeatedly for 'diverse distinct characters.'",
+      "expectations": [
+        "The skill references the known single-character-model limitation rather than treating the result as a defect to silently fix",
+        "The skill offers the species/community-vs-broken review framing from character-batch-discipline.md",
+        "The skill does not recommend repeatedly re-prompting for genuinely distinct individuals from a single-character-trained model",
+        "If the user actually needs distinct individuals, the skill flags that as requiring additional trained models (a scope question), not something achievable by prompt tuning alone"
+      ]
+    },
+    {
+      "id": 5,
+      "eval_name": "contamination-check-requires-visual-comparison-not-assumed-safe",
+      "prompt": "Can we just use the custom model for the landmarks and maps pass too instead of keeping it model-free? Run that check.",
+      "files": [],
+      "expected_output": "The skill runs the optional contamination-check step: regenerates a sample of the no-model landmarks/maps prompts with the custom model, and reports a genuine pass/fail based on a side-by-side visual comparison against the original no-model images — never asserting safety purely because the API calls succeeded.",
+      "expectations": [
+        "The skill explicitly flags the risk (character silhouette bleeding into architecture/objects/maps) before running the check, not just performing it silently",
+        "The check compares the with-model result directly against the original no-model image for the same prompt, not in isolation",
+        "The reported outcome is stated plainly as contamination-observed or no-contamination-in-this-sample, with named specifics if contamination is found",
+        "The skill does not report the check as 'passed' or 'safe' based solely on successful generation calls"
+      ]
+    },
+    {
+      "id": 6,
+      "eval_name": "batch-tracking-recorded-not-just-generated",
+      "prompt": "Run the society & culture batch (step 3) — character-driven scenes plus the world-artifacts batch.",
+      "files": [],
+      "expected_output": "Two separate generate_images_bulk submissions (character-driven with custom_model_uri, world-artifacts without), each tracked with its request/job ID, custom_model_uri usage, and a visual_review_status starting at 'pending' rather than assumed complete on submission.",
+      "expectations": [
+        "The character-driven batch and world-artifacts batch are submitted as two separate generate_images_bulk calls, not merged into one",
+        "Each batch's request_id/job_id is captured and recorded, not discarded after the call returns",
+        "visual_review_status is explicitly tracked and starts at 'pending' rather than the batch being described as done immediately after submission",
+        "The character-driven batch states an exact character count per prompt; the world-artifacts batch includes the no-characters clause per prompt"
+      ]
+    }
+  ]
+}
