@@ -1,8 +1,5 @@
 # Worked Example — Product Icon Concept Grid
 
-Illustrative example — prompt shown was not actually run through Ideogram; format
-matches this skill's real usage pattern.
-
 A from-scratch fictional brand invented to demonstrate this skill end to end: a
 bike-share app called "Spokewise," unrelated to any client or real product. Spokewise
 needs a mark/icon direction before it can move into a full `brand-identity-sheet` —
@@ -65,7 +62,27 @@ silhouette repeated across tiles, no gradient bleeding across the sheet — ever
 stays a flat, deliberate cardstock cutout.
 ```
 
-## 5. Handoff note
+## 5. Generation result
+
+Rendered via `mcp__ideogram__generate_image` with `style_type: "DESIGN"`,
+`rendering_speed: "QUALITY"`, `aspect_ratio: "1x1"`.
+
+- Request ID: `dvmMjAIMQDa3BwNRzZGyhw`
+- Permalink: https://ideogram.ai/g/dvmMjAIMQDa3BwNRzZGyhw/0
+
+The result matches the prompt closely: six tiles in a 3-row, 2-column layout (the
+prompt's "2x3 grid" phrasing rendered as 3 rows of 2, not 2 rows of 3 — worth
+stating the row/column count unambiguously next time instead of relying on "NxM"
+shorthand), each captioned as specified, on the locked warm off-white background
+with thin graphite dividing lines. Palette and technique held consistent across
+all six tiles as intended — no per-tile drift, no banned clichés. "Dock Rhythm"
+rendered as three connected U-shaped notches, a clean, literal read of "a dock-slot
+silhouette repeated three times as a rhythm." "Fold Route" rendered as a sharp
+X-shaped crease rather than a more literal folded street-map fold-line — still
+reads as an abstract fold/crease motif, just a looser interpretation than the
+prompt's map-fold framing.
+
+## 6. Handoff note
 
 The reviewing team picked **Tile 4, "Dock Rhythm"** — the repeated dock-slot notch
 read as the most ownable and the most specific to what Spokewise actually is (a
