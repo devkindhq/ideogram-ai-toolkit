@@ -44,7 +44,7 @@ illustrator's work later).
 Before drafting, gather (ask the user if any are missing rather than inventing them):
 
 - **Name, alias/nickname, role/function, archetype** — the identity block that anchors
-  the whole sheet (e.g. "Bell-Boy / Comm-Bell / Communication AI Assistant / Cheerful
+  the whole sheet (e.g. "Ding-Bot / Chime-E / Communication AI Assistant / Cheerful
   Guide").
 - **Personality & behavior** — 2-4 traits plus one "core theme" line and one behavior
   note. This shapes expression, pose energy, and how "busy" the detail panels should
@@ -168,7 +168,7 @@ work from), produce the structured JSON breakdown described in
   the `high_level_description` + `elements` schema — add bbox estimates based on visual
   inspection of the image, not fabricated precision. If you can't confidently place a
   bbox, use a coarse quadrant estimate and say so rather than inventing exact pixels.
-  See `examples/bell-boy-character-sheet.md` for a full worked example at this level of
+  See `examples/ding-bot-character-sheet.md` for a full worked example at this level of
   detail (a real reverse-engineered spec, not a generated one, showing the target
   granularity: every view, every label, every scale marking captured as its own
   element).
@@ -203,7 +203,7 @@ and `logo-prompting` grow their reference files from real jobs.
   (off-model drift between panels, style drift between the turnaround and detail
   close-ups, generic stock-mascot clichés, unlabeled/mislabeled panels) and the
   pre-generation gate to run before every `generate_image` call.
-- `examples/bell-boy-character-sheet.md` — a full worked compositional-deconstruction
-  example (the "Bell-Boy" AI-assistant mascot sheet) at the target level of detail,
+- `examples/ding-bot-character-sheet.md` — a full worked compositional-deconstruction
+  example (the "Ding-Bot" AI-assistant mascot sheet) at the target level of detail,
   showing every turnaround view, detail panel, palette swatch, and technical-diagram
   callout captured as its own element.

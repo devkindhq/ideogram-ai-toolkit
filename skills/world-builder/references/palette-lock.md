@@ -23,7 +23,7 @@ Before the moodboard pass (step 1), lock:
   restraint is what keeps a six-batch world from turning into a rainbow by batch four.
 
 If the character already has a locked palette from `character-model-sheet` or
-`custom-model-training` (e.g. Bell-Boy's orange body / light-blue headphones / gold-brass
+`custom-model-training` (e.g. Ding-Bot's orange body / light-blue headphones / gold-brass
 trim), that palette is the anchor — extend it into paper/primary/secondary/ink-trim/accent
 roles rather than inventing a new one that competes with the character's own colors.
 

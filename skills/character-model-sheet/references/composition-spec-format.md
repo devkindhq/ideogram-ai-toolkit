@@ -66,23 +66,23 @@ design) exactly which panel is the back view, which close-up is the signature pr
 which callout label belongs to which internal component, without re-interpreting the
 image from scratch.
 
-## Worked example (abbreviated — full version in `examples/bell-boy-character-sheet.md`)
+## Worked example (abbreviated — full version in `examples/ding-bot-character-sheet.md`)
 
 ```json
 {
-  "high_level_description": "A comprehensive character design sheet for Bell-Boy, a 3D orange bell-shaped AI assistant character, including a full body turnaround, head and detail views, color palettes, and a technical diagram of internal components.",
+  "high_level_description": "A comprehensive character design sheet for Ding-Bot, a 3D orange bell-shaped AI assistant character, including a full body turnaround, head and detail views, color palettes, and a technical diagram of internal components.",
   "compositional_deconstruction": {
     "background": "A multi-panel character design sheet with a clean white background and light gray grid lines, organized into sections with thin black borders.",
     "elements": [
       {
         "type": "obj",
         "bbox": [81, 226, 307, 461],
-        "desc": "Bell-Boy character in a full-body front view — orange bell-shaped body, smiling face, light blue over-ear headphones, glowing white Wi-Fi symbol on the chest."
+        "desc": "Ding-Bot character in a full-body front view — orange bell-shaped body, smiling face, light blue over-ear headphones, glowing white Wi-Fi symbol on the chest."
       },
       {
         "type": "text",
         "bbox": [15, 15, 65, 172],
-        "text": "BELL-BOY",
+        "text": "DING-BOT",
         "desc": "Large, bold, black sans-serif headline at the top left."
       },
       {

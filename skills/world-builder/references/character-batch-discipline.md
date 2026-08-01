@@ -41,7 +41,7 @@ it there specifically, and don't be surprised when it appears.
 
 When reviewing a batch with multiple characters in frame, ask: **"does this read as a
 species/community, or does it read as broken?"** — not "are these individually distinct
-characters?" A village scene where every villager shares Bell-Boy's bell-shaped
+characters?" A village scene where every villager shares Ding-Bot's bell-shaped
 silhouette and face, differentiated by headwear, color accent, or role prop, reads as a
 believable in-world *species* or *community* the way many real animated worlds work
 (think: a species of characters that all share a base design, individualized by
