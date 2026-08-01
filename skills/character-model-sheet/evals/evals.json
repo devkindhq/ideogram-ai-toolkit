@@ -3,8 +3,8 @@
   "evals": [
     {
       "id": 1,
-      "eval_name": "bell-boy-reverse-engineer-reference",
-      "prompt": "A designer sent over this character sheet reference image for a mascot called Bell-Boy. Can you break it down panel by panel into a structured spec so I can hand it to our animation team without them having to stare at the image themselves?",
+      "eval_name": "ding-bot-reverse-engineer-reference",
+      "prompt": "A designer sent over this character sheet reference image for a mascot called Ding-Bot. Can you break it down panel by panel into a structured spec so I can hand it to our animation team without them having to stare at the image themselves?",
       "files": [],
       "expected_output": "A structured compositional-deconstruction JSON (high_level_description + elements array with bbox/type/desc, and text elements with the literal text strings) describing every distinct panel in the reference image — header/overview block, full body turnaround (front/3-4/side/back), head & detail sheet, color palette swatches, and the accessories/interior diagram — precise enough that another agent could act on it without re-viewing the image.",
       "expectations": [

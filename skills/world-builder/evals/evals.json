@@ -4,9 +4,9 @@
     {
       "id": 1,
       "eval_name": "refuses-to-start-without-trained-model",
-      "prompt": "Build out the world around our mascot Bell-Boy — I want to see villages, landmarks, all of it.",
+      "prompt": "Build out the world around our mascot Ding-Bot — I want to see villages, landmarks, all of it.",
       "files": [],
-      "expected_output": "The skill asks for (or looks up via list_models) an existing custom_model_uri for Bell-Boy before generating anything, rather than starting the pipeline against a freshly-described character with no trained model.",
+      "expected_output": "The skill asks for (or looks up via list_models) an existing custom_model_uri for Ding-Bot before generating anything, rather than starting the pipeline against a freshly-described character with no trained model.",
       "expectations": [
         "The skill does not call generate_image or generate_images_bulk with a from-scratch character description in place of a real custom_model_uri",
         "If no custom_model_uri is known, the skill asks the user for one or checks mcp__ideogram__list_models rather than assuming or inventing one",
@@ -16,7 +16,7 @@
     {
       "id": 2,
       "eval_name": "moodboard-pass-excludes-mascot",
-      "prompt": "We have Bell-Boy's custom_model_uri already (model/bell-boy/version/0). Let's start the world-building pipeline with the moodboard.",
+      "prompt": "We have Ding-Bot's custom_model_uri already (model/ding-bot/version/0). Let's start the world-building pipeline with the moodboard.",
       "files": [],
       "expected_output": "A generated moodboard image with no custom_model_uri set and no mascot/character present — pure palette/material/mood — plus a locked palette (paper/primary/secondary/ink-trim/accent with hex values) recorded for reuse in later steps.",
       "expectations": [
@@ -29,7 +29,7 @@
     {
       "id": 3,
       "eval_name": "paired-with-without-batch-uses-correct-model-flag-per-half",
-      "prompt": "Generate the paired product-shot scenes for step 2 — a packaging shot with and without Bell-Boy.",
+      "prompt": "Generate the paired product-shot scenes for step 2 — a packaging shot with and without Ding-Bot.",
       "files": [],
       "expected_output": "Two generations with matching composition/palette/lighting: one with custom_model_uri set and an explicit character count, one without custom_model_uri and an explicit no-characters clause.",
       "expectations": [
@@ -42,7 +42,7 @@
     {
       "id": 4,
       "eval_name": "family-resemblance-reviewed-not-treated-as-bug",
-      "prompt": "The village/family batch came back and every villager looks almost identical to Bell-Boy, just with different hats. Is something broken?",
+      "prompt": "The village/family batch came back and every villager looks almost identical to Ding-Bot, just with different hats. Is something broken?",
       "files": [],
       "expected_output": "An explanation that this is the expected family-resemblance/near-clone limitation of a model trained on one character's likeness, with guidance to review using the 'does this read as a species/community, or does it read as broken' framing rather than assuming the training failed or re-prompting repeatedly for 'diverse distinct characters.'",
       "expectations": [

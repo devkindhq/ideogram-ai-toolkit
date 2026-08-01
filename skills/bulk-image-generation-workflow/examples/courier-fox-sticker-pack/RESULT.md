@@ -43,7 +43,7 @@ without a separate confirmation gate.
      scooter pose), the other 9 still `"running"`.
    - Poll 3: all 10 rows `"status": "done"`.
    Each poll's response also returned status rows for unrelated older
-   generations from the session's history (e.g. an in-progress Bell-Boy
+   generations from the session's history (e.g. an in-progress Ding-Bot
    app-icon job on poll 3) — passing any one `request_id` returns the whole
    session's recent job table, not just the batch it belongs to.
 3. **`get_recent_generations(n=10, filter_mode="GENERATIONS")`** — called as
@@ -147,7 +147,7 @@ background-lock violation (image 9).
   a single batch-level ID.
 - `get_generation_status` really does return the entire session's recent job
   table (not just the queried batch) when passed a single `request_id` —
-  confirmed on all 3 polls, including an unrelated Bell-Boy job appearing
+  confirmed on all 3 polls, including an unrelated Ding-Bot job appearing
   in the poll-3 response alongside the 10 courier-fox rows.
 - Polling took 3 calls from submission to full completion: all-running →
   1-of-10 done → all-10 done. This run's real timing, not a "typical"

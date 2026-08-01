@@ -1,7 +1,7 @@
 # Examples
 
 This directory is intentionally empty at ship time. The pipeline this skill documents
-was developed manually, over several sessions, for StoreAlert's mascot ("Bell-Boy") —
+was developed manually, over several sessions, for PorchPing's mascot ("Ding-Bot") —
 but that work happened directly in a project vault, not through this generalized skill,
 so there is no worked example here yet that was actually produced by running this skill
 end to end. Fabricating one would risk being mistaken for a real result later.

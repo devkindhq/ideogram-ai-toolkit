@@ -86,7 +86,7 @@ Coordinate space: pixel-estimated for a ~1200x900 canvas (4:3),
   then repeated identically across all four turnaround-view `desc` entries and both
   head-and-detail close-ups — the annotation makes the "held identical across every
   panel" consistency directive checkable panel by panel, the same on-model discipline
-  `bell-boy-character-sheet.md` demonstrates.
+  `ding-bot-character-sheet.md` demonstrates.
 - Both height-scale rulers (inches alongside front/3-4, cm alongside side/back) are
   captured as their own `text` elements, matching the proportion-lock convention this
   skill's `sheet-anatomy.md` calls for.

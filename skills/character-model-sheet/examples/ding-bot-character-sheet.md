@@ -1,4 +1,4 @@
-# Worked Example — Bell-Boy Character Model Sheet
+# Worked Example — Ding-Bot Character Model Sheet
 
 A real reference-image reverse-engineering example this skill was seeded from. This is
 a full compositional deconstruction (not a generation prompt paired with its output) —
@@ -10,22 +10,22 @@ Coordinate space: pixel-estimated from a ~1000x1000 source image,
 
 ```json
 {
-  "high_level_description": "A comprehensive character design sheet for Bell-Boy, a 3D orange bell-shaped AI assistant character with light blue headphones and a glowing Wi-Fi emblem. The sheet includes a full body turnaround, head and detail views, color palettes, and a technical diagram of the internal components and accessories.",
+  "high_level_description": "A comprehensive character design sheet for Ding-Bot, a 3D orange bell-shaped AI assistant character with light blue headphones and a glowing Wi-Fi emblem. The sheet includes a full body turnaround, head and detail views, color palettes, and a technical diagram of the internal components and accessories.",
   "compositional_deconstruction": {
     "background": "A multi-panel character design sheet with a clean, white background and light gray grid lines. The layout is organized into sections with thin black borders separating different areas of the document.",
     "elements": [
-      { "type": "obj", "bbox": [81, 226, 307, 461], "desc": "Bell-Boy character in a full-body front view. An orange bell-shaped character with a smiling face, large black eyes, and a small mouth. It wears light blue over-ear headphones with a microphone extending from the right ear. A glowing white Wi-Fi symbol is on its chest. It has small orange arms and legs with dark blue shoes." },
-      { "type": "obj", "bbox": [81, 501, 307, 693], "desc": "Bell-Boy character in a full-body 3/4 view from the right. The character is oriented towards the left, showing its right side profile. It maintains the same orange bell shape, smiling face, and light blue headphones with a microphone. The glowing white Wi-Fi symbol is visible on its chest." },
-      { "type": "obj", "bbox": [394, 245, 626, 449], "desc": "Bell-Boy character in a full-body side view. The character is facing left, showing its profile. The orange bell shape, smiling face, and light blue headphones are clearly visible. The glowing white Wi-Fi symbol is on its chest." },
-      { "type": "obj", "bbox": [394, 492, 626, 719], "desc": "Bell-Boy character in a full-body back view. The character is facing away from the viewer, showing the rear of the orange bell shape and the back of the light blue headphones. The glowing white Wi-Fi symbol is on its chest." },
-      { "type": "obj", "bbox": [36, 775, 248, 984], "desc": "Close-up front face of Bell-Boy. The character has a large, friendly smile, large black eyes with white highlights, and thick black eyebrows. The light blue headphones and microphone are visible on its head." },
-      { "type": "obj", "bbox": [273, 775, 483, 984], "desc": "Close-up side-view headset of Bell-Boy. It shows the light blue over-ear headphones, the microphone extending from the right ear, and the orange bell-shaped head." },
-      { "type": "obj", "bbox": [534, 800, 720, 984], "desc": "Close-up of Bell-Boy's waving hand. The hand is orange with three fingers extended and the thumb and pinky curled, showing a simple, rounded design." },
+      { "type": "obj", "bbox": [81, 226, 307, 461], "desc": "Ding-Bot character in a full-body front view. An orange bell-shaped character with a smiling face, large black eyes, and a small mouth. It wears light blue over-ear headphones with a microphone extending from the right ear. A glowing white Wi-Fi symbol is on its chest. It has small orange arms and legs with dark blue shoes." },
+      { "type": "obj", "bbox": [81, 501, 307, 693], "desc": "Ding-Bot character in a full-body 3/4 view from the right. The character is oriented towards the left, showing its right side profile. It maintains the same orange bell shape, smiling face, and light blue headphones with a microphone. The glowing white Wi-Fi symbol is visible on its chest." },
+      { "type": "obj", "bbox": [394, 245, 626, 449], "desc": "Ding-Bot character in a full-body side view. The character is facing left, showing its profile. The orange bell shape, smiling face, and light blue headphones are clearly visible. The glowing white Wi-Fi symbol is on its chest." },
+      { "type": "obj", "bbox": [394, 492, 626, 719], "desc": "Ding-Bot character in a full-body back view. The character is facing away from the viewer, showing the rear of the orange bell shape and the back of the light blue headphones. The glowing white Wi-Fi symbol is on its chest." },
+      { "type": "obj", "bbox": [36, 775, 248, 984], "desc": "Close-up front face of Ding-Bot. The character has a large, friendly smile, large black eyes with white highlights, and thick black eyebrows. The light blue headphones and microphone are visible on its head." },
+      { "type": "obj", "bbox": [273, 775, 483, 984], "desc": "Close-up side-view headset of Ding-Bot. It shows the light blue over-ear headphones, the microphone extending from the right ear, and the orange bell-shaped head." },
+      { "type": "obj", "bbox": [534, 800, 720, 984], "desc": "Close-up of Ding-Bot's waving hand. The hand is orange with three fingers extended and the thumb and pinky curled, showing a simple, rounded design." },
       { "type": "obj", "bbox": [719, 45, 960, 339], "desc": "Detailed view of the light blue over-ear headphones. The headphones are shown from a front perspective, highlighting the smooth, rounded design and the light blue color." },
-      { "type": "obj", "bbox": [709, 458, 971, 666], "desc": "Cross-section diagram of the Bell-Boy character's interior. It shows the internal components including a blue circuit board with a central chip, an 'Emission core & symbol projection mechanism' at the bottom, and a 'Wireless receiver unit' on the right side." },
-      { "type": "text", "bbox": [15, 15, 65, 172], "text": "BELL-BOY", "desc": "Large, bold, black sans-serif headline at the top left." },
+      { "type": "obj", "bbox": [709, 458, 971, 666], "desc": "Cross-section diagram of the Ding-Bot character's interior. It shows the internal components including a blue circuit board with a central chip, an 'Emission core & symbol projection mechanism' at the bottom, and a 'Wireless receiver unit' on the right side." },
+      { "type": "text", "bbox": [15, 15, 65, 172], "text": "DING-BOT", "desc": "Large, bold, black sans-serif headline at the top left." },
       { "type": "text", "bbox": [51, 15, 101, 178], "text": "Character Model Sheet", "desc": "Medium-sized, black sans-serif sub-headline below the main title." },
-      { "type": "text", "bbox": [78, 15, 150, 196], "text": "CHARACTER OVERVIEW:\nName: Bell-Boy\nAlias: Comm-Bell\nRole: Communication AI Assistant\nArchtype: Cheerful Guide.", "desc": "Small, black sans-serif text block in a light blue box on the left side." },
+      { "type": "text", "bbox": [78, 15, 150, 196], "text": "CHARACTER OVERVIEW:\nName: Ding-Bot\nAlias: Chime-E\nRole: Communication AI Assistant\nArchtype: Cheerful Guide.", "desc": "Small, black sans-serif text block in a light blue box on the left side." },
       { "type": "text", "bbox": [168, 15, 240, 211], "text": "PERSONALITY & TRAITS\nHelpful, Enthusiastic, High-Pitched Voice\nCore Theme: Support & Connection\nBehavior: Constantly monitoring\nsignals, quick to respond", "desc": "Small, black sans-serif text block in a light blue box on the left side." },
       { "type": "text", "bbox": [258, 15, 308, 196], "text": "WARDROBE / ACCESSORIES\nIntegrated Headphones (light blue),\nInternal Wi-Fi Emblem (glowing)", "desc": "Small, black sans-serif text block in a light blue box on the left side." },
       { "type": "text", "bbox": [326, 15, 448, 206], "text": "COLOR PALETTE\nPrimary: Orange (Bell).\nSecondary: Light Blue (Headphones,\ninternal details).\nAccent: Gold/Brass (Base metal),\nDark Blue (Clapper base),\nWhite (Emblem, teeth).", "desc": "Small, black sans-serif text block in a light blue box on the left side." },
@@ -74,4 +74,4 @@ Coordinate space: pixel-estimated from a ~1000x1000 source image,
   (headphone structure, emission core, wireless receiver) rather than one generic
   "internals" caption — that level of specificity is what `sheet-anatomy.md`'s
   accessories/interior panel description calls for, and only makes sense because
-  Bell-Boy is a gadget-driven character with real internal mechanisms to diagram.
+  Ding-Bot is a gadget-driven character with real internal mechanisms to diagram.
