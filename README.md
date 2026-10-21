@@ -83,6 +83,10 @@ skills/upscale-image-workflow/                # raise the resolution of one spec
 ├── references/                               # upscale settings
 ├── examples/                                 # a worked upscale
 └── evals/
+skills/reframe-image-workflow/                # reframe an existing Ideogram image to a new aspect ratio
+├── SKILL.md
+├── references/                               # source and ratio resolution
+└── examples/                                 # a worked 9:16 logo reframe
 examples/                                     # generated showcase assets + the exact prompts used
 ```
 
