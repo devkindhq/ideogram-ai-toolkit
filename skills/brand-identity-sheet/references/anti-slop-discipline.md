@@ -52,7 +52,7 @@ a signal), the icon grid, character panel, and background must not include:
 - **A purple-to-pink or cyan-to-magenta gradient wash across the whole sheet or
   background** — this is the single most recognizable "AI startup" tell. A brand
   whose own palette calls for a "glow" as one deliberate, contained icon (see
-  orbitwell' beacon panel) is fine; a gradient bleeding across every panel, or used as
+  a beacon panel) is fine; a gradient bleeding across every panel, or used as
   the sheet's overall background treatment, is not — that's the model defaulting to
   its own priors instead of the brand's locked palette.
 - **Photorealistic stock-photo textures** (hands on a laptop, generic office scenes,

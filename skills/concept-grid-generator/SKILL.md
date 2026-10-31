@@ -92,7 +92,11 @@ Structure, in order:
 2. State the grid dimensions (e.g. "a 2x3 grid of six square tiles," "a 3x2 grid of
    six tiles") so the tile count and layout are unambiguous.
 3. List each concept as its own captioned clause, in reading order, each naming its
-   own single-mark idea from step 2 plus a short label caption under the tile.
+   own single-mark idea from step 2 plus a short label caption under the tile. Caption
+   text this small will usually render as garbled shapes rather than legible words. Ask
+   for it anyway where the layout benefits from the rhythm of a caption row, but read the
+   tiles by position, not by what a caption appears to say, and do not let a garbled
+   caption be mistaken for a rejected label.
 4. State the palette once, as the shared palette across every tile — never restate it
    per-tile, since restating invites drift.
 5. State the rendering technique once, as the shared technique across every tile, for
@@ -125,7 +129,17 @@ of square tiles reads cleanest as a square canvas, a taller grid (more rows than
 columns) reads better as `4x5`. Use `rendering_speed: "QUALITY"` — captions and tile
 dividers are text/composition-heavy and need to stay legible.
 
+### 4.5. Check what actually rendered
+
+The anti-slop gate scores the prompt, not the image. Before treating any tile as usable,
+run `references/post-generation-checklist.md` against the returned grid: tile count,
+ground-colour fidelity, subject fidelity per tile. A grid that scored well going in can
+still come back with tiles merged or a specified ground drifted.
+
 ### 5. Save the artifact and route the winner forward
+
+See `references/ideogram-asset-retrieval.md` first: the permalink is an HTML page, not an
+image, and the real file is WebP whatever extension you save it under.
 
 Save the prompt, the `request_id`, and the permalink to the project's branding folder
 (check for an existing `logo-explorations/` or `branding/` folder first and match it),

@@ -39,6 +39,35 @@ what you save back to the vault so the board's structure survives past the singl
 
 ### 1. Pull whatever brand truth exists — don't block on missing pieces
 
+**If the project has a settled position or a token lock, read them first.** The position
+comes from `position-recommender` and tokens from `kindform-tokens` (DESIGN.md); treat both
+as settled. When they exist, the direction is already made and your
+job is to execute it, not to re-open it. Re-deciding by eye is how a derived token set
+quietly becomes taste again.
+
+What to take, and from where:
+
+| Take | From | Why |
+|---|---|---|
+| The locked colours | DESIGN.md Colors (`kindform-tokens`) | Derived and contrast-checked. Use the hex as given |
+| Typography | DESIGN.md Typography | Derived, including the size count |
+| The visual vocabulary | The position's lineage table and the direction's SGCT sheet (signature, semiotics) | Tells you what the position actually licenses |
+| Adjectives and constraints | The kindform intake record (`kindform-intake-<date>.md`) and `OWNER-RULES.md` | The brief in the client's own words, and the bans |
+| The failure mode | The position's `fails_at` lines | What this direction is bad at, so you do not walk into it |
+
+A project with an older `position.yaml` and no DESIGN.md: read the same five things from it
+(`tokens.colour`, `tokens.typography`, `diagnosis`, `intent`, `selection.fails_at`).
+
+Leave confidence labels and source appendices alone; they belong to the position document,
+not to this artifact. And if a settled file disagrees with something the user just told you,
+say so out loud rather than silently picking one. A contradiction between a standing position
+and a fresh instruction is a decision for the user, and it usually means a re-run
+(`position-recommender` for the position, `kindform-tokens` for tokens) rather than a
+workaround here.
+
+Where neither exists, carry on below as normal.
+
+
 Read the project's `brand.md` if one exists. But unlike `brand-identity-sheet`, a
 missing or half-written brand.md is the *normal* case here, not a blocker — a moodboard
 is frequently the first artifact in a project, run specifically to help someone figure
@@ -61,6 +90,15 @@ rest as an open exploration:
   playful, trustworthy).
 - **Notes** — anything else that doesn't fit the above (a competitor to avoid looking
   like, an industry constraint, a reference image).
+- **Human presence** — if the brand's claim runs through people at all (trust, care,
+  service, who it's for, who it's by), name who should appear in the Photography &
+  Graphics and Mood Imagery panels, and from what vantage point: their eye level, not
+  looking down at them, not a stock-photo wide shot. If the claim doesn't involve people,
+  say so explicitly rather than leaving it unaddressed. An unaddressed people-question
+  defaults to "nobody" or to the wrong somebody, and neither is a neutral choice. This
+  belongs in Notes and Emotional Impact rather than as its own template variable, but it
+  has to be *asked*, the way adjectives are asked, because the failure it prevents is a
+  question nobody raised, not a field nobody filled.
 
 These six map directly onto the template variables in
 `references/panel-anatomy.md`. If a project already has a `brand.md`, pull adjectives
@@ -100,7 +138,13 @@ exploration board instead of a locked system:
 3. Adjectives: state the three words plainly — they're the thread that should be
    legible across every panel, not just the mood-imagery one.
 4. Color: whatever's known — exact hex if locked, a named hue or temperature if still
-   open ("warm terracotta and cream, still exploring the exact palette").
+   open ("warm terracotta and cream, still exploring the exact palette"). A hex alone is
+   not a strong enough anchor for a light, warm, low-saturation ground. Ideogram drifted
+   `#E8E4DA` to pink-beige and then to cream-yellow across two independently drafted
+   prompts on the same brief. For a ground in that register, anchor it twice: state the
+   hex, and in the same clause name what it is *not* ("a warm paper neutral, not pink,
+   not yellow, not cream"). Saturated colours and dark grounds held accurately in the
+   same run, so this is a narrow rule, not a blanket one.
 5. Logo concept: describe it as a *sketch* or *exploration*, not a finished mark — "a
    loose sketched exploration suggesting X," never "the final logo is X." This is the
    one place this skill deliberately contradicts `logo-prompting`'s "abstract, don't
@@ -115,9 +159,23 @@ exploration board instead of a locked system:
    with nine panels has nine chances to drift into generic AI-image territory, more
    than either sibling skill.
 9. Background/composition note: clean white background, thin grid lines separating the
-   nine panels, each panel labeled with a small caption — this is what keeps it reading
-   as a structured board rather than a Pinterest dump, even though "moodboard" energy is
-   otherwise welcome here.
+   nine panels. Ask for small panel captions if a labeled board reads more like an
+   intentional exploration than a collage, which is what keeps this from looking like a
+   Pinterest dump. But caption text at that scale reliably comes back garbled; Ideogram
+   cannot set small type legibly across nine panels in one render. Treat a caption as
+   compositional furniture that makes the board *look* structured, never as text to be
+   read. If the board genuinely needs readable labels, add them afterward in an image
+   editor, or skip captions and let panel position (reading order, left to right, top to
+   bottom) carry which-panel-is-which.
+10. **What the Logo Exploration and Typography panels can and cannot tell you.** Ideogram
+   cannot letter reliably. It renders shapes that resemble type, not a typeface. Four
+   boards on one brief returned four different invented faces, none of them the real
+   typeface already locked for that brand. Read those panels for composition and mood
+   only: heavy or light, formal or loose, never which face rendered. Say this plainly in
+   the saved file next to the images rather than leaving it implied. If the board runs
+   before any typeface is locked, the panel is genuinely exploratory and the caveat does
+   not apply yet; it exists for the commoner case where a real typeface exists and a
+   generated board could be mistaken for challenging it.
 
 Keep it one paragraph. If the user wants to compare genuinely different directions
 (not just a palette swap), write separate prompts — same "structural variety over
@@ -145,6 +203,21 @@ around 30-50 for "same energy, different brand," since moodboards are meant to b
 loosely interpreted rather than precisely reproduced (contrast with
 `brand-identity-sheet`'s tighter 40-60 remix range for a locked system).
 
+### 4.5. Run the post-generation check before treating the image as usable
+
+A prompt that scores well on the pre-generation gate can still come back structurally
+wrong. The gate measures what you asked for, not what Ideogram built. One board on this
+brief scored 5/5/4/5/5 going in, then collapsed from nine panels to six, rendered the
+wordmark as a script face, and substituted an illustrated typewriter where a documentary
+photograph was specified. Nothing caught it, because the family stops at score-prompt,
+generate, save.
+
+Before writing anything up as usable, look at the returned image against
+`references/post-generation-checklist.md`. A board that fails gets marked discard in the
+saved file, exactly as a board failing the pre-generation gate would have been revised
+before generating. The only difference is which side of the render the failure showed up
+on.
+
 ### 5. Reverse-engineer into a compositional deconstruction
 
 Once the board is generated (or if the user hands you a reference moodboard to work
@@ -159,6 +232,10 @@ from), produce the structured JSON breakdown described in
 
 ### 6. Save what you made
 
+Before saving, see `references/ideogram-asset-retrieval.md` for how to get the real image
+file rather than the permalink page, and for the WebP conversion macOS needs before the
+file can be viewed at all.
+
 Write the paragraph prompt, the JSON compositional deconstruction, and the resulting
 image URL(s) to `04-projects/<project>/logo-explorations/moodboard-<label>.md` (or
 wherever that project keeps its branding work — check for an existing
@@ -169,6 +246,26 @@ If the user reacts strongly to a specific panel (loves the palette, hates the lo
 sketch), capture that reaction in the saved file explicitly — it's the input the next
 `brand-identity-sheet` or `logo-prompting` pass will need, and a moodboard's whole
 purpose is feeding that decision forward.
+
+## When to stop generating and write a brief instead
+
+Some of what a moodboard is asked to settle, a photographic register, a typographic feel,
+an illustration style, cannot be delivered by Ideogram at final quality. It can only be
+gestured at. Watch for the specific signal that a board has crossed from useful
+exploration into the wrong medium for what is actually needed now: **the render answers
+the casting and framing question convincingly (who is in the shot, what mood, what
+composition) while failing the register question (is it really a photograph, is it really
+set in a real typeface) for structural reasons another generation cannot fix.**
+
+When both are true at once, the next deliverable is a brief for a human photographer,
+illustrator or type designer, written from what the board settled. Not another round
+pushing the same image closer to a photograph it structurally cannot become. Say it
+explicitly in the saved file: name which panel is now a brief, and who it is for.
+
+The judgment is real and cuts both ways. Declaring "brief" before genuinely trying to
+iterate the prompt wastes the cheap medium; declaring it after four wasted rounds wastes
+the expensive one. The signal above is the thing to key off, not a general sense that the
+image is disappointing.
 
 ## Reference files
 

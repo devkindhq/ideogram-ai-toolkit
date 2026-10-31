@@ -59,26 +59,26 @@ image themselves and re-derive the layout. A bbox-level breakdown *is* the spec:
 tells a downstream agent (a hallmark/rebrand agent, a future logo pass, a website-build
 agent) exactly which panel is the primary wordmark treatment, which icon is the
 character mark, which button shows the accent color, without re-interpreting the image
-from scratch. That's what let `orbitwell-logo-prompting-space`'s output feed directly
-into the site rebrand without a second round of "what did you mean by this panel."
+from scratch. That's what lets a logo-prompting output feed directly
+into a site rebrand without a second round of "what did you mean by this panel."
 
-## Worked example (abbreviated — full version in `examples/orbitwell-identity-sheet.md`)
+## Worked example (abbreviated — full version in `examples/fizzwright-identity-sheet.md`)
 
 ```json
 {
-  "high_level_description": "A polished brand identity sheet for 'orbitwell' showcasing a bold geometric logo, a cohesive navy-cyan-gray color palette, futuristic UI components including pill buttons and app icons, and a stylized cosmic astronaut character, all arranged in a structured guide layout.",
+  "high_level_description": "A polished brand identity sheet for 'Orbitwell' showcasing a bold geometric logo, a cohesive navy-cyan-gray color palette, futuristic UI components including pill buttons and app icons, and a stylized cosmic astronaut character, all arranged in a structured guide layout.",
   "compositional_deconstruction": {
     "background": "A crisp, light silver-gray background overlaid with a large-scale geometric grid of faint dark-gray lines forming intersecting diagonal and orthogonal shapes, evoking a technical blueprint aesthetic.",
     "elements": [
       {
         "type": "obj",
         "bbox": [39, 41, 149, 283],
-        "desc": "A white rectangular UI card with softly rounded corners presenting brand identity information — bold dark-navy 'orbitwell' header, large stylized wordmark centered, small supporting text at the bottom."
+        "desc": "A white rectangular UI card with softly rounded corners presenting brand identity information — bold dark-navy 'ORBITWELL' header, large stylized wordmark centered, small supporting text at the bottom."
       },
       {
         "type": "text",
         "bbox": [94, 110, 144, 217],
-        "text": "orbitwell",
+        "text": "Orbitwell",
         "desc": "Large, bold dark-navy sans-serif wordmark, geometric letterforms, strong stroke contrast, tight spacing."
       },
       {
