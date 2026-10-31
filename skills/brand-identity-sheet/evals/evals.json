@@ -3,16 +3,16 @@
   "evals": [
     {
       "id": 1,
-      "eval_name": "technauts-generate-from-design-md",
-      "prompt": "I want to see the whole Technauts brand system in one image before we go further — not just the logo, but the icons, buttons, and wordmark together, like a mood board / identity sheet. Read 04-projects/technauts/design.md for the current locked palette and typography (it's the Ascent theme — dark ink-navy paper, cyan accent) and actually generate the image, don't just give me a prompt to run myself.",
-      "expected_output": "A generated image (via Ideogram) showing a structured brand identity sheet for Technauts using the Ascent palette (dark ink-navy paper, cyan accent, warm-gray secondary) with a wordmark card, an app-icon grid, pill buttons, and a giant wordmark treatment — plus a saved compositional-deconstruction JSON breakdown of the result, written to the project's branding folder.",
+      "eval_name": "orbitwell-generate-from-design-md",
+      "prompt": "I want to see the whole Orbitwell brand system in one image before we go further — not just the logo, but the icons, buttons, and wordmark together, like a mood board / identity sheet. Read 04-projects/orbitwell/design.md for the current locked palette and typography and actually generate the image, don't just give me a prompt to run myself.",
+      "expected_output": "A generated image (via Ideogram) showing a structured brand identity sheet for Orbitwell using the locked palette (dark ink-navy paper, cyan accent, warm-gray secondary) with a wordmark card, an app-icon grid, pill buttons, and a giant wordmark treatment — plus a saved compositional-deconstruction JSON breakdown of the result, written to the project's branding folder.",
       "files": [],
       "expectations": [
         "The skill actually calls an Ideogram MCP tool (generate_image or remix_image) rather than only printing a prompt for the user to run elsewhere",
-        "The generation prompt references the Ascent palette's actual colors (dark ink-navy paper, cyan accent, warm-gray) rather than inventing new colors or reusing the old Cobalt palette",
+        "The generation prompt references the design doc's actual palette colors (dark ink-navy paper, cyan accent, warm-gray) rather than inventing new colors",
         "The output includes a compositional deconstruction (JSON with high_level_description and an elements array with bbox/desc entries)",
         "The output or a saved file names specific panels (wordmark card, app-icon grid, pill buttons, giant wordmark) rather than a single generic description",
-        "Results are saved to a file under 04-projects/technauts/ rather than left only in the conversation"
+        "Results are saved to a file under 04-projects/orbitwell/ rather than left only in the conversation"
       ]
     },
     {

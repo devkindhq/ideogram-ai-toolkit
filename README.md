@@ -152,8 +152,8 @@ See [`examples/`](examples/README.md) for the full write-up of the root showcase
   <tr>
     <td align="center" width="33%">
       <a href="skills/marketing-ui-mockup-hero-generator/examples/">
-        <img src="skills/marketing-ui-mockup-hero-generator/examples/images/technauts-landing-hero.webp" width="200"><br>
-        Landing-page hero (Technauts)
+        <img src="skills/marketing-ui-mockup-hero-generator/examples/images/orbitwell-landing-hero.webp" width="200"><br>
+        Landing-page hero (Orbitwell)
       </a>
     </td>
     <td align="center" width="33%">

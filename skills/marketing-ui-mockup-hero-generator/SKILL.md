@@ -166,7 +166,7 @@ marketing visuals — check for an existing folder first, matching the pattern
 - `references/composition-spec-format.md` — the full JSON schema for the
   compositional deconstruction (`high_level_description`, `elements[]` with
   `type`/`bbox`/`desc`, text elements with `text`), the layer-tagging convention, and a
-  worked Technauts landing-hero example.
+  worked Orbitwell landing-hero example.
 - `references/anti-slop-discipline.md` — the UI-mockup-specific failure modes
   (meaningless charts, decorative dead-end sidebars, illegible micro-text-as-texture,
   stock-SaaS gradient washes, AI-glow screens with no real content), the real-copy

@@ -64,14 +64,14 @@ undifferentiated description belongs to.
 
 ## Worked example
 
-A landing-page hero for the fictional brand "Technauts," broken into nav-bar,
+A landing-page hero for the fictional brand "Orbitwell," broken into nav-bar,
 hero-copy, CTA, and product-visual elements, using the layer-tagging convention above:
 
 ```json
 {
-  "high_level_description": "A landing-page hero image for Technauts showing a browser-chrome mockup of a satellite telemetry dashboard, with a headline, subheadline, and CTA button above it.",
+  "high_level_description": "A landing-page hero image for Orbitwell showing a browser-chrome mockup of a satellite telemetry dashboard, with a headline, subheadline, and CTA button above it.",
   "compositional_deconstruction": {
-    "background": "A deep ink-navy background with a faint diagonal grid line pattern, evoking a technical blueprint aesthetic consistent with the Technauts brand.",
+    "background": "A deep ink-navy background with a faint diagonal grid line pattern, evoking a technical blueprint aesthetic consistent with the Orbitwell brand.",
     "elements": [
       {
         "type": "text",

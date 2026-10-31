@@ -3,8 +3,8 @@
   "evals": [
     {
       "id": 1,
-      "eval_name": "technauts-hero-with-social-reframe",
-      "prompt": "Generate a landing-page hero image for Technauts — headline 'Ship telemetry that trusts itself', subhead 'Real-time satellite health, without the guesswork', and a 'Start free trial' button, with a browser-chrome mockup of the product behind it. I also need a square version for social.",
+      "eval_name": "orbitwell-hero-with-social-reframe",
+      "prompt": "Generate a landing-page hero image for Orbitwell — headline 'Ship telemetry that trusts itself', subhead 'Real-time satellite health, without the guesswork', and a 'Start free trial' button, with a browser-chrome mockup of the product behind it. I also need a square version for social.",
       "expected_output": "The skill drafts a paragraph prompt naming every assigned layer in reading order with the literal headline, subhead, and CTA copy quoted verbatim, runs the anti-slop gate against that prompt before generating, calls generate_image with style_type: \"DESIGN\" and aspect_ratio: \"16x9\" for the base hero, then calls reframe_image on the base generation's response_id with aspect_ratio: \"1x1\" to produce the social variant instead of a second independent generate_image call, and saves a compositional-deconstruction JSON tagging Nav Bar, Hero Copy Zone, CTA Placement, and Device Frame/Chrome elements.",
       "files": [],
       "expectations": [

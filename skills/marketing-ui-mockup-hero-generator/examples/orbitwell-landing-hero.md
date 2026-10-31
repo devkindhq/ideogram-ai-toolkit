@@ -1,12 +1,9 @@
-# Worked Example: Technauts Landing-Page Hero
+# Worked Example: Orbitwell Landing-Page Hero
 
 A real, end-to-end run of workflow steps 1-6 and 8 for the landing-page hero format,
-using the fictional "Technauts" brand and the same headline/subhead/CTA/nav copy as
+using the fictional "Orbitwell" brand and the same headline/subhead/CTA/nav copy as
 `references/composition-spec-format.md`'s worked example, so the two files describe
-the same composition consistently. Palette (deep space navy, electric cyan, metallic
-silver) reused from `brand-identity-sheet/examples/technauts-identity-sheet.md` for
-cross-skill consistency rather than inventing a new palette for the same fictional
-brand.
+the same composition consistently. Palette: deep space navy, electric cyan, metallic silver.
 
 ## Compositional layer assignment (workflow step 2)
 
@@ -24,7 +21,7 @@ brand.
 
 ## 1. The paragraph prompt
 
-> A landing-page hero marketing image for the tech brand Technauts, laid out as a
+> A landing-page hero marketing image for the tech brand Orbitwell, laid out as a
 > full-bleed web hero on a deep space-navy background with a faint diagonal blueprint
 > grid line pattern. Centered near the top, a large bold white sans-serif headline
 > reads "Ship telemetry that trusts itself", with a smaller warm-gray subheadline
@@ -63,23 +60,25 @@ All axes score 3 or above — proceeded to generation without revision.
 
 ## Generation (workflow step 5)
 
-Called `mcp__ideogram__generate_image` with the prompt above, `style_type: "DESIGN"`,
-`rendering_speed: "QUALITY"`, `aspect_ratio: "16x9"`.
+Called `mcp__ideogram__generate_images` (operation `ideogram_3`) with the prompt above,
+`style_type: "design"`, `rendering_speed: "default"`, `aspect_ratio: "16x9"`, one image.
 
-- **Request ID:** `XdRDYlh0RWuHmrvDelkZpw`
-- **Response ID:** `rHCLRUpuV8yJinX6CeSyMA`
-- **Image URL:** https://ideogram.ai/assets/image/balanced/response/rHCLRUpuV8yJinX6CeSyMA@2k
-- **Permalink:** https://ideogram.ai/g/XdRDYlh0RWuHmrvDelkZpw/0
-- **Downloaded to:** `examples/images/technauts-landing-hero.webp` (real file, 1024x576 WebP, confirmed via `file`)
+- **Request ID:** `P6sZJ_2TREK-7TI0j6w_1Q`
+- **Response ID:** `sMhb5uEBVT6WZb-mv3WDUQ`
+- **Image URL:** https://ideogram.ai/assets/image/balanced/response/sMhb5uEBVT6WZb-mv3WDUQ@2k
+- **Permalink:** https://ideogram.ai/g/P6sZJ_2TREK-7TI0j6w_1Q/0
+- **Downloaded to:** `examples/images/orbitwell-landing-hero.webp` (real file, 1024x576 WebP, confirmed via `file`)
 
-![Technauts landing-page hero](images/technauts-landing-hero.webp)
+![Orbitwell landing-page hero](images/orbitwell-landing-hero.webp)
 
-The result renders every planned text element legibly: headline, subheadline, "Start
-free trial" CTA, the browser address bar ("technauts.io/dashboard" — a plausible
-in-world detail Ideogram added on top of the specified copy), "Dashboard / Fleet /
-Alerts" nav, three stat cards ("Signal Strength 98.2%", "Uptime 99.97%", "Link Margin
-+12.4 dB"), and an "Orbit Health" chart with an upward-trending line — all specific,
-legible, and consistent with the prompt's intent.
+The result renders the brand wordmark, headline, subheadline, "Start free trial" CTA
+(Ideogram uppercased it), and the "Orbit Health" chart label legibly. Honest caveats
+from inspecting the output: the nav labels came out only partly ("Dashboard" sits in
+the sidebar, "Fleet" and "Alerts" in a top bar), the stat-card values are
+unreadable placeholders, and no address-bar text rendered. Ideogram also added a
+small "orbitwell" wordmark above the headline that the prompt did not ask for. Fine
+for a hero where the dashboard is atmosphere; for a screenshot-grade product visual,
+use the dashboard-screenshot format with explicit stat-card values instead.
 
 ## 2. The compositional deconstruction
 
@@ -89,7 +88,7 @@ by eye, not measured from source pixel coordinates — coarse-but-honest per
 
 ```json
 {
-  "high_level_description": "A landing-page hero image for Technauts showing a browser-chrome mockup of a satellite telemetry dashboard, with a headline, subheadline, and CTA button above it, on a deep-navy blueprint-grid background.",
+  "high_level_description": "A landing-page hero image for Orbitwell showing a browser-chrome mockup of a satellite telemetry dashboard, with a headline, subheadline, and CTA button above it, on a deep-navy blueprint-grid background.",
   "compositional_deconstruction": {
     "background": "A deep space-navy background with a faint diagonal grid line pattern, evoking a technical blueprint aesthetic.",
     "elements": [
@@ -113,17 +112,17 @@ by eye, not measured from source pixel coordinates — coarse-but-honest per
       {
         "type": "obj",
         "bbox": [250, 520, 750, 1000],
-        "desc": "Device Frame/Chrome — a browser-chrome window frame (light-gray address bar reading 'technauts.io/dashboard', three window-control dots) containing the Product Visual, cropped at the bottom edge of the 16:9 frame."
+        "desc": "Device Frame/Chrome — a browser-chrome window frame (light-gray top bar with three window-control dots) containing the Product Visual, cropped at the bottom edge of the 16:9 frame."
       },
       {
         "type": "obj",
         "bbox": [250, 580, 750, 630],
-        "desc": "Nav Bar — a slim horizontal bar inside the browser frame with three real nav-item labels: 'Dashboard', 'Fleet', 'Alerts', in light-gray sans-serif text on a near-black bar."
+        "desc": "Nav Bar — a slim horizontal bar inside the browser frame carrying the nav labels 'Dashboard', 'Fleet', 'Alerts' in sans-serif text."
       },
       {
         "type": "obj",
         "bbox": [250, 630, 750, 1000],
-        "desc": "Product Visual — a satellite-telemetry dashboard screen with a dark sidebar, three metallic-silver stat cards ('Signal Strength 98.2%', 'Uptime 99.97%', 'Link Margin +12.4 dB'), and a line chart labeled 'Orbit Health' trending upward in cyan/teal."
+        "desc": "Product Visual — a satellite-telemetry dashboard screen with a dark sidebar, metallic stat cards showing signal-strength figures, and a line chart labeled 'Orbit Health' trending upward in cyan/teal."
       }
     ]
   }
@@ -132,16 +131,16 @@ by eye, not measured from source pixel coordinates — coarse-but-honest per
 
 ## 3. The reframe variant
 
-Called `mcp__ideogram__reframe_image` with `image_response_id: "rHCLRUpuV8yJinX6CeSyMA"`
-and `aspect_ratio: "1x1"` to produce the social-square variant.
+Called `mcp__ideogram__edit_images` (operation `reframe_ideogram_3`) on response
+`sMhb5uEBVT6WZb-mv3WDUQ` with `resolution: "1024x1024"` to produce the social-square variant.
 
-- **Request ID:** `jGsz3qCaTkCm7L9I2Xn0ew`
-- **Response ID:** `kLAE5kuIXSOFybiysScRWQ`
-- **Image URL:** https://ideogram.ai/assets/image/balanced/response/kLAE5kuIXSOFybiysScRWQ@2k
-- **Permalink:** https://ideogram.ai/g/jGsz3qCaTkCm7L9I2Xn0ew/0
-- **Downloaded to:** `examples/images/technauts-landing-hero-social-1x1.webp` (real file, 1024x1024 WebP, confirmed via `file`)
+- **Request ID:** `c2j1kQVQSO-ornZ88DxlRQ`
+- **Response ID:** `ixVb2v0mXlOSIZ62Mc9Lxw`
+- **Image URL:** https://ideogram.ai/assets/image/balanced/response/ixVb2v0mXlOSIZ62Mc9Lxw@2k
+- **Permalink:** https://ideogram.ai/g/c2j1kQVQSO-ornZ88DxlRQ/0
+- **Downloaded to:** `examples/images/orbitwell-landing-hero-social-1x1.webp` (real file, 1024x1024 WebP, confirmed via `file`)
 
-![Technauts landing-page hero — social 1:1 variant](images/technauts-landing-hero-social-1x1.webp)
+![Orbitwell landing-page hero — social 1:1 variant](images/orbitwell-landing-hero-social-1x1.webp)
 
 **Why the crop-risk check (workflow step 6) passed for this composition:** going from
 16:9 to 1:1 makes the canvas *taller*, not narrower — per the bbox values above, the
