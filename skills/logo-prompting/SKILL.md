@@ -43,6 +43,10 @@ Borrowed from the Hallmark design skill's core insight: when producing more than
 
 "Modern, clean, professional, innovative" tells an image model nothing — every logo in its training data claims those words. Replace adjectives with things the model can actually render: an exact hex, an exact typeface name or type-genre, a named real-world reference object, an explicit exclusion list. If you catch yourself writing three unanchored adjectives in a row, stop and ask which one has a concrete visual referent.
 
+The same trap has a sharper version one level up, at values rather than motifs: see `moodboard-generator/references/panel-anatomy.md`, "Depicting versus embodying". A padlock depicting security and a pair of hands depicting care fail the same way. Both draw the symbol of the claim instead of finding the visual choice that makes the claim true.
+
+For retrieving the generated file afterwards (the permalink is not an image, and the file is WebP whatever you name it), see `references/ideogram-asset-retrieval.md`. Where a mark was specified against an exact ground colour or a photographic reference, the ground-colour and illustration-substitution checks in `moodboard-generator/references/post-generation-checklist.md` transfer; the panel-count checks do not.
+
 ## When the ask is bigger than one mark
 
 Sometimes the request is "help me get oriented on the whole visual identity" before locking a single logo — that's a moodboard job, not a logo prompt. Use the `moodboard-generator` skill instead, which owns the 3×3 grid template (Color Palette / Typography / Logo Exploration / Iconography / Photography & Graphics / Material Samples / Abstract Patterns / Mood Imagery / Application Mockup) and its own anti-slop discipline for that format.

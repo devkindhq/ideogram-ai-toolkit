@@ -41,7 +41,7 @@
     {
       "id": 2,
       "eval_name": "train-on-character-sheet-for-consistency",
-      "prompt": "We generated a character model sheet for our mascot Kip earlier (saved in 04-projects/orbitwell/logo-explorations/). I want to train a custom model on it so future generations of Kip in different poses actually look like the same character instead of drifting. Walk it through end to end.",
+      "prompt": "We generated a character model sheet for our mascot Kip earlier (saved in 04-projects/fizzwright/logo-explorations/). I want to train a custom model on it so future generations of Kip in different poses actually look like the same character instead of drifting. Walk it through end to end.",
       "expected_output": "The skill locates or asks for the Kip reference image(s), creates a dataset, uploads, trains, polls to completion, and generates a proof image of Kip in a new pose using the trained model's custom_model_uri, saving all identifiers and the new image back to the project folder.",
       "files": [],
       "assertions": [
@@ -59,7 +59,7 @@
         },
         {
           "name": "correctly-uses-existing-image-if-found",
-          "description": "The response correctly locates and references the actual kip-character-sheet.webp file at 04-projects/orbitwell/logo-explorations/ rather than claiming the file doesn't exist or fabricating a different path."
+          "description": "The response correctly locates and references the actual kip-character-sheet.webp file at 04-projects/fizzwright/logo-explorations/ rather than claiming the file doesn't exist or fabricating a different path."
         },
         {
           "name": "no-fabricated-completion",

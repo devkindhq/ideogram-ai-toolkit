@@ -39,11 +39,39 @@ rather than inventing values here.
 Always produce both. The paragraph prompt is what you feed the image model; the
 compositional deconstruction is what you save back to the vault so the sheet's
 structure survives past the single image (feeding hallmark/website work later, the
-same way `orbitwell-logo-prompting-space`'s output fed the site rebrand).
+same way a logo-prompting output can feed a site rebrand).
 
 ## Workflow
 
 ### 1. Pull the brand truth
+
+**If the project has a settled position or a token lock, read them first.** The position
+comes from `position-recommender` and tokens from `kindform-tokens` (DESIGN.md); treat both
+as settled. When they exist, the direction is already made and your
+job is to execute it, not to re-open it. Re-deciding by eye is how a derived token set
+quietly becomes taste again.
+
+What to take, and from where:
+
+| Take | From | Why |
+|---|---|---|
+| The locked colours | DESIGN.md Colors (`kindform-tokens`) | Derived and contrast-checked. Use the hex as given |
+| Typography | DESIGN.md Typography | Derived, including the size count |
+| The visual vocabulary | The position's lineage table and the direction's SGCT sheet (signature, semiotics) | Tells you what the position actually licenses |
+| Adjectives and constraints | The kindform intake record (`kindform-intake-<date>.md`) and `OWNER-RULES.md` | The brief in the client's own words, and the bans |
+| The failure mode | The position's `fails_at` lines | What this direction is bad at, so you do not walk into it |
+
+A project with an older `position.yaml` and no DESIGN.md: read the same five things from it
+(`tokens.colour`, `tokens.typography`, `diagnosis`, `intent`, `selection.fails_at`).
+
+Leave confidence labels and source appendices alone; they belong to the position document,
+not to this artifact. And if a settled file disagrees with something the user just told you,
+say so out loud rather than silently picking one. A contradiction between a standing position
+and a fresh instruction is a decision for the user, and it usually means a re-run
+(`position-recommender` for the position, `kindform-tokens` for tokens) rather than a
+workaround here.
+
+Where neither exists, carry on below as normal.
 
 Read the project's `brand.md` (Strategy + Voice + Visual layers) or `design.md` if the
 project has moved past brand.md into a locked design system. You need, specifically:
@@ -138,7 +166,7 @@ transcription, universal-ban sweep, glow containment, restraint). Anything scori
 under 3 on any axis means revise the prompt now — regenerating a shipped image is
 expensive; revising a paragraph before you generate is not. This step exists because
 palette and typography accuracy (step 1) and slop-freedom (this step) are different
-failure modes — a prompt can get the Ascent/Cobalt/whatever hex values exactly right
+failure modes — a prompt can get the named-palette hex values exactly right
 while still defaulting to a generic AI-icon vocabulary, and only checking for the
 second catches it.
 
@@ -155,6 +183,17 @@ If the user supplies a reference image they like (their own upload, or a prior
 generation) and wants variations, use `mcp__ideogram__remix_image` against it instead
 of a fresh `generate_image` call — pass `image_weight` around 40-60 for "same
 structure, different brand" remixes, higher for closer variations.
+
+### 4.5. Check what actually rendered
+
+The anti-slop gate scores the prompt; it cannot see the image. Before treating the sheet
+as usable, run `references/post-generation-checklist.md` against what came back. On a
+locked system this matters more than on an exploratory board, because the sheet's whole
+job is to show decisions that were already made: a drifted ground colour or an invented
+typeface here does not read as exploration, it reads as the system.
+
+Retrieval, including the WebP conversion needed before the file can be viewed at all:
+`references/ideogram-asset-retrieval.md`.
 
 ### 5. Reverse-engineer into a compositional deconstruction
 
@@ -189,7 +228,7 @@ promotes reusable techniques into its own reference files.
 
 - `references/composition-spec-format.md` — the full JSON schema for the compositional
   deconstruction (`high_level_description`, `elements[]` with `type`/`bbox`/`desc`,
-  text elements with `text`), plus the worked orbitwell example this skill was seeded
+  text elements with `text`), plus the worked Fizzwright example this skill was seeded
   from.
 - `references/sheet-anatomy.md` — the named panel types (wordmark card, app-icon grid,
   pill buttons, giant wordmark, secondary lockup, character panel) with what each one
@@ -200,6 +239,6 @@ promotes reusable techniques into its own reference files.
   pre-generation gate to run before every `generate_image` call. Read this every time,
   not just when a brand doc happens to list its own guardrails — the universal bans
   apply regardless.
-- `examples/orbitwell-identity-sheet.md` — the real paragraph prompt + full JSON
+- `examples/fizzwright-identity-sheet.md` — the real paragraph prompt + full JSON
   breakdown this skill was built from, as a worked reference for format and level of
   detail.
