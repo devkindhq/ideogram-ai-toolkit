@@ -1,0 +1,13 @@
+{
+  "name": "ideogram-ai-toolkit",
+  "version": "1.0.0",
+  "description": "Claude Code skills for Ideogram AI image generation — prompting technique (structured JSON captions, style extraction, remix vs edit), brand identity sheets, character model sheets, logo prompting, moodboards, marketing mockups, icon sets, seamless patterns, bulk generation, custom model training, collections, and post-processing (background removal, upscaling, reframing).",
+  "author": {
+    "name": "Devkind",
+    "url": "https://devkind.com.au"
+  },
+  "license": "MIT",
+  "homepage": "https://github.com/devkindhq/ideogram-ai-toolkit",
+  "repository": "https://github.com/devkindhq/ideogram-ai-toolkit",
+  "keywords": ["ideogram", "image-generation", "brand-identity", "logo", "design", "marketing-assets", "moodboard", "icons", "patterns", "claude-skills"]
+}
