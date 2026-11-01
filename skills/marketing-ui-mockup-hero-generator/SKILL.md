@@ -30,7 +30,7 @@ reverse-engineered only after generation.
    compositional layer in reading order with literal copy in quotes.
 2. **A compositional deconstruction** — the structured JSON breakdown per
    `references/composition-spec-format.md`, tagging each element with which
-   compositional layer it belongs to so a later pass can reference "the CTA element
+   compositional layer it belongs to so a later step can reference "the CTA element
    from the hero shot" without re-describing it.
 
 Always produce both. The paragraph prompt is what you feed the image model; the
@@ -121,7 +121,7 @@ correct.
 Produce the structured JSON breakdown per `references/composition-spec-format.md`,
 tagging each element with which compositional layer it is (Nav Bar, Hero Copy Zone,
 CTA, Device Frame/Chrome, Supporting UI Chrome, Background/Environment) so a later
-pass can reference "the CTA element from the hero shot" without re-describing it.
+step can reference "the CTA element from the hero shot" without re-describing it.
 
 ### 9. Save what was made
 
