@@ -207,7 +207,12 @@ See [`examples/`](examples/README.md) for the full write-up of the root showcase
 
 This is a set of Claude Code [skills](https://docs.claude.com/en/docs/claude-code/skills). Requires the [Ideogram MCP](https://ideogram.ai/features/mcp/) to be connected (`claude mcp add ideogram --transport http https://mcp.ideogram.ai/mcp`).
 
-Each skill installs independently — swap `ideogram-prompt` below for any of the 16 skills under `skills/` as needed.
+Each skill installs independently — swap `ideogram-prompt` below for any of the 17 skills under `skills/` as needed.
+
+**As a Claude Code plugin** (installs all 17 skills at once; needs Claude Code 2.1.275 or later):
+```
+/plugin install ideogram-ai-toolkit --marketplace devkindhq/ideogram-ai-toolkit
+```
 
 **Via the [skills CLI](https://www.skills.sh)** (reads straight from this GitHub repo, no unreviewed single-URL installer):
 ```bash
@@ -230,6 +235,14 @@ ln -s ~/ideogram-ai-toolkit/skills/ideogram-prompt ~/.claude/skills/ideogram-pro
 ```
 
 We deliberately don't ship a one-line `curl ... | skill.md` installer — pulling an unreviewed instruction file straight into `~/.claude/skills/` from a single URL is a real prompt-injection / supply-chain risk for an AI agent, and we'd rather you read the skill before trusting it. Clone it, read `SKILL.md`, then symlink or copy it in.
+
+## Network access and data
+
+This plugin ships static skill files (markdown, JSON examples and sample images). It has no code, hooks, scripts or MCP server of its own, and it collects nothing.
+
+The skills drive your own Ideogram MCP connection. Prompts and any images you upload go to Ideogram under your own account and subject to Ideogram's terms. You set up and hold the Ideogram MCP connection and its credentials yourself; this plugin does not read, store or request them.
+
+Some skills tell Claude to run the single-use `curl` upload command that Ideogram's `upload_image` tool returns, or to download a generated image from an `ideogram.ai` URL, so a local file can reach Ideogram or a result can be saved. The skills also reference local `jq` and `sips` for filtering tool output and converting WebP to PNG.
 
 ## Why this exists
 

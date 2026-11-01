@@ -1,0 +1,16 @@
+{
+  "name": "ideogram-ai-toolkit",
+  "description": "Skills for Ideogram image generation: prompting technique, brand identity, logos, moodboards, icons, patterns and post-processing.",
+  "owner": {
+    "name": "Devkind",
+    "url": "https://devkind.com.au"
+  },
+  "plugins": [
+    {
+      "name": "ideogram-ai-toolkit",
+      "source": ".",
+      "description": "Skills for Ideogram image generation: prompting, brand and logo work, characters, moodboards, icons, patterns, custom models and post-processing.",
+      "category": "design"
+    }
+  ]
+}
