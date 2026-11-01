@@ -96,13 +96,13 @@ See [`examples/`](examples/README.md) for the full write-up of the root showcase
   <tr>
     <td align="center" width="33%">
       <a href="examples/README.md#1-editorial-product-photo--precise-color_palette-control">
-        <img src="examples/images/01-editorial-product-photo.png" width="200"><br>
+        <img src="examples/images/01-editorial-product-photo.webp" width="200"><br>
         Editorial product photo
       </a>
     </td>
     <td align="center" width="33%">
       <a href="examples/README.md#2-vintage-sci-fi-poster--art_style--in-image-text-via-bounding-boxes">
-        <img src="examples/images/02-vintage-scifi-poster.png" width="200"><br>
+        <img src="examples/images/02-vintage-scifi-poster.webp" width="200"><br>
         Vintage sci-fi poster
       </a>
     </td>
@@ -122,13 +122,13 @@ See [`examples/`](examples/README.md) for the full write-up of the root showcase
     </td>
     <td align="center" width="33%">
       <a href="examples/README.md#5-style-extraction--reference-image-to-new-subject">
-        <img src="examples/images/05a-style-extraction-reference.png" width="200"><br>
+        <img src="examples/images/05a-style-extraction-reference.webp" width="200"><br>
         Style extraction (reference)
       </a>
     </td>
     <td align="center" width="33%">
       <a href="examples/README.md#5-style-extraction--reference-image-to-new-subject">
-        <img src="examples/images/05b-style-extraction-applied.png" width="200"><br>
+        <img src="examples/images/05b-style-extraction-applied.webp" width="200"><br>
         Style extraction (applied)
       </a>
     </td>
@@ -188,7 +188,7 @@ See [`examples/`](examples/README.md) for the full write-up of the root showcase
     </td>
     <td align="center" width="33%">
       <a href="skills/remove-background-workflow/examples/logo-background-removal/">
-        <img src="skills/remove-background-workflow/examples/logo-background-removal/anchorpoint-logo-1-transparent.png" width="200"><br>
+        <img src="skills/remove-background-workflow/examples/logo-background-removal/anchorpoint-logo-1-transparent.webp" width="200"><br>
         Background removal (Anchorpoint)
       </a>
     </td>

@@ -8,7 +8,7 @@ All were generated on the default Ideogram 4.0 model (no `custom_model_uri`), `r
 
 Demonstrates the photographic path (`photo` + `medium: "photograph"`) and exact hex steering instead of color-adjectives.
 
-![Editorial product photo](images/01-editorial-product-photo.png)
+![Editorial product photo](images/01-editorial-product-photo.webp)
 
 ```json
 {
@@ -35,7 +35,7 @@ Demonstrates the photographic path (`photo` + `medium: "photograph"`) and exact 
 
 Demonstrates the non-photo path (`art_style` + `medium: "illustration"`) and rendering multiple literal text strings at specific positions via `compositional_deconstruction.elements`.
 
-![Vintage sci-fi poster](images/02-vintage-scifi-poster.png)
+![Vintage sci-fi poster](images/02-vintage-scifi-poster.webp)
 
 ```json
 {
@@ -122,7 +122,7 @@ Demonstrates the full loop from `references/style-extraction-workflow.md`: gener
 
 **Step 1 — reference image:**
 
-![Style extraction reference](images/05a-style-extraction-reference.png)
+![Style extraction reference](images/05a-style-extraction-reference.webp)
 
 ```json
 {
@@ -147,7 +147,7 @@ Demonstrates the full loop from `references/style-extraction-workflow.md`: gener
 
 **Step 3 — recipe applied to a new subject (a house cat):**
 
-![Style extraction applied to new subject](images/05b-style-extraction-applied.png)
+![Style extraction applied to new subject](images/05b-style-extraction-applied.webp)
 
 ```json
 {
