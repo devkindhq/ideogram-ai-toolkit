@@ -27,9 +27,9 @@ extension (`edit_image` call) confirmed `status: "done"` via a second `get_gener
 poll on `request_id: "k5zhIdQfRS2z9gM2PCGsFw"`.
 
 Local copies of all 7 rendered PNGs (downloaded from the `image_url`s above) are saved
-alongside this file: `icon-home.png`, `icon-search.png`, `icon-favorites.png`,
-`icon-profile.png`, `icon-settings.png`, `icon-camera.png`,
-`icon-notifications-extension.png`.
+alongside this file: `icon-home.webp`, `icon-search.webp`, `icon-favorites.webp`,
+`icon-profile.webp`, `icon-settings.webp`, `icon-camera.webp`,
+`icon-notifications-extension.webp`.
 
 ## Style block (locked, byte-identical across every prompt)
 

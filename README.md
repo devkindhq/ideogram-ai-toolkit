@@ -108,7 +108,7 @@ See [`examples/`](examples/README.md) for the full write-up of the root showcase
     </td>
     <td align="center" width="33%">
       <a href="examples/README.md#3-packaging-label--graphic_design-medium-with-multiple-text-elements">
-        <img src="examples/images/03-packaging-label.png" width="200"><br>
+        <img src="examples/images/03-packaging-label.webp" width="200"><br>
         Packaging label
       </a>
     </td>
@@ -116,7 +116,7 @@ See [`examples/`](examples/README.md) for the full write-up of the root showcase
   <tr>
     <td align="center" width="33%">
       <a href="examples/README.md#4-abstract-3d-icon--3d_render-medium">
-        <img src="examples/images/04-abstract-3d-icon.png" width="200"><br>
+        <img src="examples/images/04-abstract-3d-icon.webp" width="200"><br>
         Abstract 3D icon
       </a>
     </td>
@@ -136,7 +136,7 @@ See [`examples/`](examples/README.md) for the full write-up of the root showcase
   <tr>
     <td align="center" width="33%">
       <a href="examples/README.md#6-brand-identity-moodboard--33-panel-grid">
-        <img src="examples/images/06-moodboard-anchorpoint.png" width="200"><br>
+        <img src="examples/images/06-moodboard-anchorpoint.webp" width="200"><br>
         Brand identity moodboard
       </a>
     </td>
@@ -168,7 +168,7 @@ See [`examples/`](examples/README.md) for the full write-up of the root showcase
     </td>
     <td align="center" width="33%">
       <a href="skills/photographic-icon-set-generator/examples/claymation-recipe-app-icons/">
-        <img src="skills/photographic-icon-set-generator/examples/claymation-recipe-app-icons/icon-home.png" width="200"><br>
+        <img src="skills/photographic-icon-set-generator/examples/claymation-recipe-app-icons/icon-home.webp" width="200"><br>
         Claymation icon set
       </a>
     </td>

@@ -8,7 +8,7 @@ follow-up.
 ## Identifiers
 
 - `image_upload_id`: `GtlP1YRUTNS-cqvY43QM-g` (from `upload_image` +
-  the curl upload's `id` field, for `anchorpoint-logo-1.png`)
+  the curl upload's `id` field, for `anchorpoint-logo-1.webp`)
 - `remove_background` `request_id` (running envelope): `t-W7Rk2tRLS5-34A3C-SsA`
 - Output identifier field name: `response_id` — real value `X87m5cVHUfW2S7c2m23FNA`
 - `private`: omitted (used the account's plan default, per
@@ -18,7 +18,7 @@ follow-up.
 
 ## Steps run
 
-1. **`upload_image(filename="anchorpoint-logo-1.png")`** — returned a one-time
+1. **`upload_image(filename="anchorpoint-logo-1.webp")`** — returned a one-time
    `upload_url` (`https://mcp.ideogram.ai/uploads/71wEy38kGCzOgpkiR4lzi5nNppRJKpOFnyPQ-XCDIEw`)
    and a curl `instructions` string. Running that curl against the copied file
    in the sandbox returned HTTP 200 with
@@ -87,6 +87,6 @@ follow-up.
 
 ## Source images
 
-`anchorpoint-logo-1.png` was copied from
-`skills/collections-management/examples/anchorpoint-logo-collection/anchorpoint-logo-1.png`
+`anchorpoint-logo-1.webp` was copied from
+`skills/collections-management/examples/anchorpoint-logo-collection/anchorpoint-logo-1.webp`
 into this directory so this example is self-contained, per Task 3's Step 1.

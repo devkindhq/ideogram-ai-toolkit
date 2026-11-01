@@ -64,7 +64,7 @@ Demonstrates the non-photo path (`art_style` + `medium: "illustration"`) and ren
 
 Demonstrates flat graphic design, several independent text elements (wordmark + subtitle), and the highlight/shadow lighting tip from the schema reference.
 
-![Packaging label](images/03-packaging-label.png)
+![Packaging label](images/03-packaging-label.webp)
 
 ```json
 {
@@ -93,7 +93,7 @@ Demonstrates flat graphic design, several independent text elements (wordmark + 
 
 Demonstrates the `3d_render` medium value and a minimal, geometric single-subject composition — a different rendering register from the photographic and illustrative examples above.
 
-![Abstract 3D icon](images/04-abstract-3d-icon.png)
+![Abstract 3D icon](images/04-abstract-3d-icon.webp)
 
 ```json
 {
@@ -174,7 +174,7 @@ Demonstrates the full loop from `references/style-extraction-workflow.md`: gener
 
 Demonstrates the `moodboard-generator` skill's template: a single paragraph prompt naming all nine panels explicitly (Color Palette, Typography, Logo Exploration, Iconography, Photography & Graphics, Material Samples, Abstract Pattern, Mood Imagery, Application Mockup), run through the anti-slop pre-generation gate before calling `generate_image`. Unlike examples 1-5, this skill's prompt is a plain descriptive paragraph rather than the structured JSON caption format — see `skills/moodboard-generator/examples/anchorpoint-moodboard.md` for the full worked example, including the compositional deconstruction.
 
-![Brand identity moodboard](images/06-moodboard-anchorpoint.png)
+![Brand identity moodboard](images/06-moodboard-anchorpoint.webp)
 
 ```
 A brand identity moodboard laid out as a clean 3x3 grid on a pure white background

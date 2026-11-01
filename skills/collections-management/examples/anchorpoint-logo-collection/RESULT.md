@@ -9,11 +9,11 @@ connected Ideogram MCP (2026-07-30).
 - `collection_id`: `et9fwsyeQ-WmxiMypPAztg` (created as `anchorpoint-logo-collection`,
   later renamed to `anchorpoint-brand-logos`)
 - Uploaded image identifiers (`image_upload_id`, one per source file):
-  - `anchorpoint-logo-1.png` → `XYN-04ylRZy7l5b4WEtOHw`
-  - `anchorpoint-logo-2.png` → `gq-Bs51SSuO0ffTDH5p-2g`
-  - `anchorpoint-logo-3.png` → `W0tqzJTCRySU1RiGwBTq7Q`
-  - `anchorpoint-logo-4.png` → `kD7nkbcuSIyiZIg4WMnESg`
-  - `anchorpoint-logo-5.png` → `ts-KkzvfQ5WAJBD-plqdZw`
+  - `anchorpoint-logo-1.webp` → `XYN-04ylRZy7l5b4WEtOHw`
+  - `anchorpoint-logo-2.webp` → `gq-Bs51SSuO0ffTDH5p-2g`
+  - `anchorpoint-logo-3.webp` → `W0tqzJTCRySU1RiGwBTq7Q`
+  - `anchorpoint-logo-4.webp` → `kD7nkbcuSIyiZIg4WMnESg`
+  - `anchorpoint-logo-5.webp` → `ts-KkzvfQ5WAJBD-plqdZw`
 - `add_images_to_collection` result: `added_count: 5`, `failed_count: 0`,
   `failed_assets: null` — no partial failures to report.
 - Final `asset_count` on the collection (from the `rename_collection` response):
@@ -61,5 +61,5 @@ connected Ideogram MCP (2026-07-30).
 
 The 5 source files were copied from
 `skills/custom-model-training/examples/anchorpoint-logos/` into this directory
-(`anchorpoint-logo-1.png` through `anchorpoint-logo-5.png`) so this example is
+(`anchorpoint-logo-1.webp` through `anchorpoint-logo-5.webp`) so this example is
 self-contained, per Task 3's Step 7.
