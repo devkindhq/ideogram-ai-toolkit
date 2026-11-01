@@ -19,10 +19,10 @@ against the connected Ideogram MCP (2026-07-30).
 ## Steps run
 
 1. **Resolve the source (local file)** — the source image was
-   `skills/collections-management/examples/anchorpoint-logo-collection/anchorpoint-logo-1.png`,
+   `skills/collections-management/examples/anchorpoint-logo-collection/anchorpoint-logo-1.webp`,
    an existing file on disk, not a same-session generation or a collection item. Per
    `references/source-and-ratio-resolution.md`'s "Local file on disk" path, called
-   `upload_image(filename=".../anchorpoint-logo-1.png")`. It returned a one-time
+   `upload_image(filename=".../anchorpoint-logo-1.webp")`. It returned a one-time
    `upload_url` and instructions with a `curl` command. That `curl` command was run
    immediately in the sandbox and returned HTTP 200 with `"success": true` and
    `id: "Uf0WwogoSa-MrkRwwpHBgg"` — the real `image_upload_id` used below. No retry
@@ -45,7 +45,7 @@ against the connected Ideogram MCP (2026-07-30).
    path, the downloaded bytes are WebP (`RIFF ... Web/P image, VP8 encoding, 768x1376`,
    confirmed via `file`), consistent with the requested `9:16` ratio (768:1376 reduces to
    ~0.558, matching 9:16 ≈ 0.5625). Saved as `anchorpoint-logo-1-9x16.webp` in this
-   directory, alongside a copy of the source (`anchorpoint-logo-1-source.png`) so the
+   directory, alongside a copy of the source (`anchorpoint-logo-1-source.webp`) so the
    example is self-contained, per `collections-management`'s worked-example pattern.
 
 ## What was verified
@@ -70,6 +70,6 @@ against the connected Ideogram MCP (2026-07-30).
 ## Source image
 
 The source file used was
-`skills/collections-management/examples/anchorpoint-logo-collection/anchorpoint-logo-1.png`
+`skills/collections-management/examples/anchorpoint-logo-collection/anchorpoint-logo-1.webp`
 (reused as-is per Task 3's brief), copied into this directory as
-`anchorpoint-logo-1-source.png` so this example is self-contained.
+`anchorpoint-logo-1-source.webp` so this example is self-contained.

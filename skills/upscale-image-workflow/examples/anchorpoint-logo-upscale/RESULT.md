@@ -7,7 +7,7 @@ Worked example produced by actually running the `upscale-image-workflow` workflo
 ## Identifiers
 
 - `image_upload_id`: `YYssktShTaCnV32I_wME3A` (returned by the sandbox `curl` upload of
-  `anchorpoint-logo-1.png`; this is a fresh id obtained in this session, not reused from
+  `anchorpoint-logo-1.webp`; this is a fresh id obtained in this session, not reused from
   any prior session)
 - `request_id` (from the `upscale_image` call itself): `zQWpcp7ETAmPzBg1vrQ7jw`
 - `response_ids` (array, from the `upscale_image` call): `["7ozOJaKtV2GaNRpIlVN5Wg"]`
@@ -19,11 +19,11 @@ Worked example produced by actually running the `upscale-image-workflow` workflo
 
 ## Steps run
 
-1. **`upload_image(filename="anchorpoint-logo-1.png")`** — returned a one-time
+1. **`upload_image(filename="anchorpoint-logo-1.webp")`** — returned a one-time
    `upload_url` (`https://mcp.ideogram.ai/uploads/Gh8w3Q80sCNGvDY9PGP6yIAtmepAWBPAUBBWavfnVac`)
    and an `instructions` curl command.
 2. **Ran the returned curl command in the sandbox** against the real PNG bytes at
-   `skills/collections-management/examples/anchorpoint-logo-collection/anchorpoint-logo-1.png`.
+   `skills/collections-management/examples/anchorpoint-logo-collection/anchorpoint-logo-1.webp`.
    Response: HTTP 200,
    `{"success":true,"error_message":null,"id":"YYssktShTaCnV32I_wME3A","asset_id":null,"canvas_transaction_id":null,"file_name":"anchorpoint-logo-1","image_url":"https://ideogram.ai/api/images/ephemeral/YYssktShTaCnV32I_wME3A.png?exp=1785480685&sig=8b40cabcfa9651f667effee49694ee01b061a98184a51b7878cb952ad970d5c5"}`.
    The `id` field (`YYssktShTaCnV32I_wME3A`) is the `image_upload_id` used in step 4.
@@ -65,6 +65,6 @@ Worked example produced by actually running the `upscale-image-workflow` workflo
 ## Source image
 
 Copied from
-`skills/collections-management/examples/anchorpoint-logo-collection/anchorpoint-logo-1.png`
-into this directory (`anchorpoint-logo-1.png`), so this example is self-contained, per
+`skills/collections-management/examples/anchorpoint-logo-collection/anchorpoint-logo-1.webp`
+into this directory (`anchorpoint-logo-1.webp`), so this example is self-contained, per
 Task 3's Step 6.
