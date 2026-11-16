@@ -4,6 +4,8 @@ A set of Claude Code skills for [Ideogram AI](https://ideogram.ai) image generat
 
 Ideogram 4 was trained on structured JSON captions, not plain text — this toolkit documents that schema (adapted from the official [ideogram-oss/ideogram4](https://github.com/ideogram-oss/ideogram4) docs, Apache-2.0) and packages practical prompting technique around it, scoped to what the connected Ideogram MCP actually supports.
 
+This toolkit is an independent project by Devkind. It is not affiliated with Ideogram or endorsed by Ideogram.
+
 ## What's in here
 
 ```

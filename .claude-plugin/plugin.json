@@ -1,7 +1,7 @@
 {
   "name": "ideogram-ai-toolkit",
   "displayName": "Ideogram AI Toolkit",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Skills for Ideogram image generation: prompting, brand and logo work, characters, moodboards, icons, patterns, custom models and post-processing.",
   "author": {
     "name": "Devkind",
